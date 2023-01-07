@@ -5,10 +5,10 @@ import './screens/student/dashboard.dart';
 import './screens/teacher/dashboard.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(Beam());
 }
 
-class MyApp extends StatelessWidget {
+class Beam extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     
