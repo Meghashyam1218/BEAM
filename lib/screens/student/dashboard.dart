@@ -1,20 +1,38 @@
+import 'package:beam/screens/student/feedues.dart';
+import 'package:beam/screens/student/notifications.dart';
+import 'package:beam/screens/student/timetable.dart';
+import 'package:beam/screens/utilis/events.dart';
+import 'package:beam/screens/utilis/materials.dart';
+import 'package:beam/screens/utilis/todo.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'dart:math';
 
 class Choice {
-  const Choice({required this.title, required this.icon});
+  const Choice(
+      {required this.title, required this.icon, required String this.path});
   final String title;
   final IconData icon;
+  final String path;
 }
 
 const List<Choice> choices = const <Choice>[
-  const Choice(title: 'Notifications', icon: Icons.notifications_outlined),
-  const Choice(title: 'Materials', icon: Icons.menu_book_outlined),
-  const Choice(title: 'Time Table', icon: Icons.event_note_outlined),
-  const Choice(title: 'Events', icon: Icons.campaign_outlined),
-  const Choice(title: 'Fee Dues', icon: Icons.request_quote_outlined),
-  const Choice(title: 'To-Do', icon: Icons.format_list_numbered_outlined),
+  const Choice(
+      path: '/materials', title: 'Materials', icon: Icons.menu_book_outlined),
+  const Choice(
+      path: '/timeTable', title: 'Time Table', icon: Icons.event_note_outlined),
+  const Choice(
+      path: '/eventsClg', title: 'Events', icon: Icons.campaign_outlined),
+  const Choice(
+      path: '/notifications',
+      title: 'Notifications',
+      icon: Icons.notifications_outlined),
+  const Choice(
+      path: '/feeDues', title: 'Fee Dues', icon: Icons.request_quote_outlined),
+  const Choice(
+      path: '/to-Do',
+      title: 'To-Do',
+      icon: Icons.format_list_numbered_outlined),
 ];
 
 class SelectCard extends StatelessWidget {
@@ -24,7 +42,10 @@ class SelectCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => print(this.choice.title),
+      onTap: () {
+        print(this.choice.path);
+        Navigator.popAndPushNamed(context, this.choice.path);
+      },
       child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
@@ -53,7 +74,7 @@ class SelectCard extends StatelessWidget {
           )),
     );
   }
-}  
+}
 
 class DashboardS extends StatefulWidget {
   const DashboardS({super.key});
@@ -67,6 +88,15 @@ class _DashboardSState extends State<DashboardS> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      title: 'Flutter Demo',
+      routes: {
+        '/materials': (BuildContext context) => Materials(),
+        '/feeDues': (BuildContext context) => FeeDues(),
+        '/timeTable': (BuildContext context) => TimeTable(),
+        '/to-Do': (BuildContext context) => ToDo(),
+        '/notifications': (BuildContext context) => Notifications(),
+        '/eventsClg': (BuildContext context) => EventsClg(),
+      },
       home: Scaffold(
         appBar: AppBar(
           foregroundColor: Color.fromARGB(255, 0, 0, 0),

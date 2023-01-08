@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class EventsClg extends StatefulWidget {
-  const EventsClg({super.key});
+class Notifications extends StatefulWidget {
+  const Notifications({super.key});
 
   @override
-  State<EventsClg> createState() => _EventsClgState();
+  State<Notifications> createState() => _NotificationsState();
 }
 
-class _EventsClgState extends State<EventsClg> {
+class _NotificationsState extends State<Notifications> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,7 +18,7 @@ class _EventsClgState extends State<EventsClg> {
             onPressed: () {
               Navigator.popAndPushNamed(context, '/');
             },
-            child: const Text("EventsClg"),
+            child: const Text("notifications"),
           ),
         ),
       ),

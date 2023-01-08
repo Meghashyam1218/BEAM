@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class EventsClg extends StatefulWidget {
-  const EventsClg({super.key});
+class TimeTable extends StatefulWidget {
+  const TimeTable({super.key});
 
   @override
-  State<EventsClg> createState() => _EventsClgState();
+  State<TimeTable> createState() => _TimeTableState();
 }
 
-class _EventsClgState extends State<EventsClg> {
+class _TimeTableState extends State<TimeTable> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,7 +18,7 @@ class _EventsClgState extends State<EventsClg> {
             onPressed: () {
               Navigator.popAndPushNamed(context, '/');
             },
-            child: const Text("EventsClg"),
+            child: const Text("timetable"),
           ),
         ),
       ),

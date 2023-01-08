@@ -34,7 +34,9 @@ class _LoginState extends State<Login> {
         backgroundColor: const Color(0xffeeeeee),
         body: GestureDetector(
           onTap: (() =>
-              {FocusScope.of(context).requestFocus(FocusNode()), flag = true}),
+              {
+                FocusScope.of(context).requestFocus(FocusNode()),
+              }),
           child: SizedBox(
             width: double.infinity,
             // height: double.maxFinite,

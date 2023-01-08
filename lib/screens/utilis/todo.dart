@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class EventsClg extends StatefulWidget {
-  const EventsClg({super.key});
+class ToDo extends StatefulWidget {
+  const ToDo({super.key});
 
   @override
-  State<EventsClg> createState() => _EventsClgState();
+  State<ToDo> createState() => _ToDoState();
 }
 
-class _EventsClgState extends State<EventsClg> {
+class _ToDoState extends State<ToDo> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,7 +18,7 @@ class _EventsClgState extends State<EventsClg> {
             onPressed: () {
               Navigator.popAndPushNamed(context, '/');
             },
-            child: const Text("EventsClg"),
+            child: const Text("todo"),
           ),
         ),
       ),
