@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import './student/dashboard.dart';
+import '../student/dashboard.dart';
 
 class Login extends StatefulWidget {
   Login({super.key});
@@ -33,8 +33,7 @@ class _LoginState extends State<Login> {
         resizeToAvoidBottomInset: false,
         backgroundColor: const Color(0xffeeeeee),
         body: GestureDetector(
-          onTap: (() =>
-              {
+          onTap: (() => {
                 FocusScope.of(context).requestFocus(FocusNode()),
               }),
           child: SizedBox(

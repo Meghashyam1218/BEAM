@@ -2,7 +2,7 @@ import 'package:beam/screens/student/feedues.dart';
 import 'package:beam/screens/student/notifications.dart';
 import 'package:beam/screens/student/timetable.dart';
 import 'package:beam/screens/utilis/events.dart';
-import 'package:beam/screens/utilis/materials.dart';
+import 'package:beam/screens/utilis/materials/materials.dart';
 import 'package:beam/screens/utilis/todo.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';

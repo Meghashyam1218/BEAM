@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:toggle_switch/toggle_switch.dart';
-import './screens/login.dart';
+import 'screens/login/login.dart';
 import './screens/student/dashboard.dart';
 import './screens/teacher/dashboard.dart';
 
