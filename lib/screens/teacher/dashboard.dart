@@ -1,3 +1,4 @@
+import 'package:beam/main.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -86,106 +87,168 @@ class _DashboardTState extends State<DashboardT> {
                 ],
               ),
             ),
-            SizedBox(
-              height: 20,
-            ),
-            ListView(
-              shrinkWrap: true,
-              itemExtent: 100,
-              children: <Widget>[
-                ListTile(
-                  leading: CircleAvatar(
-                    backgroundColor: Colors.deepPurple[800],
-                    child: Icon(
-                      Icons.rule_outlined,
-                      color: Colors.white,
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Center(
+                    child: ListTile(
+                      leading: CircleAvatar(
+                        radius: 31.625,
+                        backgroundColor: Color(0xff432cba),
+                        child: Icon(Icons.rule_outlined,
+                            size: 30, color: Colors.white),
+                      ),
+                      title: Text(
+                        "Post Attendance",
+                        style: GoogleFonts.inter(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black),
+                      ),
+                      trailing: Padding(
+                        padding: const EdgeInsets.only(right: 10),
+                        child: Icon(
+                          Icons.keyboard_arrow_right,
+                          color: Colors.black,
+                        ),
+                      ),
+                      onTap: () {},
                     ),
                   ),
-                  title: Text("Post Attendance"),
-                  trailing: Icon(
-                    Icons.keyboard_arrow_right,
-                    color: Colors.black,
+                  Center(
+                    child: ListTile(
+                      leading: CircleAvatar(
+                        radius: 31.625,
+                        backgroundColor: Color(0xff432cba),
+                        child: Icon(Icons.analytics_outlined,
+                            size: 30, color: Colors.white),
+                      ),
+                      title: Text(
+                        "Student analysis",
+                        style: GoogleFonts.inter(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black),
+                      ),
+                      trailing: Padding(
+                        padding: const EdgeInsets.only(right: 10),
+                        child: Icon(
+                          Icons.keyboard_arrow_right,
+                          color: Colors.black,
+                        ),
+                      ),
+                      onTap: () {},
+                    ),
                   ),
-                  onTap: () {
-                    debugPrint("Landscape tapped");
-                  },
-                ),
+                  Center(
+                    child: ListTile(
+                      leading: CircleAvatar(
+                        radius: 31.625,
+                        backgroundColor: Color(0xff432cba),
+                        child: Icon(Icons.event_note_outlined,
+                            size: 30, color: Colors.white),
+                      ),
+                      title: Text(
+                        "Time Table",
+                        style: GoogleFonts.inter(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black),
+                      ),
+                      trailing: Padding(
+                        padding: const EdgeInsets.only(right: 10),
+                        child: Icon(
+                          Icons.keyboard_arrow_right,
+                          color: Colors.black,
+                        ),
+                      ),
+                      onTap: () {},
+                    ),
+                  ),
+                  Center(
+                    child: ListTile(
+                      leading: CircleAvatar(
+                        radius: 31.625,
+                        backgroundColor: Color(0xff432cba),
+                        child: Icon(Icons.menu_book_outlined,
+                            size: 30, color: Colors.white),
+                      ),
+                      title: Text(
+                        "Materials",
+                        style: GoogleFonts.inter(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black),
+                      ),
+                      trailing: Padding(
+                        padding: const EdgeInsets.only(right: 10),
+                        child: Icon(
+                          Icons.keyboard_arrow_right,
+                          color: Colors.black,
+                        ),
+                      ),
+                      onTap: () {},
+                    ),
+                  ),
 
-                ListTile(
-                  minVerticalPadding: 0,
-                  leading: CircleAvatar(
-                    backgroundColor: Colors.deepPurple[800],
-                    child: Icon(Icons.rule_outlined, color: Colors.white),
+                  Center(
+                    child: ListTile(
+                      leading: CircleAvatar(
+                        radius: 31.625,
+                        backgroundColor: Color(0xff432cba),
+                        child: Icon(Icons.emoji_events_outlined,
+                            size: 30, color: Colors.white),
+                      ),
+                      title: Text(
+                        "Events",
+                        style: GoogleFonts.inter(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black),
+                      ),
+                      trailing: Padding(
+                        padding: const EdgeInsets.only(right: 10),
+                        child: Icon(
+                          Icons.keyboard_arrow_right,
+                          color: Colors.black,
+                        ),
+                      ),
+                      onTap: () {},
+                    ),
                   ),
-                  title: Text("Student analysis"),
-                  trailing: Icon(
-                    Icons.keyboard_arrow_right,
-                    color: Colors.black,
+                  Center(
+                    child: ListTile(
+                      leading: CircleAvatar(
+                        radius: 31.625,
+                        backgroundColor: Color(0xff432cba),
+                        child: Icon(Icons.format_list_numbered_outlined,
+                            size: 30, color: Colors.white),
+                      ),
+                      title: Text(
+                        "To-Do",
+                        style: GoogleFonts.inter(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black),
+                      ),
+                      trailing: Padding(
+                        padding: const EdgeInsets.only(right: 10),
+                        child: Icon(
+                          Icons.keyboard_arrow_right,
+                          color: Colors.black,
+                        ),
+                      ),
+                      onTap: () {},
+                    ),
                   ),
-                  onTap: () {},
-                ),
 
-                ListTile(
-                  leading: CircleAvatar(
-                    backgroundColor: Colors.deepPurple[800],
-                    child: Icon(
-                      Icons.event_note,
-                      color: Colors.white,
-                    ),
-                  ),
-                  title: Text("Time Table"),
-                  trailing: Icon(
-                    Icons.keyboard_arrow_right,
-                    color: Colors.black,
-                  ),
-                ),
+                  //      Text("Yet another element in List"),
 
-                ListTile(
-                  leading: CircleAvatar(
-                    backgroundColor: Colors.deepPurple[800],
-                    child: Icon(
-                      Icons.menu_book_sharp,
-                      color: Colors.white,
-                    ),
-                  ),
-                  title: Text("Materials"),
-                  trailing: Icon(
-                    Icons.keyboard_arrow_right,
-                    color: Colors.black,
-                  ),
-                ),
-                ListTile(
-                  leading: CircleAvatar(
-                    backgroundColor: Colors.deepPurple[800],
-                    child: Icon(
-                      Icons.emoji_events_outlined,
-                      color: Colors.white,
-                    ),
-                  ),
-                  title: Text("Events"),
-                  trailing: Icon(
-                    Icons.keyboard_arrow_right,
-                    color: Colors.black,
-                  ),
-                ),
-                ListTile(
-                  leading: CircleAvatar(
-                    backgroundColor: Colors.deepPurple[800],
-                    child: Icon(
-                      Icons.toc_outlined,
-                      color: Colors.white,
-                    ),
-                  ),
-                  title: Text("To-Do"),
-                  trailing: Icon(
-                    Icons.keyboard_arrow_right,
-                    color: Colors.black,
-                  ),
-                ),
-                //      Text("Yet another element in List"),
-
-                //      Container(color: Colors.red, height: 50.0,)
-              ],
+                  //      Container(color: Colors.red, height: 50.0,)
+                ],
+              ),
             ),
           ],
         ),

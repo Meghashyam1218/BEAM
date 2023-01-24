@@ -22,7 +22,7 @@ const List<Choice> choices = const <Choice>[
   const Choice(
       path: '/timeTable', title: 'Time Table', icon: Icons.event_note_outlined),
   const Choice(
-      path: '/eventsClg', title: 'Events', icon: Icons.campaign_outlined),
+      path: '/eventsClg', title: 'Events', icon: Icons.emoji_events_outlined),
   const Choice(
       path: '/notifications',
       title: 'Notifications',
