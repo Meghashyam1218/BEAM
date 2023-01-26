@@ -14,7 +14,7 @@ class _LoginState extends State<Login> {
   final FocusNode node2 = FocusNode();
   final textControllerLogin = TextEditingController();
   final textControllerPass = TextEditingController();
-  bool flag = false;
+  bool flag = true;
   double _togy = 0;
   double _togx = 0;
   String loginId = "";

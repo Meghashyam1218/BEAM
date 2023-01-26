@@ -9,6 +9,18 @@ class Materials extends StatefulWidget {
 }
 
 class _MaterialsState extends State<Materials> {
+  bool _showMaterial = false;
+  void _showmaterials() {
+    setState(() {
+      // This call to setState tells the Flutter framework that something has
+      // changed in this State, which causes it to rerun the build method below
+      // so that the display can reflect the updated values. If we changed
+      // _counter without calling setState(), then the build method would not be
+      // called again, and so nothing would appear to happen.
+      _showMaterial = true;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     List<String> list = <String>['One', 'Two', 'Three', 'Four'];
@@ -27,7 +39,7 @@ class _MaterialsState extends State<Materials> {
           leading: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: GestureDetector(
-              onTap: ((() {})),
+              onTap: (() {}),
               child: Icon(
                 Icons.account_circle_outlined,
                 size: 24,
@@ -202,160 +214,150 @@ class _MaterialsState extends State<Materials> {
                   SizedBox(
                     height: 20,
                   ),
-                  ElevatedButton(onPressed: () {}, child: Text("Go")),
-                  Container(
-                    child: Center(
-                      child: Expanded(
-                        child: Column(
-                          children: [
-                            Center(
-                              child: Container(
-                                margin: EdgeInsets.only(
-                                    left: 0, right: 10, top: 10, bottom: 10),
-                                decoration: BoxDecoration(
-                                    color: Color.fromARGB(71, 123, 97, 255),
-                                    borderRadius: BorderRadius.circular(10)),
-                                child: ListTile(
-                                  title: Text(
-                                    "Unit-1  Material",
-                                    style: GoogleFonts.inter(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w600,
-                                      color: Color(0XFF23262F),
-                                    ),
-                                  ),
-                                  trailing: Padding(
-                                    padding: const EdgeInsets.only(
-                                        right: 10, left: 10),
-                                    child: Icon(
-                                      Icons.download,
-                                      color: Color(0XFF23262F),
-                                    ),
-                                  ),
-                                  onTap: () {},
-                                ),
-                              ),
-                            ),
-                            Center(
-                              child: Container(
-                                margin: EdgeInsets.only(
-                                    left: 0, right: 10, top: 10, bottom: 10),
-                                decoration: BoxDecoration(
-                                    color: Color.fromARGB(71, 123, 97, 255),
-                                    borderRadius: BorderRadius.circular(10)),
-                                child: ListTile(
-                                  title: Text(
-                                    "Unit-2  Material",
-                                    style: GoogleFonts.inter(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w600,
-                                      color: Color(0XFF23262F),
-                                    ),
-                                  ),
-                                  trailing: Padding(
-                                    padding: const EdgeInsets.only(
-                                        right: 10, left: 10),
-                                    child: Icon(
-                                      Icons.download,
-                                      color: Color(0XFF23262F),
-                                    ),
-                                  ),
-                                  onTap: () {},
-                                ),
-                              ),
-                            ),
-                            Center(
-                              child: Container(
-                                margin: EdgeInsets.only(
-                                    left: 0, right: 10, top: 10, bottom: 10),
-                                decoration: BoxDecoration(
-                                    color: Color.fromARGB(71, 123, 97, 255),
-                                    borderRadius: BorderRadius.circular(10)),
-                                child: ListTile(
-                                  title: Text(
-                                    "Unit-3  Material",
-                                    style: GoogleFonts.inter(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w600,
-                                      color: Color(0XFF23262F),
-                                    ),
-                                  ),
-                                  trailing: Padding(
-                                    padding: const EdgeInsets.only(
-                                        right: 10, left: 10),
-                                    child: Icon(
-                                      Icons.download,
-                                      color: Color(0XFF23262F),
-                                    ),
-                                  ),
-                                  onTap: () {},
-                                ),
-                              ),
-                            ),
-                            Center(
-                              child: Container(
-                                margin: EdgeInsets.only(
-                                    left: 0, right: 10, top: 10, bottom: 10),
-                                decoration: BoxDecoration(
-                                    color: Color.fromARGB(71, 123, 97, 255),
-                                    borderRadius: BorderRadius.circular(10)),
-                                child: ListTile(
-                                  title: Text(
-                                    "Unit-4  Material",
-                                    style: GoogleFonts.inter(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w600,
-                                      color: Color(0XFF23262F),
-                                    ),
-                                  ),
-                                  trailing: Padding(
-                                    padding: const EdgeInsets.only(
-                                        right: 10, left: 10),
-                                    child: Icon(
-                                      Icons.download,
-                                      color: Color(0XFF23262F),
-                                    ),
-                                  ),
-                                  onTap: () {},
-                                ),
-                              ),
-                            ),
-                            Center(
-                              child: Container(
-                                margin: EdgeInsets.only(
-                                    left: 0, right: 10, top: 10, bottom: 10),
-                                decoration: BoxDecoration(
-                                    color: Color.fromARGB(71, 123, 97, 255),
-                                    borderRadius: BorderRadius.circular(10)),
-                                child: ListTile(
-                                  title: Text(
-                                    "Unit-5  Material",
-                                    style: GoogleFonts.inter(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w600,
-                                      color: Color(0XFF23262F),
-                                    ),
-                                  ),
-                                  trailing: Padding(
-                                    padding: const EdgeInsets.only(
-                                        right: 10, left: 10),
-                                    child: Icon(
-                                      Icons.download,
-                                      color: Color(0XFF23262F),
-                                    ),
-                                  ),
-                                  onTap: () {},
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  )
+                  ElevatedButton(onPressed: _showmaterials, child: Text("Go")),
                 ],
               ),
             ),
+            if (_showMaterial == true)
+              Expanded(
+                child: ListView(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(
+                          left: 20, right: 20, top: 10, bottom: 10),
+                      decoration: BoxDecoration(
+                          color: Color.fromARGB(71, 123, 97, 255),
+                          borderRadius: BorderRadius.circular(10)),
+                      child: ListTile(
+                        title: Text(
+                          "Unit-1  Material",
+                          style: GoogleFonts.inter(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                            color: Color(0XFF23262F),
+                          ),
+                        ),
+                        trailing: Padding(
+                          padding: const EdgeInsets.only(right: 10, left: 10),
+                          child: Icon(
+                            Icons.download,
+                            color: Color(0XFF23262F),
+                          ),
+                        ),
+                        onTap: () {},
+                      ),
+                    ),
+                    Center(
+                      child: Container(
+                        margin: EdgeInsets.only(
+                            left: 20, right: 20, top: 10, bottom: 10),
+                        decoration: BoxDecoration(
+                            color: Color.fromARGB(71, 123, 97, 255),
+                            borderRadius: BorderRadius.circular(10)),
+                        child: ListTile(
+                          title: Text(
+                            "Unit-2  Material",
+                            style: GoogleFonts.inter(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600,
+                              color: Color(0XFF23262F),
+                            ),
+                          ),
+                          trailing: Padding(
+                            padding: const EdgeInsets.only(right: 10, left: 10),
+                            child: Icon(
+                              Icons.download,
+                              color: Color(0XFF23262F),
+                            ),
+                          ),
+                          onTap: () {},
+                        ),
+                      ),
+                    ),
+                    Center(
+                      child: Container(
+                        margin: EdgeInsets.only(
+                            left: 20, right: 20, top: 10, bottom: 10),
+                        decoration: BoxDecoration(
+                            color: Color.fromARGB(71, 123, 97, 255),
+                            borderRadius: BorderRadius.circular(10)),
+                        child: ListTile(
+                          title: Text(
+                            "Unit-3  Material",
+                            style: GoogleFonts.inter(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600,
+                              color: Color(0XFF23262F),
+                            ),
+                          ),
+                          trailing: Padding(
+                            padding: const EdgeInsets.only(right: 10, left: 10),
+                            child: Icon(
+                              Icons.download,
+                              color: Color(0XFF23262F),
+                            ),
+                          ),
+                          onTap: () {},
+                        ),
+                      ),
+                    ),
+                    Center(
+                      child: Container(
+                        margin: EdgeInsets.only(
+                            left: 20, right: 20, top: 10, bottom: 10),
+                        decoration: BoxDecoration(
+                            color: Color.fromARGB(71, 123, 97, 255),
+                            borderRadius: BorderRadius.circular(10)),
+                        child: ListTile(
+                          title: Text(
+                            "Unit-4  Material",
+                            style: GoogleFonts.inter(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600,
+                              color: Color(0XFF23262F),
+                            ),
+                          ),
+                          trailing: Padding(
+                            padding: const EdgeInsets.only(right: 10, left: 10),
+                            child: Icon(
+                              Icons.download,
+                              color: Color(0XFF23262F),
+                            ),
+                          ),
+                          onTap: () {},
+                        ),
+                      ),
+                    ),
+                    Center(
+                      child: Container(
+                        margin: EdgeInsets.only(
+                            left: 20, right: 20, top: 10, bottom: 10),
+                        decoration: BoxDecoration(
+                            color: Color.fromARGB(71, 123, 97, 255),
+                            borderRadius: BorderRadius.circular(10)),
+                        child: ListTile(
+                          title: Text(
+                            "Unit-5  Material",
+                            style: GoogleFonts.inter(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600,
+                              color: Color(0XFF23262F),
+                            ),
+                          ),
+                          trailing: Padding(
+                            padding: const EdgeInsets.only(right: 10, left: 10),
+                            child: Icon(
+                              Icons.download,
+                              color: Color(0XFF23262F),
+                            ),
+                          ),
+                          onTap: () {},
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
           ],
         ),
       ),

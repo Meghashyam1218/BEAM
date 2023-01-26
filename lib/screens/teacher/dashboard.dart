@@ -1,11 +1,9 @@
-import 'package:beam/main.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../teacher/timetable.dart';
-import '../utilis/events.dart';
-import '../utilis/materials/materials.dart';
 import '../utilis/todo.dart';
+import '../utilis/events.dart';
+import '../utilis/materials.dart';
 
 class DashboardT extends StatefulWidget {
   const DashboardT({super.key});
@@ -114,7 +112,9 @@ class _DashboardTState extends State<DashboardT> {
                           color: Colors.black,
                         ),
                       ),
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.popAndPushNamed(context, "/materials");
+                      },
                     ),
                   ),
                   Center(
