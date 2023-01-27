@@ -31,6 +31,8 @@ class _MaterialsState extends State<Materials> {
     String dropdownValue2 = list2.first;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(useMaterial3: true),
+
       home: Scaffold(
         appBar: AppBar(
           foregroundColor: Color.fromARGB(255, 0, 0, 0),

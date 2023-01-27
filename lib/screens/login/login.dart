@@ -29,6 +29,8 @@ class _LoginState extends State<Login> {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(useMaterial3: true),
+
       home: Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: const Color(0xffeeeeee),

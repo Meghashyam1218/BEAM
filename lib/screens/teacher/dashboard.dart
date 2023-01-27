@@ -18,6 +18,7 @@ class _DashboardTState extends State<DashboardT> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
+      theme: ThemeData(useMaterial3: true),
       routes: {
         '/materials': (BuildContext context) => Materials(),
         '/timeTable': (BuildContext context) => TimeTable(),

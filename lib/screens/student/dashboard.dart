@@ -88,6 +88,8 @@ class _DashboardSState extends State<DashboardS> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
+      theme: ThemeData(useMaterial3: true),
+
       routes: {
         '/materials': (BuildContext context) => Materials(),
         '/feeDues': (BuildContext context) => FeeDues(),
