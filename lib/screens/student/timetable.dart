@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class TimeTable extends StatefulWidget {
   const TimeTable({super.key});
@@ -10,13 +11,12 @@ class TimeTable extends StatefulWidget {
 class _TimeTableState extends State<TimeTable> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return SafeArea(
+      child: Scaffold(
         body: Center(
           child: TextButton(
             onPressed: () {
-              Navigator.popAndPushNamed(context, '/');
+              GoRouter.of(context).pop();
             },
             child: const Text("timetable"),
           ),

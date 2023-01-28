@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:go_router/go_router.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../student/dashboard.dart';
 
 class Login extends StatefulWidget {
@@ -27,11 +29,8 @@ class _LoginState extends State<Login> {
     // bool keyboard = node1.hasFocus || node2.hasFocus;
     // print(keyboard);
 
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(useMaterial3: true),
-
-      home: Scaffold(
+    return SafeArea(
+      child: Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: const Color(0xffeeeeee),
         body: GestureDetector(
@@ -245,11 +244,9 @@ class _LoginState extends State<Login> {
                           child: ElevatedButton(
                             onPressed: () {
                               if (flag == true) {
-                                Navigator.pushReplacementNamed(
-                                    context, '/dashboardT');
+                                GoRouter.of(context).push("/dashboardT");
                               } else {
-                                Navigator.pushReplacementNamed(
-                                    context, '/dashboardS');
+                                GoRouter.of(context).push("/dashboardS");
                               }
                             },
                             style: ElevatedButton.styleFrom(
@@ -257,7 +254,10 @@ class _LoginState extends State<Login> {
                                 shadowColor: Colors.transparent),
                             child: Text(
                               'Login',
-                              style: TextStyle(fontSize: 20),
+                              style: GoogleFonts.inter(
+                                  color: Color(0xffffffff),
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w500),
                             ),
                           ),
                         )
@@ -272,6 +272,7 @@ class _LoginState extends State<Login> {
           ),
         ),
       ),
+    
     );
   }
 }

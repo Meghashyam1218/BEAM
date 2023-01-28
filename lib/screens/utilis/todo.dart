@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class ToDo extends StatefulWidget {
   const ToDo({super.key});
@@ -10,17 +11,17 @@ class ToDo extends StatefulWidget {
 class _ToDoState extends State<ToDo> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return SafeArea(
+      child: Scaffold(
         body: Center(
           child: TextButton(
             onPressed: () {
-              Navigator.popAndPushNamed(context, '/');
+              GoRouter.of(context).pop();
             },
             child: const Text("todo"),
           ),
         ),
+        
       ),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../teacher/timetable.dart';
 import '../utilis/todo.dart';
@@ -15,17 +16,8 @@ class DashboardT extends StatefulWidget {
 class _DashboardTState extends State<DashboardT> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(useMaterial3: true),
-      routes: {
-        '/materials': (BuildContext context) => Materials(),
-        '/timeTable': (BuildContext context) => TimeTable(),
-        '/to-Do': (BuildContext context) => ToDo(),
-        '/eventsClg': (BuildContext context) => EventsClg(),
-      },
-      home: Scaffold(
+    return SafeArea(
+      child: Scaffold(
         appBar: AppBar(
           foregroundColor: Color.fromARGB(255, 0, 0, 0),
           backgroundColor: Color.fromARGB(0, 0, 0, 0),
@@ -41,7 +33,7 @@ class _DashboardTState extends State<DashboardT> {
           actions: [
             GestureDetector(
               onTap: (() {
-                Navigator.popAndPushNamed(context, '/');
+                GoRouter.of(context).pop();
               }),
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25),
@@ -114,7 +106,7 @@ class _DashboardTState extends State<DashboardT> {
                         ),
                       ),
                       onTap: () {
-                        Navigator.popAndPushNamed(context, "/materials");
+                        
                       },
                     ),
                   ),
@@ -190,7 +182,9 @@ class _DashboardTState extends State<DashboardT> {
                           color: Colors.black,
                         ),
                       ),
-                      onTap: () {},
+                      onTap: () {
+                        GoRouter.of(context).push("/materials");
+                      },
                     ),
                   ),
 

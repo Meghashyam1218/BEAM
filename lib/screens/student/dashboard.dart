@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:beam/screens/student/feedues.dart';
 import 'package:beam/screens/student/notifications.dart';
@@ -21,7 +22,7 @@ const List<Choice> choices = const <Choice>[
   const Choice(
       path: '/timeTable', title: 'Time Table', icon: Icons.event_note_outlined),
   const Choice(
-      path: '/eventsClg', title: 'Events', icon: Icons.emoji_events_outlined),
+      path: '/events', title: 'Events', icon: Icons.emoji_events_outlined),
   const Choice(
       path: '/notifications',
       title: 'Notifications',
@@ -29,7 +30,7 @@ const List<Choice> choices = const <Choice>[
   const Choice(
       path: '/feeDues', title: 'Fee Dues', icon: Icons.request_quote_outlined),
   const Choice(
-      path: '/to-Do',
+      path: '/toDo',
       title: 'To-Do',
       icon: Icons.format_list_numbered_outlined),
 ];
@@ -43,7 +44,7 @@ class SelectCard extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         print(this.choice.path);
-        Navigator.popAndPushNamed(context, this.choice.path);
+        GoRouter.of(context).push(this.choice.path);
       },
       child: Container(
           decoration: BoxDecoration(
@@ -85,20 +86,8 @@ class DashboardS extends StatefulWidget {
 class _DashboardSState extends State<DashboardS> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(useMaterial3: true),
-
-      routes: {
-        '/materials': (BuildContext context) => Materials(),
-        '/feeDues': (BuildContext context) => FeeDues(),
-        '/timeTable': (BuildContext context) => TimeTable(),
-        '/to-Do': (BuildContext context) => ToDo(),
-        '/notifications': (BuildContext context) => Notifications(),
-        '/eventsClg': (BuildContext context) => EventsClg(),
-      },
-      home: Scaffold(
+    return SafeArea(
+      child: Scaffold(
         appBar: AppBar(
           foregroundColor: Color.fromARGB(255, 0, 0, 0),
           backgroundColor: Color.fromARGB(0, 0, 0, 0),
@@ -114,7 +103,7 @@ class _DashboardSState extends State<DashboardS> {
           actions: [
             GestureDetector(
               onTap: (() {
-                Navigator.popAndPushNamed(context, '/');
+                GoRouter.of(context).pop();
               }),
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25),

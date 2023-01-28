@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Materials extends StatefulWidget {
@@ -29,11 +30,8 @@ class _MaterialsState extends State<Materials> {
     String dropdownValue = list.first;
     String dropdownValue1 = list1.first;
     String dropdownValue2 = list2.first;
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(useMaterial3: true),
-
-      home: Scaffold(
+    return SafeArea(
+      child: Scaffold(
         appBar: AppBar(
           foregroundColor: Color.fromARGB(255, 0, 0, 0),
           backgroundColor: Color(0xff5240b5),
@@ -52,7 +50,7 @@ class _MaterialsState extends State<Materials> {
           actions: [
             GestureDetector(
               onTap: (() {
-                Navigator.popAndPushNamed(context, '/');
+                GoRouter.of(context).pop();
               }),
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25),
