@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../teacher/timetable.dart';
-import '../utilis/todo.dart';
-import '../utilis/events.dart';
-import '../utilis/materials.dart';
 
 class DashboardT extends StatefulWidget {
   const DashboardT({super.key});
@@ -19,11 +15,11 @@ class _DashboardTState extends State<DashboardT> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          foregroundColor: Color.fromARGB(255, 0, 0, 0),
-          backgroundColor: Color.fromARGB(0, 0, 0, 0),
-          shadowColor: Color.fromARGB(0, 0, 0, 0),
-          leading: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+          foregroundColor: const Color.fromARGB(255, 0, 0, 0),
+          backgroundColor: const Color.fromARGB(0, 0, 0, 0),
+          shadowColor: const Color.fromARGB(0, 0, 0, 0),
+          leading: const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20),
             child: Icon(
               Icons.account_circle_outlined,
               size: 24,
@@ -35,8 +31,8 @@ class _DashboardTState extends State<DashboardT> {
               onTap: (() {
                 GoRouter.of(context).pop();
               }),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25),
+              child: const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 25),
                 child: Icon(
                   Icons.login,
                   size: 24,
@@ -50,12 +46,12 @@ class _DashboardTState extends State<DashboardT> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              color: Color.fromARGB(0, 196, 94, 94),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              color: const Color.fromARGB(0, 196, 94, 94),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Text(
@@ -63,9 +59,9 @@ class _DashboardTState extends State<DashboardT> {
                     style: GoogleFonts.inter(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xff343434)),
+                        color: const Color(0xff343434)),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Text(
@@ -73,7 +69,7 @@ class _DashboardTState extends State<DashboardT> {
                     style: GoogleFonts.inter(
                         fontSize: 40,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xff343434)),
+                        color: const Color(0xff343434)),
                   ),
                 ],
               ),
@@ -85,7 +81,7 @@ class _DashboardTState extends State<DashboardT> {
                 children: [
                   Center(
                     child: ListTile(
-                      leading: CircleAvatar(
+                      leading: const CircleAvatar(
                         radius: 31.625,
                         backgroundColor: Color(0xff432cba),
                         child: Icon(Icons.rule_outlined,
@@ -98,8 +94,8 @@ class _DashboardTState extends State<DashboardT> {
                             fontWeight: FontWeight.w600,
                             color: Colors.black),
                       ),
-                      trailing: Padding(
-                        padding: const EdgeInsets.only(right: 10),
+                      trailing: const Padding(
+                        padding: EdgeInsets.only(right: 10),
                         child: Icon(
                           Icons.keyboard_arrow_right,
                           color: Colors.black,
@@ -112,7 +108,7 @@ class _DashboardTState extends State<DashboardT> {
                   ),
                   Center(
                     child: ListTile(
-                      leading: CircleAvatar(
+                      leading: const CircleAvatar(
                         radius: 31.625,
                         backgroundColor: Color(0xff432cba),
                         child: Icon(Icons.analytics_outlined,
@@ -125,8 +121,8 @@ class _DashboardTState extends State<DashboardT> {
                             fontWeight: FontWeight.w600,
                             color: Colors.black),
                       ),
-                      trailing: Padding(
-                        padding: const EdgeInsets.only(right: 10),
+                      trailing: const Padding(
+                        padding: EdgeInsets.only(right: 10),
                         child: Icon(
                           Icons.keyboard_arrow_right,
                           color: Colors.black,
@@ -137,7 +133,7 @@ class _DashboardTState extends State<DashboardT> {
                   ),
                   Center(
                     child: ListTile(
-                      leading: CircleAvatar(
+                      leading: const CircleAvatar(
                         radius: 31.625,
                         backgroundColor: Color(0xff432cba),
                         child: Icon(Icons.event_note_outlined,
@@ -150,8 +146,8 @@ class _DashboardTState extends State<DashboardT> {
                             fontWeight: FontWeight.w600,
                             color: Colors.black),
                       ),
-                      trailing: Padding(
-                        padding: const EdgeInsets.only(right: 10),
+                      trailing: const Padding(
+                        padding: EdgeInsets.only(right: 10),
                         child: Icon(
                           Icons.keyboard_arrow_right,
                           color: Colors.black,
@@ -162,7 +158,7 @@ class _DashboardTState extends State<DashboardT> {
                   ),
                   Center(
                     child: ListTile(
-                      leading: CircleAvatar(
+                      leading: const CircleAvatar(
                         radius: 31.625,
                         backgroundColor: Color(0xff432cba),
                         child: Icon(Icons.menu_book_outlined,
@@ -175,8 +171,8 @@ class _DashboardTState extends State<DashboardT> {
                             fontWeight: FontWeight.w600,
                             color: Colors.black),
                       ),
-                      trailing: Padding(
-                        padding: const EdgeInsets.only(right: 10),
+                      trailing: const Padding(
+                        padding: EdgeInsets.only(right: 10),
                         child: Icon(
                           Icons.keyboard_arrow_right,
                           color: Colors.black,
@@ -190,7 +186,7 @@ class _DashboardTState extends State<DashboardT> {
 
                   Center(
                     child: ListTile(
-                      leading: CircleAvatar(
+                      leading: const CircleAvatar(
                         radius: 31.625,
                         backgroundColor: Color(0xff432cba),
                         child: Icon(Icons.emoji_events_outlined,
@@ -203,8 +199,8 @@ class _DashboardTState extends State<DashboardT> {
                             fontWeight: FontWeight.w600,
                             color: Colors.black),
                       ),
-                      trailing: Padding(
-                        padding: const EdgeInsets.only(right: 10),
+                      trailing: const Padding(
+                        padding: EdgeInsets.only(right: 10),
                         child: Icon(
                           Icons.keyboard_arrow_right,
                           color: Colors.black,
@@ -215,7 +211,7 @@ class _DashboardTState extends State<DashboardT> {
                   ),
                   Center(
                     child: ListTile(
-                      leading: CircleAvatar(
+                      leading: const CircleAvatar(
                         radius: 31.625,
                         backgroundColor: Color(0xff432cba),
                         child: Icon(Icons.format_list_numbered_outlined,
@@ -228,8 +224,8 @@ class _DashboardTState extends State<DashboardT> {
                             fontWeight: FontWeight.w600,
                             color: Colors.black),
                       ),
-                      trailing: Padding(
-                        padding: const EdgeInsets.only(right: 10),
+                      trailing: const Padding(
+                        padding: EdgeInsets.only(right: 10),
                         child: Icon(
                           Icons.keyboard_arrow_right,
                           color: Colors.black,

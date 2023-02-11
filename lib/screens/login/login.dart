@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../student/dashboard.dart';
 
 class Login extends StatefulWidget {
-  Login({super.key});
+  const Login({super.key});
 
   @override
   State<Login> createState() => _LoginState();
@@ -17,8 +15,6 @@ class _LoginState extends State<Login> {
   final textControllerLogin = TextEditingController();
   final textControllerPass = TextEditingController();
   bool flag = true;
-  double _togy = 0;
-  double _togx = 0;
   String loginId = "";
   String password = "";
 
@@ -45,30 +41,17 @@ class _LoginState extends State<Login> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
-                AnimatedContainer(
-                  duration: Duration(milliseconds: 500),
-                  curve: Curves.easeIn,
-                  padding: const EdgeInsets.all(0),
-                  child: flag == true
-                      ? const Image(
-                          image: AssetImage('assets/login(1).png'),
-                          height: 250,
-                        )
-                      : const Image(
-                          image: AssetImage('assets/login(2).png'),
-                          height: 250,
-                        ),
-                ),
+                LoginImg(flag: flag),
 
                 Flexible(
                   child: Container(
                     width: double.infinity,
                     // height: 510,
                     padding: const EdgeInsets.all(50),
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         color: Color.fromARGB(255, 255, 255, 255),
                         borderRadius: BorderRadius.only(
                           topRight: Radius.circular(36),
@@ -85,182 +68,31 @@ class _LoginState extends State<Login> {
                               borderRadius:
                                   BorderRadius.all(Radius.circular(50)),
                               color: Color.fromARGB(255, 226, 220, 253)),
-                          child: Stack(
-                            children: [
-                              AnimatedContainer(
-                                duration: const Duration(milliseconds: 300),
-                                curve: Curves.easeIn,
-                                padding: const EdgeInsets.all(2),
-                                alignment: flag == true
-                                    ? Alignment(-1, 0)
-                                    : Alignment(1, 0),
-                                child: Container(
-                                  width: 125,
-                                  height: 50,
-                                  decoration: const BoxDecoration(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(50)),
-                                    color: Color(0xff342291),
-                                  ),
-                                ),
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  TextButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        // move = 100;
-                                        _togx = 100.0;
-                                        flag = true;
-                                        print(flag);
-                                        print(_togx);
-                                      });
-                                    },
-                                    style: ButtonStyle(
-                                        overlayColor: MaterialStateProperty.all(
-                                            Colors.transparent)),
-                                    child: flag == true
-                                        ? const Text(
-                                            'Teacher',
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 18,
-                                                fontWeight: FontWeight.bold),
-                                          )
-                                        : const Text(
-                                            'Teacher',
-                                            style: TextStyle(
-                                                color: Colors.black,
-                                                fontSize: 18,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                  ),
-                                  TextButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        flag = false;
-                                        print(flag);
-                                        _togx = 0.0;
-                                        print(_togx);
-                                      });
-                                    },
-                                    style: ButtonStyle(
-                                        overlayColor: MaterialStateProperty.all(
-                                            Colors.transparent)),
-                                    child: flag == false
-                                        ? const Text(
-                                            'Student',
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 18,
-                                                fontWeight: FontWeight.bold),
-                                          )
-                                        : const Text(
-                                            'Student',
-                                            style: TextStyle(
-                                                color: Colors.black,
-                                                fontSize: 18,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
+                          child: toggleBtn(),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
-                        Column(
-                          // text fields
-                          children: [
-                            SizedBox(
-                              //LOGIN
-                              width: 300,
-                              height: 60,
-                              child: TextField(
-                                // focusNode: node1,
-                                controller: textControllerLogin,
-                                decoration: InputDecoration(
-                                    labelText: 'login-id',
-                                    border: OutlineInputBorder()),
-                                textInputAction: TextInputAction.next,
-                              ),
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            SizedBox(
-                              //PASS
-                              width: 300,
-                              height: 60,
-                              child: TextField(
-                                // focusNode: node2,
-                                controller: textControllerPass,
-                                // keyboardType: TextInputType.visiblePassword,
-                                obscureText: true,
-                                autocorrect: false,
-                                enableSuggestions: false,
-                                decoration: InputDecoration(
-                                  labelText: 'Password',
-                                  border: OutlineInputBorder(),
-                                ),
-
-                                textInputAction: TextInputAction.done,
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
+                        LoginFields(
+                            textControllerLogin: textControllerLogin,
+                            textControllerPass: textControllerPass),
+                        const SizedBox(
                           height: 10,
                         ),
                         TextButton(
                           onPressed: () {},
-                          child: Text(
+                          style: ButtonStyle(
+                              overlayColor: MaterialStateProperty.all(
+                                  const Color.fromARGB(85, 63, 81, 181))),
+                          child: const Text(
                             "Forgot Password",
                             style: TextStyle(color: Colors.indigo),
                           ),
-                          style: ButtonStyle(
-                              overlayColor: MaterialStateProperty.all(
-                                  Color.fromARGB(85, 63, 81, 181))),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
-                        Container(
-                          width: 300,
-                          height: 50.0,
-                          decoration: BoxDecoration(
-                            // backgroundBlendMode: BlendMode.luminosity,
-                            borderRadius: BorderRadius.all(Radius.circular(15)),
-                            gradient: LinearGradient(
-                              colors: [Color(0xff5C45D3), Color(0xff432CBA)],
-                              end: Alignment.bottomCenter,
-                              begin: Alignment.topCenter,
-                            ),
-                          ),
-                          child: ElevatedButton(
-                            onPressed: () {
-                              if (flag == true) {
-                                GoRouter.of(context).push("/dashboardT");
-                              } else {
-                                GoRouter.of(context).push("/dashboardS");
-                              }
-                            },
-                            style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.transparent,
-                                shadowColor: Colors.transparent),
-                            child: Text(
-                              'Login',
-                              style: GoogleFonts.inter(
-                                  color: Color(0xffffffff),
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w500),
-                            ),
-                          ),
-                        )
+                        LoginBtn(flag: flag)
                       ],
                     ),
                   ),
@@ -272,7 +104,210 @@ class _LoginState extends State<Login> {
           ),
         ),
       ),
-    
+    );
+  }
+
+  Stack toggleBtn() {
+    return Stack(
+      children: [
+        AnimatedContainer(
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeIn,
+          padding: const EdgeInsets.all(2),
+          alignment:
+              flag == true
+                                  ? const Alignment(-1, 0) : const Alignment(1, 0),
+          child: Container(
+            width: 125,
+            height: 50,
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(50)),
+              color: Color(0xff342291),
+            ),
+          ),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            TextButton(
+              onPressed: () {
+                setState(() {
+                  // move = 100;
+                  flag = true;
+                                      
+                });
+              },
+              style: ButtonStyle(
+                  overlayColor: MaterialStateProperty.all(Colors.transparent)),
+              child: flag == true
+                  ? const Text(
+                      'Teacher',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold),
+                    )
+                  : const Text(
+                      'Teacher',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold),
+                    ),
+            ),
+            TextButton(
+              onPressed: () {
+                setState(() {
+                  flag = false;
+                });
+              },
+              style: ButtonStyle(
+                  overlayColor: MaterialStateProperty.all(Colors.transparent)),
+              child: flag == false
+                  ? const Text(
+                      'Student',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold),
+                    )
+                  : const Text(
+                      'Student',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold),
+                    ),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class LoginFields extends StatelessWidget {
+  const LoginFields({
+    super.key,
+    required this.textControllerLogin,
+    required this.textControllerPass,
+  });
+
+  final TextEditingController textControllerLogin;
+  final TextEditingController textControllerPass;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      // text fields
+      children: [
+        SizedBox(
+          //LOGIN
+          width: 300,
+          height: 60,
+          child: TextField(
+            // focusNode: node1,
+            controller: textControllerLogin,
+            decoration: const InputDecoration(
+                labelText: 'login-id', border: OutlineInputBorder()),
+            textInputAction: TextInputAction.next,
+          ),
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        SizedBox(
+          //PASS
+          width: 300,
+          height: 60,
+          child: TextField(
+            // focusNode: node2,
+            controller: textControllerPass,
+            // keyboardType: TextInputType.visiblePassword,
+            obscureText: true,
+            autocorrect: false,
+            enableSuggestions: false,
+            decoration: const InputDecoration(
+              labelText: 'Password',
+              border: OutlineInputBorder(),
+            ),
+
+            textInputAction: TextInputAction.done,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class LoginBtn extends StatelessWidget {
+  const LoginBtn({
+    super.key,
+    required this.flag,
+  });
+
+  final bool flag;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 300,
+      height: 50.0,
+      decoration: const BoxDecoration(
+        // backgroundBlendMode: BlendMode.luminosity,
+        borderRadius: BorderRadius.all(Radius.circular(15)),
+        gradient: LinearGradient(
+          colors: [Color(0xff5C45D3), Color(0xff432CBA)],
+          end: Alignment.bottomCenter,
+          begin: Alignment.topCenter,
+        ),
+      ),
+      child: ElevatedButton(
+        onPressed: () {
+          if (flag == true) {
+            GoRouter.of(context).push("/dashboardT");
+          } else {
+            GoRouter.of(context).push("/dashboardS");
+          }
+        },
+        style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.transparent,
+            shadowColor: Colors.transparent),
+        child: Text(
+          'Login',
+          style: GoogleFonts.inter(
+              color: const Color(0xffffffff),
+              fontSize: 20,
+              fontWeight: FontWeight.w500),
+        ),
+      ),
+    );
+  }
+}
+
+class LoginImg extends StatelessWidget {
+  const LoginImg({
+    super.key,
+    required this.flag,
+  });
+
+  final bool flag;
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 500),
+      curve: Curves.easeIn,
+      padding: const EdgeInsets.all(0),
+      child: flag == true
+          ? const Image(
+              image: AssetImage('assets/login(1).png'),
+              height: 250,
+            )
+          : const Image(
+              image: AssetImage('assets/login(2).png'),
+              height: 250,
+            ),
     );
   }
 }

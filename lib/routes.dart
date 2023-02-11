@@ -9,47 +9,47 @@ import 'package:beam/screens/utilis/materials.dart';
 import 'package:beam/screens/utilis/todo.dart';
 import 'package:go_router/go_router.dart';
 
-final Routes = GoRouter(
+final goroutes = GoRouter(
   routes: [
     GoRoute(
       path: '/',
-      builder: (context, state) => Login(),
+      builder: (context, state) => const Login(),
     ),
     GoRoute(
       path: '/dashboardT',
-      builder: (context, state) => DashboardT(),
+      builder: (context, state) => const DashboardT(),
     ),
     GoRoute(
       path: '/dashboardS',
-      builder: (context, state) => DashboardS(),
+      builder: (context, state) => const DashboardS(),
     ),
     GoRoute(
       path: '/materials',
-      builder: (context, state) => Materials(),
+      builder: (context, state) => const Materials(),
     ),
     GoRoute(
       path: '/timeTable',
-      builder: (context, state) => TimeTable(),
+      builder: (context, state) => const TimeTable(),
     ),
     GoRoute(
       path: '/events',
-      builder: (context, state) => EventsClg(),
+      builder: (context, state) => const EventsClg(),
     ),
     GoRoute(
       path: '/toDo',
-      builder: (context, state) => ToDo(),
+      builder: (context, state) => const ToDo(),
     ),
     GoRoute(
       path: '/feeDues',
-      builder: (context, state) => FeeDues(),
+      builder: (context, state) => const FeeDues(),
     ),
     GoRoute(
       path: '/notifications',
-      builder: (context, state) => Notifications(),
+      builder: (context, state) => const Notifications(),
     ),
     GoRoute(
       path: '/academic',
-      builder: (context, state) => Notifications(),
+      builder: (context, state) => const Notifications(),
     ),
   ],
 );
