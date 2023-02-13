@@ -6,6 +6,7 @@ import 'package:beam/screens/student/timetable.dart';
 import 'package:beam/screens/teacher/dashboard.dart';
 import 'package:beam/screens/utilis/events.dart';
 import 'package:beam/screens/utilis/materials.dart';
+import 'package:beam/screens/utilis/profile.dart';
 import 'package:beam/screens/utilis/todo.dart';
 import 'package:go_router/go_router.dart';
 
@@ -50,6 +51,10 @@ final goroutes = GoRouter(
     GoRoute(
       path: '/academic',
       builder: (context, state) => const Notifications(),
+    ),
+    GoRoute(
+      path: '/profile',
+      builder: (context, state) => ProfilePage(),
     ),
   ],
 );

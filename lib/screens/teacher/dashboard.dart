@@ -18,12 +18,17 @@ class _DashboardTState extends State<DashboardT> {
           foregroundColor: const Color.fromARGB(255, 0, 0, 0),
           backgroundColor: const Color.fromARGB(0, 0, 0, 0),
           shadowColor: const Color.fromARGB(0, 0, 0, 0),
-          leading: const Padding(
+          leading: Padding(
             padding: EdgeInsets.symmetric(horizontal: 20),
-            child: Icon(
-              Icons.account_circle_outlined,
-              size: 24,
-              color: Color.fromARGB(255, 62, 34, 201),
+            child: GestureDetector(
+              onTap: (() {
+                GoRouter.of(context).push('/profile');
+              }),
+              child: Icon(
+                Icons.account_circle_outlined,
+                size: 24,
+                color: Color.fromARGB(255, 62, 34, 201),
+              ),
             ),
           ),
           actions: [
@@ -101,9 +106,7 @@ class _DashboardTState extends State<DashboardT> {
                           color: Colors.black,
                         ),
                       ),
-                      onTap: () {
-                        
-                      },
+                      onTap: () {},
                     ),
                   ),
                   Center(
