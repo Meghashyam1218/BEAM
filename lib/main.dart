@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:beam/routes.dart';
+import 'package:beam/color_schemes.g.dart';
 
 void main() {
   
@@ -19,7 +20,8 @@ class _BeamState extends State<Beam> {
     return MaterialApp.router(
       routerConfig: goroutes,
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(useMaterial3: true),
+      theme: ThemeData(useMaterial3: true, colorScheme: lightColorScheme),
+      darkTheme: ThemeData(useMaterial3: true, colorScheme: darkColorScheme),
       title: 'Flutter Demo',
     );
   }

@@ -1,3 +1,4 @@
+import 'package:beam/color_schemes.g.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -31,12 +32,12 @@ class _DashboardSState extends State<DashboardS> {
               onTap: (() {
                 GoRouter.of(context).pop();
               }),
-              child: const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 25),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25),
                 child: Icon(
                   Icons.login,
                   size: 24,
-                  color: Color.fromARGB(255, 62, 34, 201),
+                  color: lightColorScheme.primary
                 ),
               ),
             )
@@ -46,13 +47,18 @@ class _DashboardSState extends State<DashboardS> {
           // scrollDirection: Axis.horizontal,
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 20),
-            color: const Color.fromARGB(0, 196, 94, 94),
+            color: lightColorScheme.background,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const HelloUser(),
-                const Center(
-                  child: AcademicCard(),
+                Center(
+                  child: GestureDetector(
+                    onTap: () {
+                      GoRouter.of(context).push("/academic");
+                    },
+                    child: const AcademicCard(),
+                  ),
                 ),
                 const SizedBox(
                   height: 30,
@@ -91,7 +97,7 @@ class AcademicCard extends StatelessWidget {
       width: 330,
       padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 25),
       decoration: BoxDecoration(
-        color: const Color(0xffEDEAFA),
+        color: lightColorScheme.secondaryContainer,
         borderRadius: BorderRadius.circular(25),
       ),
       child: Column(
