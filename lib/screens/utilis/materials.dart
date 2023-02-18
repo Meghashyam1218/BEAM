@@ -1,3 +1,4 @@
+import 'package:beam/components/appbar.dart';
 import 'package:beam/components/dropdown.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -33,54 +34,10 @@ class _MaterialsState extends State<Materials> {
     String dropdownValue2 = list2.first;
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          foregroundColor: const Color.fromARGB(255, 0, 0, 0),
-          backgroundColor: const Color(0xff5240b5),
-          shadowColor: const Color.fromARGB(0, 220, 30, 30),
-          leading: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: GestureDetector(
-              onTap: (() {}),
-              child: const Icon(
-                Icons.account_circle_outlined,
-                size: 24,
-                color: Colors.white,
-              ),
-            ),
-          ),
-          actions: [
-            GestureDetector(
-              onTap: (() {
-                GoRouter.of(context).pop();
-              }),
-              child: const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 25),
-                child: Icon(
-                  Icons.home_outlined,
-                  size: 24,
-                  color: Colors.white,
-                ),
-              ),
-            )
-          ],
-        ),
+        appBar: BeamAppBar(name: "Materials"),
         body: Column(
           children: [
-            Container(
-              width: double.infinity,
-              color: const Color(0xff5240b5),
-              child: Padding(
-                padding: const EdgeInsets.only(left: 20, bottom: 15),
-                child: Text(
-                  "Materials",
-                  style: GoogleFonts.inter(
-                    fontSize: 32,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-            ),
+            
             const SizedBox(
               height: 20,
             ),

@@ -1,5 +1,6 @@
 import 'package:beam/color_schemes.g.dart';
 import 'package:beam/components/academicTotal.dart';
+import 'package:beam/components/appbar.dart';
 import 'package:beam/components/dropdown.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -23,56 +24,12 @@ class _AcademicState extends State<Academic> {
     final w = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          foregroundColor: const Color.fromARGB(255, 0, 0, 0),
-          backgroundColor: lightColorScheme.primary,
-          shadowColor: const Color.fromARGB(0, 0, 0, 0),
-          leading: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: GestureDetector(
-              onTap: ((() {})),
-              child: const Icon(
-                Icons.account_circle_outlined,
-                size: 24,
-                color: Color.fromARGB(255, 255, 255, 255),
-              ),
-            ),
-          ),
-          actions: [
-            GestureDetector(
-              onTap: (() {
-                GoRouter.of(context).pop();
-              }),
-              child: const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 25),
-                child: Icon(
-                  Icons.home_outlined,
-                  size: 24,
-                  color: Color.fromARGB(255, 255, 255, 255),
-                ),
-              ),
-            )
-          ],
-        ),
+        appBar: BeamAppBar(name: "Academics"),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              width: double.infinity,
-              color: lightColorScheme.primary,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 20, bottom: 15),
-                child: Text(
-                  "Academics",
-                  style: GoogleFonts.inter(
-                    fontSize: 32,
-                    fontWeight: FontWeight.w600,
-                    color: lightColorScheme.onPrimary,
-                  ),
-                ),
-              ),
-            ),
+            
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
