@@ -1,3 +1,4 @@
+import 'package:beam/components/appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -14,37 +15,7 @@ class _NotificationsState extends State<Notifications> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          foregroundColor: const Color.fromARGB(255, 0, 0, 0),
-          backgroundColor: const Color.fromARGB(255, 82, 64, 181),
-          shadowColor: const Color.fromARGB(0, 0, 0, 0),
-          leading: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: GestureDetector(
-              onTap: ((() {})),
-              child: const Icon(
-                Icons.account_circle_outlined,
-                size: 24,
-                color: Color.fromARGB(255, 255, 255, 255),
-              ),
-            ),
-          ),
-          actions: [
-            GestureDetector(
-              onTap: (() {
-                GoRouter.of(context).pop();
-              }),
-              child: const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 25),
-                child: Icon(
-                  Icons.home_outlined,
-                  size: 24,
-                  color: Color.fromARGB(255, 255, 255, 255),
-                ),
-              ),
-            )
-          ],
-        ),
+        appBar: BeamAppBar(name: "Notifications"),
         body: Column(
           children: [
             Container(
@@ -67,8 +38,7 @@ class _NotificationsState extends State<Notifications> {
                 padding: const EdgeInsets.only(left: 16, right: 16, top: 16),
                 child: ListView(
                   children: [
-                    for (var i = 0; i < 10; i++)
-                      const Notification(),
+                    for (var i = 0; i < 10; i++) const Notification(),
                   ],
                 ),
               ),

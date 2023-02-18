@@ -1,3 +1,5 @@
+import 'package:beam/components/appbar.dart';
+import 'package:beam/components/dropdown.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -13,15 +15,25 @@ class _FeeDuesState extends State<FeeDues> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Center(
-          child: TextButton(
-            onPressed: () {
-              GoRouter.of(context).pop();
-            },
-            child: const Text("fee dues"),
-          ),
+        appBar: BeamAppBar(name: "Fee-Dues"),
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+                padding: const EdgeInsets.all(10),
+                child: dropdownList(
+                    nameValue: "Fee type",
+                    dropdownlistValues: const <String>[
+                      "college fee",
+                      "JNTU fee",
+                      "CRT Fee",
+                      "Other fees"
+                    ])),
+            const SizedBox(
+              height: 10,
+            ),
+          ],
         ),
-        
       ),
     );
   }
