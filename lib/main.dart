@@ -15,8 +15,10 @@ class Beam extends StatefulWidget {
 }
 
 class _BeamState extends State<Beam> {
+  
   @override
   Widget build(BuildContext context) {
+    
     return MaterialApp.router(
       routerConfig: goroutes,
       debugShowCheckedModeBanner: false,

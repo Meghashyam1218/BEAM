@@ -51,7 +51,7 @@ final goroutes = GoRouter(
     ),
     GoRoute(
       path: '/profile',
-      builder: (context, state) => ProfilePage(),
+      builder: (context, state) => const ProfilePage(),
     ),
     GoRoute(
       path: '/academic',

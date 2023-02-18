@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class ProfilePage extends StatelessWidget {
+  const ProfilePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,7 +17,7 @@ class ProfilePage extends StatelessWidget {
             GoRouter.of(context).pop();
           },
         ),
-        title: Text(
+        title: const Text(
           "Profile",
           style: TextStyle(
             fontSize: 25,
@@ -23,7 +25,7 @@ class ProfilePage extends StatelessWidget {
             color: Colors.white,
           ),
         ),
-        backgroundColor: Color(0xff432CBA),
+        backgroundColor: const Color(0xff432CBA),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,7 +34,7 @@ class ProfilePage extends StatelessWidget {
             width: double.infinity,
             height: 250,
             padding: const EdgeInsets.all(60),
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 color: Color(0xff432CBA),
                 borderRadius: BorderRadius.only(
                   bottomRight: Radius.circular(36),
@@ -49,7 +51,7 @@ class ProfilePage extends StatelessWidget {
                       decoration: BoxDecoration(
                           border: Border.all(width: 4, color: Colors.white),
                           shape: BoxShape.circle,
-                          image: DecorationImage(
+                          image: const DecorationImage(
                               fit: BoxFit.cover,
                               image: NetworkImage(
                                   'https://www.atozpictures.com/uploads/2016/04/samantha-theri-movie-stills.jpg'))),
@@ -59,7 +61,7 @@ class ProfilePage extends StatelessWidget {
               )
             ]),
           ),
-          SizedBox(height: 50),
+          const SizedBox(height: 50),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -74,10 +76,10 @@ class ProfilePage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 2),
+              const SizedBox(height: 2),
               Container(
                 padding: const EdgeInsets.only(left: 30),
-                child: Text(
+                child: const Text(
                   "user name",
                   style: TextStyle(
                     fontSize: 20,
@@ -86,7 +88,7 @@ class ProfilePage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Container(
                 padding: const EdgeInsets.only(left: 30),
                 child: Text(
@@ -98,10 +100,10 @@ class ProfilePage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 2),
+              const SizedBox(height: 2),
               Container(
                 padding: const EdgeInsets.only(left: 30),
-                child: Text(
+                child: const Text(
                   "U32834252",
                   style: TextStyle(
                     fontSize: 20,
@@ -110,7 +112,7 @@ class ProfilePage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Container(
                 padding: const EdgeInsets.only(left: 30),
                 child: Text(
@@ -122,10 +124,10 @@ class ProfilePage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 2),
+              const SizedBox(height: 2),
               Container(
                 padding: const EdgeInsets.only(left: 30),
-                child: Text(
+                child: const Text(
                   "CSE",
                   style: TextStyle(
                     fontSize: 20,
@@ -134,7 +136,7 @@ class ProfilePage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Container(
                 padding: const EdgeInsets.only(left: 30),
                 child: Text(
@@ -146,10 +148,10 @@ class ProfilePage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 2),
+              const SizedBox(height: 2),
               Container(
                 padding: const EdgeInsets.only(left: 30),
-                child: Text(
+                child: const Text(
                   "9147132413",
                   style: TextStyle(
                     fontSize: 20,
@@ -158,7 +160,7 @@ class ProfilePage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Container(
                 padding: const EdgeInsets.only(left: 30),
                 child: Text(
@@ -170,10 +172,10 @@ class ProfilePage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 2),
+              const SizedBox(height: 2),
               Container(
                 padding: const EdgeInsets.only(left: 30),
-                child: Text(
+                child: const Text(
                   "user123@gmail.com",
                   style: TextStyle(
                     fontSize: 20,
