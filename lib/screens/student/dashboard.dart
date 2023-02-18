@@ -34,11 +34,8 @@ class _DashboardSState extends State<DashboardS> {
               }),
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25),
-                child: Icon(
-                  Icons.login,
-                  size: 24,
-                  color: lightColorScheme.primary
-                ),
+                child: Icon(Icons.login,
+                    size: 24, color: lightColorScheme.primary),
               ),
             )
           ],
@@ -165,8 +162,7 @@ class AcademicCard extends StatelessWidget {
         Center(
           child: Text(
             "70%",
-            style: GoogleFonts.inter(
-                          fontSize: 25, fontWeight: FontWeight.bold),
+            style: GoogleFonts.inter(fontSize: 25, fontWeight: FontWeight.bold),
           ),
         )
       ],

@@ -1,3 +1,4 @@
+import 'package:beam/components/appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -14,54 +15,9 @@ class _EventsClgState extends State<EventsClg> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          foregroundColor: const Color.fromARGB(255, 0, 0, 0),
-          backgroundColor: const Color.fromARGB(255, 82, 64, 181),
-          shadowColor: const Color.fromARGB(0, 0, 0, 0),
-          leading: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: GestureDetector(
-              onTap: ((() {})),
-              child: const Icon(
-                Icons.account_circle_outlined,
-                size: 24,
-                color: Color.fromARGB(255, 255, 255, 255),
-              ),
-            ),
-          ),
-          actions: [
-            GestureDetector(
-              onTap: (() {
-                GoRouter.of(context).pop();
-              }),
-              child: const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 25),
-                child: Icon(
-                  Icons.home_outlined,
-                  size: 24,
-                  color: Color.fromARGB(255, 255, 255, 255),
-                ),
-              ),
-            )
-          ],
-        ),
+        appBar: BeamAppBar(name: "Events"),
         body: Column(
           children: [
-            Container(
-              width: double.infinity,
-              color: const Color(0xff5240b5),
-              child: Padding(
-                padding: const EdgeInsets.only(left: 20, bottom: 15),
-                child: Text(
-                  "Events",
-                  style: GoogleFonts.inter(
-                    fontSize: 32,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-            ),
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.only(left: 16, right: 16, top: 16),
@@ -137,7 +93,6 @@ class EventImg extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Center(
-      
       child: Image(
         image: AssetImage('assets/login(1).png'),
         height: 250,
