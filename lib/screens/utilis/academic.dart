@@ -1,4 +1,4 @@
-import 'package:beam/components/total.dart';
+import 'package:beam/components/cards_academic.dart';
 import 'package:beam/components/appbar.dart';
 import 'package:beam/components/dropdown.dart';
 import 'package:flutter/material.dart';
@@ -49,7 +49,7 @@ class _AcademicState extends State<Academic> {
                 ],
               ),
             ),
-            const Expanded(child: Total()),
+            const Expanded(child: CardsAcademic()),
           ],
         ),
       ),

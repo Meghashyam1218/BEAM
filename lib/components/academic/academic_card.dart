@@ -12,34 +12,48 @@ class AcademicCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: GestureDetector(
-        onTap: () {
-          GoRouter.of(context)
+      child: Material(
+        child: InkWell(
+          borderRadius: BorderRadius.circular(25),
+          splashColor: lightColorScheme.tertiary.withOpacity(0.05),
+          onTap: () {
+            Future.delayed(const Duration(milliseconds: 100), () {
+              GoRouter.of(context)
               .pushNamed("academic", params: {"loginFlag": "false"});
-        },
-        child: Container(
-          width: 330,
-          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 25),
-          decoration: BoxDecoration(
-            color: lightColorScheme.primaryContainer,
-            borderRadius: BorderRadius.circular(25),
-          ),
-          child: Column(
-            children: [
-              const AcademicTopRow(),
-              const SizedBox(
-                height: 10,
+            });
+          },
+          child: Ink(
+            decoration: BoxDecoration(
+              color: lightColorScheme.primaryContainer,
+              borderRadius: BorderRadius.circular(25),
+              
+            ),
+            child: SizedBox(
+              width: 330,
+              child: Container(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 20, horizontal: 25),
+                
+                child: Column(
+                  children: [
+                    const AcademicTopRow(),
+                    const SizedBox(height: 10),
+                    Row(
+                      children: const [
+                        ProgressCircular(),
+                        AcademicDetails(),
+                      ],
+                    ),
+                  ],
+                ),
               ),
-              Row(
-                children: const [
-                  ProgressCircular(),
-                  AcademicDetails(),
-                ],
-              ),
-            ],
+            ),
           ),
         ),
       ),
+      
+    
+      
     );
   }
 }

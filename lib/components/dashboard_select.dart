@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../select_card.dart';
+import 'select_card.dart';
 
 class DashboradCards extends StatelessWidget {
   const DashboradCards({super.key});

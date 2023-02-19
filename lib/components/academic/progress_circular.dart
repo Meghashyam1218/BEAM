@@ -19,7 +19,7 @@ class ProgressCircular extends StatelessWidget {
               value: .7,
               strokeWidth: 14.0,
               color: lightColorScheme.primary,
-              backgroundColor: const Color(0xffC9C1F0),
+              backgroundColor: lightColorScheme.outline,
             ),
           ),
           Center(

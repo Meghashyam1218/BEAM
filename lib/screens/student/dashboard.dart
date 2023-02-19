@@ -1,5 +1,5 @@
 import 'package:beam/color_schemes.g.dart';
-import 'package:beam/components/academic/dashboard_select.dart';
+import 'package:beam/components/dashboard_select.dart';
 import 'package:beam/components/appbar_dash.dart';
 import 'package:flutter/material.dart';
 import '../../components/academic/academic_card.dart';
