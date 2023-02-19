@@ -9,53 +9,84 @@ import 'package:beam/screens/utilis/events.dart';
 import 'package:beam/screens/utilis/materials.dart';
 import 'package:beam/screens/utilis/profile.dart';
 import 'package:beam/screens/utilis/todo.dart';
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
 final goroutes = GoRouter(
   routes: [
     GoRoute(
-      path: '/',
-      builder: (context, state) => const Login(),
-    ),
+        name: "login",
+        path: '/',
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: Login());
+        }),
     GoRoute(
+        name: 'dashboardT',
       path: '/dashboardT',
-      builder: (context, state) => const DashboardT(),
-    ),
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: DashboardT());
+        }),
     GoRoute(
+        name: 'dashboardS',
       path: '/dashboardS',
-      builder: (context, state) => const DashboardS(),
-    ),
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: DashboardS());
+        }),
     GoRoute(
+        name: 'materials',
       path: '/materials',
-      builder: (context, state) => const Materials(),
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: Materials());
+        }
     ),
     GoRoute(
+        name: 'timeTable',
       path: '/timeTable',
-      builder: (context, state) => const TimeTable(),
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: TimeTable());
+        }
     ),
     GoRoute(
+        name: 'events',
       path: '/events',
-      builder: (context, state) => const EventsClg(),
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: EventsClg());
+        }
     ),
     GoRoute(
+        name: 'toDo',
       path: '/toDo',
-      builder: (context, state) => const ToDo(),
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: ToDo());
+        }
     ),
     GoRoute(
+        name: 'feeDues',
       path: '/feeDues',
-      builder: (context, state) => const FeeDues(),
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: FeeDues());
+        }
     ),
     GoRoute(
+        name: 'notifications',
       path: '/notifications',
-      builder: (context, state) => const Notifications(),
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: Notifications());
+        }
     ),
     GoRoute(
+        name: 'profile',
       path: '/profile',
-      builder: (context, state) => const ProfilePage(),
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: ProfilePage());
+        }
     ),
     GoRoute(
-      path: '/academic',
-      builder: (context, state) => const Academic(),
+      name: 'academic',
+      path: '/academic/:loginFlag',
+      builder: (context, state) => Academic(
+        loginFlag: state.params['loginFlag']!,
+      ),
     ),
   ],
 );
+

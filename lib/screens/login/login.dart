@@ -265,9 +265,9 @@ class LoginBtn extends StatelessWidget {
       child: ElevatedButton(
         onPressed: () {
           if (flag == true) {
-            GoRouter.of(context).push("/dashboardT");
+            GoRouter.of(context).pushNamed("dashboardT");
           } else {
-            GoRouter.of(context).push("/dashboardS");
+            GoRouter.of(context).pushNamed("dashboardS");
           }
         },
         style: ElevatedButton.styleFrom(

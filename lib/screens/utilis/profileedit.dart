@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatelessWidget {
+  const ProfilePage({super.key});
+
   @override
   Widget build(BuildContext context) {
-    var _controller;
     return Scaffold(
       appBar: AppBar(
-        title: Text("Profile"),
-        backgroundColor: Color(0xff432CBA),
+        title: const Text("Profile"),
+        backgroundColor: const Color(0xff432CBA),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -22,7 +23,7 @@ class ProfilePage extends StatelessWidget {
               decoration: BoxDecoration(
                   border: Border.all(width: 4, color: Colors.white),
                   shape: BoxShape.circle,
-                  image: DecorationImage(
+                  image: const DecorationImage(
                       fit: BoxFit.cover,
                       image: NetworkImage(
                           'https://www.atozpictures.com/uploads/2016/04/samantha-theri-movie-stills.jpg'))),
@@ -42,7 +43,7 @@ class ProfilePage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 5,
               ),
               Container(
@@ -60,7 +61,7 @@ class ProfilePage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 32),
+              const SizedBox(height: 32),
               Container(
                 padding: const EdgeInsets.only(left: 30),
                 child: Text(
@@ -72,7 +73,7 @@ class ProfilePage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 5),
+              const SizedBox(height: 5),
               Container(
                 padding: const EdgeInsets.only(left: 30),
                 child: SizedBox(
@@ -88,7 +89,7 @@ class ProfilePage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 32),
+              const SizedBox(height: 32),
               Container(
                 padding: const EdgeInsets.only(left: 30),
                 child: Text(
@@ -100,7 +101,7 @@ class ProfilePage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 5),
+              const SizedBox(height: 5),
               Container(
                 padding: const EdgeInsets.only(left: 30),
                 child: SizedBox(

@@ -1,7 +1,5 @@
 import 'package:beam/components/appbar.dart';
-import 'package:beam/main.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class TimeTable extends StatefulWidget {
@@ -16,7 +14,7 @@ class _TimeTableState extends State<TimeTable> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          appBar: BeamAppBar(
+          appBar: const BeamAppBar(
             name: "Time Table",
           ),
           body: Column(

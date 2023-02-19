@@ -22,7 +22,7 @@ class _DashboardTState extends State<DashboardT> {
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: GestureDetector(
               onTap: (() {
-                GoRouter.of(context).push('/profile');
+                GoRouter.of(context).push('profile');
               }),
               child: const Icon(
                 Icons.account_circle_outlined,
@@ -131,7 +131,10 @@ class _DashboardTState extends State<DashboardT> {
                           color: Colors.black,
                         ),
                       ),
-                      onTap: () {},
+                      onTap: () {
+                        GoRouter.of(context).pushNamed("academic",
+                            params: {"loginFlag": "true"});
+                      },
                     ),
                   ),
                   Center(

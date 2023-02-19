@@ -5,17 +5,26 @@ import 'package:google_fonts/google_fonts.dart';
 import '../color_schemes.g.dart';
 
 class BeamAppBar extends StatelessWidget implements PreferredSizeWidget {
-  String? name;
-  BeamAppBar({super.key, required this.name});
+  final String? name;
+  const BeamAppBar({super.key, required this.name});
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+        bottom: Radius.circular(20),
+      )),
       bottom: PreferredSize(
-        preferredSize: Size.fromHeight(116.0), // here the desired height
+        preferredSize: const Size.fromHeight(116.0), // here the desired height
         child: Container(
+          
           width: double.infinity,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
           color: lightColorScheme.primary,
+
+          ),
           child: Padding(
             padding: const EdgeInsets.only(left: 20, bottom: 15),
             child: Text(
@@ -36,7 +45,7 @@ class BeamAppBar extends StatelessWidget implements PreferredSizeWidget {
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: GestureDetector(
           onTap: ((() {
-            GoRouter.of(context).push('/profile');
+            GoRouter.of(context).pushNamed('profile');
           })),
           child: const Icon(
             Icons.account_circle_outlined,
@@ -64,5 +73,5 @@ class BeamAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(116);
+  Size get preferredSize => const Size.fromHeight(116);
 }

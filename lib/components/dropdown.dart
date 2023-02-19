@@ -3,21 +3,21 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../color_schemes.g.dart';
 
-class dropdownList extends StatefulWidget {
-  String nameValue;
-  List<String> dropdownlistValues;
-  dropdownList({required this.nameValue, required this.dropdownlistValues});
+class DropdownList extends StatefulWidget {
+  final String nameValue;
+  final List<String> dropdownlistValues;
+  const DropdownList(
+      {super.key, required this.nameValue, required this.dropdownlistValues});
 
   @override
-  State<dropdownList> createState() => _dropdownListState();
+  State<DropdownList> createState() => _DropdownListState();
 }
 
-class _dropdownListState extends State<dropdownList> {
+class _DropdownListState extends State<DropdownList> {
   String? dropdownValue;
 
   @override
   Widget build(BuildContext context) {
-    final h = MediaQuery.of(context).size.height;
     final w = MediaQuery.of(context).size.width;
 
     return Row(
@@ -36,7 +36,7 @@ class _dropdownListState extends State<dropdownList> {
             color: lightColorScheme.primaryContainer,
           ),
           child: DropdownButton<String>(
-            hint: Text("Select" + " " + widget.nameValue,
+            hint: Text("Select ${widget.nameValue}",
                 overflow: TextOverflow.ellipsis),
             isExpanded: true,
             dropdownColor: lightColorScheme.secondaryContainer,

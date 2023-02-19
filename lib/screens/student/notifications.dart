@@ -1,6 +1,5 @@
 import 'package:beam/components/appbar.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Notifications extends StatefulWidget {
@@ -15,24 +14,9 @@ class _NotificationsState extends State<Notifications> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: BeamAppBar(name: "Notifications"),
+        appBar: const BeamAppBar(name: "Notifications"),
         body: Column(
           children: [
-            Container(
-              width: double.infinity,
-              color: const Color(0xff5240b5),
-              child: Padding(
-                padding: const EdgeInsets.only(left: 20, bottom: 15),
-                child: Text(
-                  "Notifications",
-                  style: GoogleFonts.inter(
-                    fontSize: 32,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-            ),
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.only(left: 16, right: 16, top: 16),

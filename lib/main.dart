@@ -20,7 +20,8 @@ class _BeamState extends State<Beam> {
   Widget build(BuildContext context) {
     
     return MaterialApp.router(
-      routerConfig: goroutes,
+      routeInformationParser: goroutes.routeInformationParser,
+      routerDelegate: goroutes.routerDelegate,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(useMaterial3: true, colorScheme: lightColorScheme),
       darkTheme: ThemeData(useMaterial3: true, colorScheme: darkColorScheme),

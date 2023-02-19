@@ -1,6 +1,5 @@
 import 'package:beam/components/appbar.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class EventsClg extends StatefulWidget {
@@ -15,7 +14,7 @@ class _EventsClgState extends State<EventsClg> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: BeamAppBar(name: "Events"),
+        appBar: const BeamAppBar(name: "Events"),
         body: Column(
           children: [
             Expanded(

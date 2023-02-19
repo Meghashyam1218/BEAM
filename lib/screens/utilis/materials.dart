@@ -1,7 +1,6 @@
 import 'package:beam/components/appbar.dart';
 import 'package:beam/components/dropdown.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Materials extends StatefulWidget {
@@ -15,26 +14,16 @@ class _MaterialsState extends State<Materials> {
   bool _showMaterial = false;
   void _showmaterials() {
     setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
+      
       _showMaterial = true;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    List<String> list = <String>['One', 'Two', 'Three', 'Four'];
-    List<String> list1 = <String>['1', '2', '3', '4', '5', '6', '7', '8'];
-    List<String> list2 = <String>['1', '2', '3', '4', '5', '6', '7', '8'];
-    String dropdownValue = list.first;
-    String dropdownValue1 = list1.first;
-    String dropdownValue2 = list2.first;
     return SafeArea(
       child: Scaffold(
-        appBar: BeamAppBar(name: "Materials"),
+        appBar: const BeamAppBar(name: "Materials"),
         body: Column(
           children: [
             
@@ -48,11 +37,11 @@ class _MaterialsState extends State<Materials> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  dropdownList(
+                  const DropdownList(
                       nameValue: "Regulation", dropdownlistValues: ['R19']),
                   const SizedBox(height: 20),
-                  dropdownList(
-                    dropdownlistValues: const <String>[
+                  const DropdownList(
+                    dropdownlistValues: <String>[
                       '1',
                       '2',
                       '3',
@@ -67,8 +56,8 @@ class _MaterialsState extends State<Materials> {
                   const SizedBox(
                     height: 20,
                   ),
-                  dropdownList(
-                    dropdownlistValues: const <String>[
+                  const DropdownList(
+                    dropdownlistValues: <String>[
                       '1',
                       '2',
                       '3',
