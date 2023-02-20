@@ -34,7 +34,7 @@ class _TimeTableState extends State<TimeTable> {
                   children: [
                     Container(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 8, vertical: 4),
+                          horizontal: 16, vertical: 4),
                       child: const DaySelection(),
                     ),
                   ],
