@@ -92,7 +92,7 @@ class _DashboardTState extends State<DashboardT> {
                       onTap: () {
                         Future.delayed(const Duration(milliseconds: 100), () {
                           GoRouter.of(context).pushNamed("academic",
-                              params: {"loginFlag": "false"});
+                              params: {"loginFlag": "true"});
                         });
                       },
                     ),

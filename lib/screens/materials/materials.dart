@@ -1,3 +1,4 @@
+import 'package:beam/color_schemes.g.dart';
 import 'package:beam/components/appbar.dart';
 import 'package:beam/components/dropdown.dart';
 import 'package:flutter/material.dart';
@@ -37,10 +38,10 @@ class _MaterialsState extends State<Materials> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  const DropdownList(
+                  DropdownList(
                       nameValue: "Regulation", dropdownlistValues: ['R19']),
                   const SizedBox(height: 20),
-                  const DropdownList(
+                  DropdownList(
                     dropdownlistValues: <String>[
                       '1',
                       '2',
@@ -56,7 +57,7 @@ class _MaterialsState extends State<Materials> {
                   const SizedBox(
                     height: 20,
                   ),
-                  const DropdownList(
+                  DropdownList(
                     dropdownlistValues: <String>[
                       '1',
                       '2',
@@ -71,62 +72,92 @@ class _MaterialsState extends State<Materials> {
                   ),
                   const SizedBox(
                     height: 20,
+                    
                   ),
-                  ElevatedButton(
-                      onPressed: _showmaterials, child: const Text("Go")),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SizedBox(
+                        width: 150,
+                        height: 50,
+                        child: ElevatedButton(
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all(
+                                  lightColorScheme.secondaryContainer),
+                              foregroundColor: MaterialStateProperty.all(
+                                  lightColorScheme.onSecondaryContainer),
+                            ),
+                            onPressed: _showmaterials,
+                            child: const Text("Go")),
+                      ),
+                      if (_showMaterial == true)
+                        SizedBox(
+                          width: 150,
+                          height: 50,
+                          child: ElevatedButton(
+                              style: ButtonStyle(
+                                backgroundColor: MaterialStateProperty.all(
+                                    lightColorScheme.tertiaryContainer),
+                                foregroundColor: MaterialStateProperty.all(
+                                    lightColorScheme.onTertiaryContainer),
+                              ),
+                              onPressed: _showmaterials,
+                              child: const Text("Download all")),
+                        ),
+                    ],
+                  ),
                 ],
               ),
             ),
+            SizedBox(height: 10),
             if (_showMaterial == true)
               Expanded(
                 child: ListView(
                   children: [
-                    Container(
+                    Card(
+                      color: lightColorScheme.tertiaryContainer,
                       margin: const EdgeInsets.only(
                           left: 20, right: 20, top: 10, bottom: 10),
-                      decoration: BoxDecoration(
-                          color: const Color.fromARGB(71, 123, 97, 255),
-                          borderRadius: BorderRadius.circular(10)),
+                      
                       child: ListTile(
                         title: Text(
                           "Unit-1  Material",
                           style: GoogleFonts.inter(
                             fontSize: 18,
                             fontWeight: FontWeight.w600,
-                            color: const Color(0XFF23262F),
+                            color: lightColorScheme.onTertiaryContainer,
                           ),
                         ),
-                        trailing: const Padding(
-                          padding: EdgeInsets.only(right: 10, left: 10),
+                        trailing: Padding(
+                          padding: const EdgeInsets.only(right: 10, left: 10),
                           child: Icon(
                             Icons.download,
-                            color: Color(0XFF23262F),
+                            color: lightColorScheme.onTertiaryContainer,
                           ),
                         ),
                         onTap: () {},
                       ),
                     ),
                     Center(
-                      child: Container(
+                      child: Card(
+                        color: lightColorScheme.tertiaryContainer,
                         margin: const EdgeInsets.only(
                             left: 20, right: 20, top: 10, bottom: 10),
-                        decoration: BoxDecoration(
-                            color: const Color.fromARGB(71, 123, 97, 255),
-                            borderRadius: BorderRadius.circular(10)),
+                        
                         child: ListTile(
                           title: Text(
                             "Unit-2  Material",
                             style: GoogleFonts.inter(
                               fontSize: 18,
                               fontWeight: FontWeight.w600,
-                              color: const Color(0XFF23262F),
+                              color: lightColorScheme.onTertiaryContainer,
                             ),
                           ),
-                          trailing: const Padding(
-                            padding: EdgeInsets.only(right: 10, left: 10),
+                          trailing: Padding(
+                            padding: const EdgeInsets.only(right: 10, left: 10),
                             child: Icon(
                               Icons.download,
-                              color: Color(0XFF23262F),
+                              color: lightColorScheme.onTertiaryContainer,
                             ),
                           ),
                           onTap: () {},
@@ -134,26 +165,24 @@ class _MaterialsState extends State<Materials> {
                       ),
                     ),
                     Center(
-                      child: Container(
+                      child: Card(
+                        color: lightColorScheme.tertiaryContainer,
                         margin: const EdgeInsets.only(
                             left: 20, right: 20, top: 10, bottom: 10),
-                        decoration: BoxDecoration(
-                            color: const Color.fromARGB(71, 123, 97, 255),
-                            borderRadius: BorderRadius.circular(10)),
                         child: ListTile(
                           title: Text(
                             "Unit-3  Material",
                             style: GoogleFonts.inter(
                               fontSize: 18,
                               fontWeight: FontWeight.w600,
-                              color: const Color(0XFF23262F),
+                              color: lightColorScheme.onTertiaryContainer,
                             ),
                           ),
-                          trailing: const Padding(
-                            padding: EdgeInsets.only(right: 10, left: 10),
+                          trailing: Padding(
+                            padding: const EdgeInsets.only(right: 10, left: 10),
                             child: Icon(
                               Icons.download,
-                              color: Color(0XFF23262F),
+                              color: lightColorScheme.onTertiaryContainer,
                             ),
                           ),
                           onTap: () {},
@@ -161,26 +190,24 @@ class _MaterialsState extends State<Materials> {
                       ),
                     ),
                     Center(
-                      child: Container(
+                      child: Card(
+                        color: lightColorScheme.tertiaryContainer,
                         margin: const EdgeInsets.only(
                             left: 20, right: 20, top: 10, bottom: 10),
-                        decoration: BoxDecoration(
-                            color: const Color.fromARGB(71, 123, 97, 255),
-                            borderRadius: BorderRadius.circular(10)),
                         child: ListTile(
                           title: Text(
                             "Unit-4  Material",
                             style: GoogleFonts.inter(
                               fontSize: 18,
                               fontWeight: FontWeight.w600,
-                              color: const Color(0XFF23262F),
+                              color: lightColorScheme.onTertiaryContainer,
                             ),
                           ),
-                          trailing: const Padding(
-                            padding: EdgeInsets.only(right: 10, left: 10),
+                          trailing: Padding(
+                            padding: const EdgeInsets.only(right: 10, left: 10),
                             child: Icon(
                               Icons.download,
-                              color: Color(0XFF23262F),
+                              color: lightColorScheme.onTertiaryContainer,
                             ),
                           ),
                           onTap: () {},
@@ -188,35 +215,36 @@ class _MaterialsState extends State<Materials> {
                       ),
                     ),
                     Center(
-                      child: Container(
+                      child: Card(
+                        color: lightColorScheme.tertiaryContainer,
                         margin: const EdgeInsets.only(
                             left: 20, right: 20, top: 10, bottom: 10),
-                        decoration: BoxDecoration(
-                            color: const Color.fromARGB(71, 123, 97, 255),
-                            borderRadius: BorderRadius.circular(10)),
                         child: ListTile(
                           title: Text(
                             "Unit-5  Material",
                             style: GoogleFonts.inter(
                               fontSize: 18,
                               fontWeight: FontWeight.w600,
-                              color: const Color(0XFF23262F),
+                              color: lightColorScheme.onTertiaryContainer,
                             ),
                           ),
-                          trailing: const Padding(
-                            padding: EdgeInsets.only(right: 10, left: 10),
+                          trailing: Padding(
+                            padding: const EdgeInsets.only(right: 10, left: 10),
                             child: Icon(
                               Icons.download,
-                              color: Color(0XFF23262F),
+                              color: lightColorScheme.onTertiaryContainer,
                             ),
                           ),
                           onTap: () {},
                         ),
                       ),
                     ),
+                    
                   ],
                 ),
+                
               ),
+          
           ],
         ),
       ),

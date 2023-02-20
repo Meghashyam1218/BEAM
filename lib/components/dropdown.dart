@@ -6,8 +6,12 @@ import '../color_schemes.g.dart';
 class DropdownList extends StatefulWidget {
   final String nameValue;
   final List<String> dropdownlistValues;
-  const DropdownList(
-      {super.key, required this.nameValue, required this.dropdownlistValues});
+  Function(String val)? onChange;
+  DropdownList(
+      {super.key,
+      required this.nameValue,
+      required this.dropdownlistValues,
+      this.onChange});
 
   @override
   State<DropdownList> createState() => _DropdownListState();
@@ -41,7 +45,7 @@ class _DropdownListState extends State<DropdownList> {
             hint: Text("Select ${widget.nameValue}",
                 overflow: TextOverflow.ellipsis),
             isExpanded: true,
-            dropdownColor: lightColorScheme.secondaryContainer,
+            dropdownColor: lightColorScheme.primaryContainer,
             value: dropdownValue,
             alignment: AlignmentDirectional.centerStart,
             icon: const Icon(Icons.arrow_downward),
@@ -56,6 +60,7 @@ class _DropdownListState extends State<DropdownList> {
               setState(() {
                 dropdownValue = value!;
               });
+              widget.onChange!(dropdownValue!);
             },
             items: widget.dropdownlistValues
                 .map<DropdownMenuItem<String>>((String value) {

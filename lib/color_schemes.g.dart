@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
-var color = Colors.yellow;
+var color = Colors.green;
 var brightnessMode = SchedulerBinding.instance.window.platformBrightness;
 bool isDarkMode = brightnessMode == Brightness.dark;
 // const lightColorScheme = ColorScheme(

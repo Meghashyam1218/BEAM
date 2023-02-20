@@ -17,7 +17,7 @@ class _FeeDuesState extends State<FeeDues> {
         appBar: const BeamAppBar(name: "Fee-Dues"),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
+          children: [
             Padding(
                 padding: EdgeInsets.all(10),
                 child: DropdownList(
