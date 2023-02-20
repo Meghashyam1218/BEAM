@@ -102,6 +102,35 @@ class _DashboardTState extends State<DashboardT> {
                       leading: CircleAvatar(
                         radius: 31.625,
                         backgroundColor: lightColorScheme.primary,
+                        child: Icon(Icons.event_note,
+                            size: 30, color: lightColorScheme.onPrimary),
+                      ),
+                      title: Text(
+                        "Time Table",
+                        style: GoogleFonts.inter(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: lightColorScheme.onBackground),
+                      ),
+                      trailing: Padding(
+                        padding: const EdgeInsets.only(right: 10),
+                        child: Icon(
+                          Icons.keyboard_arrow_right,
+                          color: lightColorScheme.onBackground,
+                        ),
+                      ),
+                      onTap: () {
+                        Future.delayed(const Duration(milliseconds: 100), () {
+                          GoRouter.of(context).pushNamed("timeTable");
+                        });
+                      },
+                    ),
+                  ),
+                  Center(
+                    child: ListTile(
+                      leading: CircleAvatar(
+                        radius: 31.625,
+                        backgroundColor: lightColorScheme.primary,
                         child: Icon(Icons.file_copy_outlined,
                             size: 30, color: lightColorScheme.onPrimary),
                       ),
@@ -155,35 +184,7 @@ class _DashboardTState extends State<DashboardT> {
                       },
                     ),
                   ),
-                  Center(
-                    child: ListTile(
-                      leading: CircleAvatar(
-                        radius: 31.625,
-                        backgroundColor: lightColorScheme.primary,
-                        child: Icon(Icons.event_note,
-                            size: 30, color: lightColorScheme.onPrimary),
-                      ),
-                      title: Text(
-                        "Time Table",
-                        style: GoogleFonts.inter(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                            color: lightColorScheme.onBackground),
-                      ),
-                      trailing: Padding(
-                        padding: const EdgeInsets.only(right: 10),
-                        child: Icon(
-                          Icons.keyboard_arrow_right,
-                          color: lightColorScheme.onBackground,
-                        ),
-                      ),
-                      onTap: () {
-                        Future.delayed(const Duration(milliseconds: 100), () {
-                          GoRouter.of(context).pushNamed("timeTable");
-                        });
-                      },
-                    ),
-                  ),
+                  
                   Center(
                     child: ListTile(
                       leading: CircleAvatar(
