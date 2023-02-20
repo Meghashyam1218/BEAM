@@ -1,3 +1,6 @@
+import 'package:beam/color_schemes.g.dart';
+import 'package:beam/components/appbar_dash.dart';
+import 'package:beam/components/hello_user.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -10,43 +13,30 @@ class DashboardT extends StatefulWidget {
 }
 
 class _DashboardTState extends State<DashboardT> {
+  List<String> tiles = [
+    "Post Attendance",
+    "Student Analysis",
+    "Time Table",
+    "Materials",
+    "Events",
+    "To-Do"
+  ];
+  List<String> paths = [
+    "attendace",
+    '"academic", params: {"loginFlag": "false"}',
+    "timeTable",
+    "materials",
+    "events",
+    "toDo"
+  ];
+
   @override
   Widget build(BuildContext context) {
+    print(paths[1]);
+    print(paths[0]);
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          foregroundColor: const Color.fromARGB(255, 0, 0, 0),
-          backgroundColor: const Color.fromARGB(0, 0, 0, 0),
-          shadowColor: const Color.fromARGB(0, 0, 0, 0),
-          leading: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: GestureDetector(
-              onTap: (() {
-                GoRouter.of(context).push('profile');
-              }),
-              child: const Icon(
-                Icons.account_circle_outlined,
-                size: 24,
-                color: Color.fromARGB(255, 62, 34, 201),
-              ),
-            ),
-          ),
-          actions: [
-            GestureDetector(
-              onTap: (() {
-                GoRouter.of(context).pop();
-              }),
-              child: const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 25),
-                child: Icon(
-                  Icons.login,
-                  size: 24,
-                  color: Color.fromARGB(255, 62, 34, 201),
-                ),
-              ),
-            )
-          ],
-        ),
+        appBar: BeamAppBarDash(),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -59,23 +49,7 @@ class _DashboardTState extends State<DashboardT> {
                   const SizedBox(
                     height: 10,
                   ),
-                  Text(
-                    "Hello",
-                    style: GoogleFonts.inter(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: const Color(0xff343434)),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    "Username.",
-                    style: GoogleFonts.inter(
-                        fontSize: 40,
-                        fontWeight: FontWeight.bold,
-                        color: const Color(0xff343434)),
-                  ),
+                  HelloUser()
                 ],
               ),
             ),
@@ -86,24 +60,24 @@ class _DashboardTState extends State<DashboardT> {
                 children: [
                   Center(
                     child: ListTile(
-                      leading: const CircleAvatar(
+                      leading: CircleAvatar(
                         radius: 31.625,
-                        backgroundColor: Color(0xff432cba),
-                        child: Icon(Icons.rule_outlined,
-                            size: 30, color: Colors.white),
+                        backgroundColor: lightColorScheme.primary,
+                        child: Icon(Icons.format_list_numbered_outlined,
+                            size: 30, color: lightColorScheme.onPrimary),
                       ),
                       title: Text(
                         "Post Attendance",
                         style: GoogleFonts.inter(
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
-                            color: Colors.black),
+                            color: lightColorScheme.onBackground),
                       ),
-                      trailing: const Padding(
+                      trailing: Padding(
                         padding: EdgeInsets.only(right: 10),
                         child: Icon(
                           Icons.keyboard_arrow_right,
-                          color: Colors.black,
+                          color: lightColorScheme.onBackground,
                         ),
                       ),
                       onTap: () {},
@@ -111,139 +85,150 @@ class _DashboardTState extends State<DashboardT> {
                   ),
                   Center(
                     child: ListTile(
-                      leading: const CircleAvatar(
+                      leading: CircleAvatar(
                         radius: 31.625,
-                        backgroundColor: Color(0xff432cba),
-                        child: Icon(Icons.analytics_outlined,
-                            size: 30, color: Colors.white),
+                        backgroundColor: lightColorScheme.primary,
+                        child: Icon(Icons.format_list_numbered_outlined,
+                            size: 30, color: lightColorScheme.onPrimary),
                       ),
                       title: Text(
-                        "Student analysis",
+                        "Student Analysis",
                         style: GoogleFonts.inter(
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
-                            color: Colors.black),
+                            color: lightColorScheme.onBackground),
                       ),
-                      trailing: const Padding(
+                      trailing: Padding(
                         padding: EdgeInsets.only(right: 10),
                         child: Icon(
                           Icons.keyboard_arrow_right,
-                          color: Colors.black,
+                          color: lightColorScheme.onBackground,
                         ),
                       ),
                       onTap: () {
-                        GoRouter.of(context).pushNamed("academic",
-                            params: {"loginFlag": "true"});
+                        Future.delayed(const Duration(milliseconds: 100), () {
+                          GoRouter.of(context).pushNamed("academic",
+                              params: {"loginFlag": "false"});
+                        });
                       },
                     ),
                   ),
                   Center(
                     child: ListTile(
-                      leading: const CircleAvatar(
+                      leading: CircleAvatar(
                         radius: 31.625,
-                        backgroundColor: Color(0xff432cba),
-                        child: Icon(Icons.event_note_outlined,
-                            size: 30, color: Colors.white),
-                      ),
-                      title: Text(
-                        "Time Table",
-                        style: GoogleFonts.inter(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.black),
-                      ),
-                      trailing: const Padding(
-                        padding: EdgeInsets.only(right: 10),
-                        child: Icon(
-                          Icons.keyboard_arrow_right,
-                          color: Colors.black,
-                        ),
-                      ),
-                      onTap: () {},
-                    ),
-                  ),
-                  Center(
-                    child: ListTile(
-                      leading: const CircleAvatar(
-                        radius: 31.625,
-                        backgroundColor: Color(0xff432cba),
-                        child: Icon(Icons.menu_book_outlined,
-                            size: 30, color: Colors.white),
+                        backgroundColor: lightColorScheme.primary,
+                        child: Icon(Icons.format_list_numbered_outlined,
+                            size: 30, color: lightColorScheme.onPrimary),
                       ),
                       title: Text(
                         "Materials",
                         style: GoogleFonts.inter(
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
-                            color: Colors.black),
+                            color: lightColorScheme.onBackground),
                       ),
-                      trailing: const Padding(
+                      trailing: Padding(
                         padding: EdgeInsets.only(right: 10),
                         child: Icon(
                           Icons.keyboard_arrow_right,
-                          color: Colors.black,
+                          color: lightColorScheme.onBackground,
                         ),
                       ),
                       onTap: () {
-                        GoRouter.of(context).push("/materials");
+                        Future.delayed(const Duration(milliseconds: 100), () {
+                          GoRouter.of(context).pushNamed("materials");
+                        });
                       },
                     ),
                   ),
-
                   Center(
                     child: ListTile(
-                      leading: const CircleAvatar(
+                      leading: CircleAvatar(
                         radius: 31.625,
-                        backgroundColor: Color(0xff432cba),
-                        child: Icon(Icons.emoji_events_outlined,
-                            size: 30, color: Colors.white),
+                        backgroundColor: lightColorScheme.primary,
+                        child: Icon(Icons.format_list_numbered_outlined,
+                            size: 30, color: lightColorScheme.onPrimary),
                       ),
                       title: Text(
                         "Events",
                         style: GoogleFonts.inter(
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
-                            color: Colors.black),
+                            color: lightColorScheme.onBackground),
                       ),
-                      trailing: const Padding(
+                      trailing: Padding(
                         padding: EdgeInsets.only(right: 10),
                         child: Icon(
                           Icons.keyboard_arrow_right,
-                          color: Colors.black,
+                          color: lightColorScheme.onBackground,
                         ),
                       ),
-                      onTap: () {},
+                      onTap: () {
+                        Future.delayed(const Duration(milliseconds: 100), () {
+                          GoRouter.of(context).pushNamed("events");
+                        });
+                      },
                     ),
                   ),
                   Center(
                     child: ListTile(
-                      leading: const CircleAvatar(
+                      leading: CircleAvatar(
                         radius: 31.625,
-                        backgroundColor: Color(0xff432cba),
+                        backgroundColor: lightColorScheme.primary,
                         child: Icon(Icons.format_list_numbered_outlined,
-                            size: 30, color: Colors.white),
+                            size: 30, color: lightColorScheme.onPrimary),
                       ),
                       title: Text(
-                        "To-Do",
+                        "Time Table",
                         style: GoogleFonts.inter(
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
-                            color: Colors.black),
+                            color: lightColorScheme.onBackground),
                       ),
-                      trailing: const Padding(
+                      trailing: Padding(
                         padding: EdgeInsets.only(right: 10),
                         child: Icon(
                           Icons.keyboard_arrow_right,
-                          color: Colors.black,
+                          color: lightColorScheme.onBackground,
                         ),
                       ),
-                      onTap: () {},
+                      onTap: () {
+                        Future.delayed(const Duration(milliseconds: 100), () {
+                          GoRouter.of(context).pushNamed("timeTable");
+                        });
+                      },
                     ),
                   ),
-
-                  //      Text("Yet another element in List"),
-
-                  //      Container(color: Colors.red, height: 50.0,)
+                  Center(
+                    child: ListTile(
+                      leading: CircleAvatar(
+                        radius: 31.625,
+                        backgroundColor: lightColorScheme.primary,
+                        child: Icon(Icons.format_list_numbered_outlined,
+                            size: 30, color: lightColorScheme.onPrimary),
+                      ),
+                      title: Text(
+                        "To Do",
+                        style: GoogleFonts.inter(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: lightColorScheme.onBackground),
+                      ),
+                      trailing: Padding(
+                        padding: EdgeInsets.only(right: 10),
+                        child: Icon(
+                          Icons.keyboard_arrow_right,
+                          color: lightColorScheme.onBackground,
+                        ),
+                      ),
+                      onTap: () {
+                        Future.delayed(const Duration(milliseconds: 100), () {
+                          GoRouter.of(context).pushNamed("toDo");
+                        });
+                      },
+                    ),
+                  ),
                 ],
               ),
             ),

@@ -24,8 +24,8 @@ class _BeamState extends State<Beam> {
       routerDelegate: goroutes.routerDelegate,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(useMaterial3: true, colorScheme: lightColorScheme),
-      darkTheme: ThemeData(useMaterial3: true, colorScheme: darkColorScheme),
-      title: 'Flutter Demo',
+      darkTheme: ThemeData(useMaterial3: true, colorScheme: lightColorScheme),
+      title: 'BEAM',
     );
   }
 }

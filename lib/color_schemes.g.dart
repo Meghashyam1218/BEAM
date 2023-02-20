@@ -35,7 +35,7 @@ var color = Colors.yellow;
 //   scrim: Color(0xFF000000),
 // );
 ColorScheme lightColorScheme =
-    ColorScheme.fromSeed(seedColor: color, brightness: Brightness.light);
+    ColorScheme.fromSeed(seedColor: color);
 // const darkColorScheme = ColorScheme(
 //   brightness: Brightness.dark,
 //   primary: Color(0xFFD0BCFF),
