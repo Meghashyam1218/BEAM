@@ -6,7 +6,7 @@ import 'package:beam/screens/materials/materials.dart';
 import 'package:beam/screens/notifications/notifications.dart';
 import 'package:beam/screens/profile/profile.dart';
 import 'package:beam/screens/student_dashboard/dashboard.dart';
-import 'package:beam/screens/teacher/dashboard.dart';
+import 'package:beam/screens/teacher_dashboard/dashboard.dart';
 import 'package:beam/screens/timetable/timetable.dart';
 import 'package:beam/screens/todo/todo.dart';
 import 'package:flutter/material.dart';

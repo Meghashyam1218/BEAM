@@ -1,4 +1,4 @@
-import 'package:beam/components/cards_academic.dart';
+import 'package:beam/academics/components/cards_academic.dart';
 import 'package:beam/components/appbar.dart';
 import 'package:beam/components/dropdown.dart';
 import 'package:flutter/material.dart';
