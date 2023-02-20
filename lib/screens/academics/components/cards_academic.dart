@@ -45,14 +45,15 @@ class _CardsAcademicState extends State<CardsAcademic> {
     ];
     return GridView.count(
       primary: false,
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       crossAxisSpacing: 10,
       mainAxisSpacing: 10,
       crossAxisCount: 2,
       children: List.generate(
         sems.length,
         (index) => Card(
-          color: lightColorScheme.secondaryContainer,
+          color:
+              color[((sems.length + 1) - (index + 1)) * 100]!.withOpacity(0.9),
           child: InkWell(
             splashColor:
                 lightColorScheme.background.withOpacity(0.5), // Splash color

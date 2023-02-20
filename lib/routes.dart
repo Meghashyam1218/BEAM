@@ -1,14 +1,14 @@
+import 'package:beam/screens/academics/academic.dart';
+import 'package:beam/screens/events/events.dart';
+import 'package:beam/screens/feedues/feedues.dart';
 import 'package:beam/screens/login/login.dart';
-import 'package:beam/screens/student/dashboard.dart';
-import 'package:beam/screens/student/feedues.dart';
-import 'package:beam/screens/student/notifications.dart';
-import 'package:beam/screens/student/timetable.dart';
+import 'package:beam/screens/materials/materials.dart';
+import 'package:beam/screens/notifications/notifications.dart';
+import 'package:beam/screens/profile/profile.dart';
+import 'package:beam/screens/student_dashboard/dashboard.dart';
 import 'package:beam/screens/teacher/dashboard.dart';
-import 'package:beam/screens/utilis/academic.dart';
-import 'package:beam/screens/utilis/events.dart';
-import 'package:beam/screens/utilis/materials.dart';
-import 'package:beam/screens/utilis/profile.dart';
-import 'package:beam/screens/utilis/todo.dart';
+import 'package:beam/screens/timetable/timetable.dart';
+import 'package:beam/screens/todo/todo.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 final goroutes = GoRouter(

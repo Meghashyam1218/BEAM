@@ -1,9 +1,9 @@
 import 'package:beam/color_schemes.g.dart';
-import 'package:beam/components/dashboard_select.dart';
+import 'package:beam/screens/student_dashboard/components/dashboard_cards.dart';
 import 'package:beam/components/appbar_dash.dart';
 import 'package:flutter/material.dart';
-import '../../components/academic/academic_card.dart';
-import '../../components/hello_user.dart';
+import 'components/academic_card.dart';
+import '../../../components/hello_user.dart';
 
 class DashboardS extends StatefulWidget {
   const DashboardS({super.key});
@@ -18,13 +18,13 @@ class _DashboardSState extends State<DashboardS> {
     return SafeArea(
       child: Scaffold(
         appBar: const BeamAppBarDash(),
-        body: 
-          // scrollDirection: Axis.horizontal,
-          
+        body:
+            // scrollDirection: Axis.horizontal,
+
             Container(
           constraints: const BoxConstraints.expand(),
           padding: const EdgeInsets.only(left: 20, right: 20, bottom: 50),
-            color: lightColorScheme.background,
+          color: lightColorScheme.background,
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,12 +39,6 @@ class _DashboardSState extends State<DashboardS> {
           ),
         ),
       ),
-      
-      
     );
   }
 }
-
-
-
-
