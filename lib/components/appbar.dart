@@ -47,10 +47,10 @@ class BeamAppBar extends StatelessWidget implements PreferredSizeWidget {
           onTap: ((() {
             GoRouter.of(context).pushNamed('profile');
           })),
-          child: const Icon(
+          child: Icon(
             Icons.account_circle_outlined,
-            size: 24,
-            color: Color.fromARGB(255, 255, 255, 255),
+            size: 30,
+            color: lightColorScheme.onPrimary,
           ),
         ),
       ),
@@ -59,12 +59,12 @@ class BeamAppBar extends StatelessWidget implements PreferredSizeWidget {
           onTap: (() {
             GoRouter.of(context).pop();
           }),
-          child: const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 25),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25),
             child: Icon(
               Icons.home_outlined,
-              size: 24,
-              color: Color.fromARGB(255, 255, 255, 255),
+              size: 30,
+              color: lightColorScheme.onPrimary,
             ),
           ),
         )

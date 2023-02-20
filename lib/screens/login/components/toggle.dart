@@ -19,7 +19,7 @@ class _ToggleBtnState extends State<ToggleBtn> {
       width: 250,
       height: 60,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(50)),
+          borderRadius: const BorderRadius.all(Radius.circular(50)),
           color: lightColorScheme.primaryContainer),
       child: Stack(
         children: [
@@ -33,7 +33,7 @@ class _ToggleBtnState extends State<ToggleBtn> {
               width: 125,
               height: 50,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(50)),
+                borderRadius: const BorderRadius.all(Radius.circular(50)),
                 color: lightColorScheme.primary,
               ),
             ),

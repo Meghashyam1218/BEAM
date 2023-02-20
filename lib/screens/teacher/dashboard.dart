@@ -13,30 +13,14 @@ class DashboardT extends StatefulWidget {
 }
 
 class _DashboardTState extends State<DashboardT> {
-  List<String> tiles = [
-    "Post Attendance",
-    "Student Analysis",
-    "Time Table",
-    "Materials",
-    "Events",
-    "To-Do"
-  ];
-  List<String> paths = [
-    "attendace",
-    '"academic", params: {"loginFlag": "false"}',
-    "timeTable",
-    "materials",
-    "events",
-    "toDo"
-  ];
+
 
   @override
   Widget build(BuildContext context) {
-    print(paths[1]);
-    print(paths[0]);
+    
     return SafeArea(
       child: Scaffold(
-        appBar: BeamAppBarDash(),
+        appBar: const BeamAppBarDash(),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -45,8 +29,8 @@ class _DashboardTState extends State<DashboardT> {
               color: const Color.fromARGB(0, 196, 94, 94),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const SizedBox(
+                children: const [
+                  SizedBox(
                     height: 10,
                   ),
                   HelloUser()
@@ -74,7 +58,7 @@ class _DashboardTState extends State<DashboardT> {
                             color: lightColorScheme.onBackground),
                       ),
                       trailing: Padding(
-                        padding: EdgeInsets.only(right: 10),
+                        padding: const EdgeInsets.only(right: 10),
                         child: Icon(
                           Icons.keyboard_arrow_right,
                           color: lightColorScheme.onBackground,
@@ -99,7 +83,7 @@ class _DashboardTState extends State<DashboardT> {
                             color: lightColorScheme.onBackground),
                       ),
                       trailing: Padding(
-                        padding: EdgeInsets.only(right: 10),
+                        padding: const EdgeInsets.only(right: 10),
                         child: Icon(
                           Icons.keyboard_arrow_right,
                           color: lightColorScheme.onBackground,
@@ -129,7 +113,7 @@ class _DashboardTState extends State<DashboardT> {
                             color: lightColorScheme.onBackground),
                       ),
                       trailing: Padding(
-                        padding: EdgeInsets.only(right: 10),
+                        padding: const EdgeInsets.only(right: 10),
                         child: Icon(
                           Icons.keyboard_arrow_right,
                           color: lightColorScheme.onBackground,
@@ -158,7 +142,7 @@ class _DashboardTState extends State<DashboardT> {
                             color: lightColorScheme.onBackground),
                       ),
                       trailing: Padding(
-                        padding: EdgeInsets.only(right: 10),
+                        padding: const EdgeInsets.only(right: 10),
                         child: Icon(
                           Icons.keyboard_arrow_right,
                           color: lightColorScheme.onBackground,
@@ -187,7 +171,7 @@ class _DashboardTState extends State<DashboardT> {
                             color: lightColorScheme.onBackground),
                       ),
                       trailing: Padding(
-                        padding: EdgeInsets.only(right: 10),
+                        padding: const EdgeInsets.only(right: 10),
                         child: Icon(
                           Icons.keyboard_arrow_right,
                           color: lightColorScheme.onBackground,
@@ -216,7 +200,7 @@ class _DashboardTState extends State<DashboardT> {
                             color: lightColorScheme.onBackground),
                       ),
                       trailing: Padding(
-                        padding: EdgeInsets.only(right: 10),
+                        padding: const EdgeInsets.only(right: 10),
                         child: Icon(
                           Icons.keyboard_arrow_right,
                           color: lightColorScheme.onBackground,

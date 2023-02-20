@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 
 var color = Colors.yellow;
+var brightnessMode = SchedulerBinding.instance.window.platformBrightness;
+bool isDarkMode = brightnessMode == Brightness.dark;
 // const lightColorScheme = ColorScheme(
 //   brightness: Brightness.light,
 //   primary: Color(0xFF6750A4),
@@ -35,7 +38,7 @@ var color = Colors.yellow;
 //   scrim: Color(0xFF000000),
 // );
 ColorScheme lightColorScheme =
-    ColorScheme.fromSeed(seedColor: color);
+    ColorScheme.fromSeed(seedColor: color, brightness: brightnessMode);
 // const darkColorScheme = ColorScheme(
 //   brightness: Brightness.dark,
 //   primary: Color(0xFFD0BCFF),

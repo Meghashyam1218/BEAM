@@ -26,6 +26,7 @@ class _BeamState extends State<Beam> {
       theme: ThemeData(useMaterial3: true, colorScheme: lightColorScheme),
       darkTheme: ThemeData(useMaterial3: true, colorScheme: lightColorScheme),
       title: 'BEAM',
+      
     );
   }
 }

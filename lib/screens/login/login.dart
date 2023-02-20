@@ -26,6 +26,7 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     // bool keyboard = node1.hasFocus || node2.hasFocus;
     // print(keyboard);
+    
 
     return SafeArea(
       child: Scaffold(
@@ -43,10 +44,8 @@ class _LoginState extends State<Login> {
               mainAxisAlignment: MainAxisAlignment.start,
               // crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                
                 LoginImg(flag: flag),
 
-                
                 Flexible(
                   child: Container(
                     width: double.infinity,
@@ -55,7 +54,7 @@ class _LoginState extends State<Login> {
                     // constraints: BoxConstraints.expand(),
                     decoration: BoxDecoration(
                         color: lightColorScheme.background,
-                        borderRadius: BorderRadius.only(
+                        borderRadius: const BorderRadius.only(
                           topRight: Radius.circular(36),
                           topLeft: Radius.circular(36),
                         )),
@@ -90,7 +89,6 @@ class _LoginState extends State<Login> {
                     ),
                   ),
                 ),
-                
 
                 //text fields
               ],
@@ -108,7 +106,7 @@ class _LoginState extends State<Login> {
       width: 250,
       height: 60,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(50)),
+          borderRadius: const BorderRadius.all(Radius.circular(50)),
           color: lightColorScheme.primaryContainer),
       child: Stack(
         children: [
@@ -122,7 +120,7 @@ class _LoginState extends State<Login> {
               width: 125,
               height: 50,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(50)),
+                borderRadius: const BorderRadius.all(Radius.circular(50)),
                 color: lightColorScheme.primary,
               ),
             ),
@@ -259,12 +257,9 @@ class LoginBtn extends StatelessWidget {
       height: 50.0,
       decoration: BoxDecoration(
         // backgroundBlendMode: BlendMode.luminosity,
-        borderRadius: BorderRadius.all(Radius.circular(15)),
-        gradient: LinearGradient(
-          colors: [lightColorScheme.primary, lightColorScheme.secondary],
-          end: Alignment.bottomCenter,
-          begin: Alignment.topCenter,
-        ),
+        borderRadius: const BorderRadius.all(Radius.circular(15)),
+        color: lightColorScheme.primary,
+          
       ),
       child: ElevatedButton(
         onPressed: () {
@@ -296,8 +291,8 @@ class LoginImg extends StatelessWidget {
   });
 
   final bool flag;
-  
-final FocusNode node1 = FocusNode();
+
+  final FocusNode node1 = FocusNode();
   final FocusNode node2 = FocusNode();
   @override
   Widget build(BuildContext context) {
@@ -307,7 +302,7 @@ final FocusNode node1 = FocusNode();
       padding: const EdgeInsets.all(0),
       child: flag == true
           ? Image(
-              image: AssetImage('assets/login(1).png'),
+              image: const AssetImage('assets/login(1).png'),
               height: !node1.hasFocus ? 250 : 0,
             )
           : const Image(

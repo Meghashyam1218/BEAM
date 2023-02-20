@@ -26,7 +26,9 @@ class _DropdownListState extends State<DropdownList> {
         Text(
           widget.nameValue,
           style: GoogleFonts.inter(
-              fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+              color: lightColorScheme.onBackground),
         ),
         Container(
           width: w * 0.5,
