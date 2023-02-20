@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../color_schemes.g.dart';
 
+// ignore: must_be_immutable
 class DropdownList extends StatefulWidget {
   final String nameValue;
   final List<String> dropdownlistValues;

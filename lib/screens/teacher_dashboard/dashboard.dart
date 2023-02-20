@@ -47,7 +47,7 @@ class _DashboardTState extends State<DashboardT> {
                       leading: CircleAvatar(
                         radius: 31.625,
                         backgroundColor: lightColorScheme.primary,
-                        child: Icon(Icons.format_list_numbered_outlined,
+                        child: Icon(Icons.rule_outlined,
                             size: 30, color: lightColorScheme.onPrimary),
                       ),
                       title: Text(
@@ -72,7 +72,7 @@ class _DashboardTState extends State<DashboardT> {
                       leading: CircleAvatar(
                         radius: 31.625,
                         backgroundColor: lightColorScheme.primary,
-                        child: Icon(Icons.format_list_numbered_outlined,
+                        child: Icon(Icons.analytics_outlined,
                             size: 30, color: lightColorScheme.onPrimary),
                       ),
                       title: Text(
@@ -102,7 +102,7 @@ class _DashboardTState extends State<DashboardT> {
                       leading: CircleAvatar(
                         radius: 31.625,
                         backgroundColor: lightColorScheme.primary,
-                        child: Icon(Icons.format_list_numbered_outlined,
+                        child: Icon(Icons.file_copy_outlined,
                             size: 30, color: lightColorScheme.onPrimary),
                       ),
                       title: Text(
@@ -131,7 +131,7 @@ class _DashboardTState extends State<DashboardT> {
                       leading: CircleAvatar(
                         radius: 31.625,
                         backgroundColor: lightColorScheme.primary,
-                        child: Icon(Icons.format_list_numbered_outlined,
+                        child: Icon(Icons.emoji_events_outlined,
                             size: 30, color: lightColorScheme.onPrimary),
                       ),
                       title: Text(
@@ -160,7 +160,7 @@ class _DashboardTState extends State<DashboardT> {
                       leading: CircleAvatar(
                         radius: 31.625,
                         backgroundColor: lightColorScheme.primary,
-                        child: Icon(Icons.format_list_numbered_outlined,
+                        child: Icon(Icons.event_note,
                             size: 30, color: lightColorScheme.onPrimary),
                       ),
                       title: Text(
