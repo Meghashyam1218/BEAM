@@ -19,16 +19,16 @@ class _FeeDuesState extends State<FeeDues> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 child: DropdownList(
                     nameValue: "Fee type",
-                    dropdownlistValues: <String>[
+                    dropdownlistValues: const <String>[
                       "college fee",
                       "JNTU fee",
                       "CRT Fee",
                       "Other fees"
                     ])),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
           ],

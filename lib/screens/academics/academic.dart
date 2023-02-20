@@ -1,5 +1,5 @@
 import 'package:beam/components/appbar.dart';
-import 'package:beam/components/dropdown.dart';
+// import 'package:beam/components/dropdown.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -14,27 +14,33 @@ class Academic extends StatefulWidget {
 }
 
 class _AcademicState extends State<Academic> {
-  bool showCards = false;
-  FocusNode redgNo = FocusNode();
-  String? yearValue;
-  String? semesterValue;
-  year(String val) {
-    setState(() {
-      yearValue = val;
-    });
+  @override
+  void initState() {
+    if (widget.loginFlag == "false") showCards = true;
+    super.initState();
   }
 
-  semester(String val) {
-    setState(() {
-      semesterValue = val;
-    });
-  }
+  bool showCards = false;
+  FocusNode redgNo = FocusNode();
+  // String? yearValue;
+  // String? semesterValue;
+  // year(String val) {
+  //   setState(() {
+  //     yearValue = val;
+  //   });
+  // }
+
+  // semester(String val) {
+  //   setState(() {
+  //     semesterValue = val;
+  //   });
+  // }
 
   final textControllerRedgNo = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    print("${redgNo.hasFocus} ${yearValue} ${semesterValue}");
+    // print("${redgNo.hasFocus}");
     return SafeArea(
       child: GestureDetector(
         onTap: () {
@@ -51,38 +57,38 @@ class _AcademicState extends State<Academic> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    if (widget.loginFlag == "true")
-                      Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: DropdownList(
-                          dropdownlistValues: <String>[
-                            '1',
-                            '2',
-                            '3',
-                            '4',
-                          ],
-                          nameValue: "Year",
-                          onChange: year,
-                        ),
-                      ),
-                    if (widget.loginFlag == "true")
-                      Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: DropdownList(
-                          dropdownlistValues: <String>[
-                            '1',
-                            '2',
-                            '3',
-                            '4',
-                            '5',
-                            '6',
-                            '7',
-                            '8'
-                          ],
-                          nameValue: "Semester",
-                          onChange: semester,
-                        ),
-                      ),
+                    // if (widget.loginFlag == "true")
+                    //   Padding(
+                    //     padding: const EdgeInsets.all(8.0),
+                    //     child: DropdownList(
+                    //       dropdownlistValues: const <String>[
+                    //         '1',
+                    //         '2',
+                    //         '3',
+                    //         '4',
+                    //       ],
+                    //       nameValue: "Year",
+                    //       onChange: year,
+                    //     ),
+                    //   ),
+                    // if (widget.loginFlag == "true")
+                    //   Padding(
+                    //     padding: const EdgeInsets.all(8.0),
+                    //     child: DropdownList(
+                    //       dropdownlistValues: const <String>[
+                    //         '1',
+                    //         '2',
+                    //         '3',
+                    //         '4',
+                    //         '5',
+                    //         '6',
+                    //         '7',
+                    //         '8'
+                    //       ],
+                    //       nameValue: "Semester",
+                    //       onChange: semester,
+                    //     ),
+                    //   ),
                     if (widget.loginFlag == "true")
                       Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -95,6 +101,7 @@ class _AcademicState extends State<Academic> {
                                   fontWeight: FontWeight.w600,
                                   color: lightColorScheme.onBackground),
                             ),
+                            const SizedBox(width: 40),
                             Flexible(
                                 child: Padding(
                               padding: const EdgeInsets.only(left: 8),
@@ -105,24 +112,51 @@ class _AcademicState extends State<Academic> {
                                 textCapitalization:
                                     TextCapitalization.characters,
                                 decoration: InputDecoration(
-                                    constraints: BoxConstraints(maxHeight: 50),
+                                    enabledBorder: OutlineInputBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(25)),
+                                    contentPadding: const EdgeInsets.all(0),
+                                    constraints:
+                                        const BoxConstraints(maxHeight: 50),
                                     hintText:
                                         !redgNo.hasFocus ? "19NRXXXX5" : "",
                                     filled: true,
                                     fillColor:
                                         lightColorScheme.primaryContainer,
                                     border: OutlineInputBorder(
+                                        gapPadding: 0,
                                         borderRadius:
                                             BorderRadius.circular(25))),
                               ),
                             )),
                           ],
                         ),
-                      )
+                      ),
+                    if (widget.loginFlag == "true")
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8),
+                        child: SizedBox(
+                          width: 150,
+                          height: 50,
+                          child: ElevatedButton(
+                              style: ButtonStyle(
+                                backgroundColor: MaterialStateProperty.all(
+                                    lightColorScheme.tertiaryContainer),
+                                foregroundColor: MaterialStateProperty.all(
+                                    lightColorScheme.onTertiaryContainer),
+                              ),
+                              onPressed: () {
+                                setState(() {
+                                  showCards = true;
+                                });
+                              },
+                              child: const Text("Get Results")),
+                        ),
+                      ),
                   ],
                 ),
               ),
-              if (!showCards) const Expanded(child: CardsAcademic()),
+              if (showCards) const Expanded(child: CardsAcademic()),
             ],
           ),
         ),

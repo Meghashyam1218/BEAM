@@ -53,7 +53,23 @@ class _CardsAcademicState extends State<CardsAcademic> {
         sems.length,
         (index) => Card(
           color:
-              color[((sems.length + 1) - (index + 1)) * 100]!.withOpacity(0.9),
+              index == 0
+              ? const Color(0xff8d7dfd)
+              : index == 1
+                  ? const Color(0xffCD5DD8)
+                  : index == 2
+                      ? const Color(0xffe16cc1)
+                      : index == 3
+                          ? const Color(0xfffe2c81)
+                          : index == 4
+                              ? const Color(0xff8d7dfd)
+                              : index == 5
+                                  ? const Color(0xffCD5DD8)
+                                  : index == 6
+                                      ? const Color(0xffe16cc1)
+                                      : index == 7
+                                          ? const Color(0xfffe2c81)
+                                          : const Color(0xff9032ff),
           child: InkWell(
             splashColor:
                 lightColorScheme.background.withOpacity(0.5), // Splash color
@@ -70,21 +86,21 @@ class _CardsAcademicState extends State<CardsAcademic> {
                     sems[index],
                     style: GoogleFonts.inter(
                         fontSize: 50,
-                        color: lightColorScheme.onSecondaryContainer,
+                        color: Colors.lightGreen[50],
                         fontWeight: FontWeight.w500),
                   ),
                   Text(
                     "Percentage :${percentage[index]}",
                     style: GoogleFonts.inter(
-                        fontSize: 16,
-                        color: lightColorScheme.onSecondaryContainer,
+                        fontSize: 18,
+                        color: Colors.lightGreen[50],
                         fontWeight: FontWeight.w500),
                   ),
                   Text(
                     "CGPA :${cgpa[index]}",
                     style: GoogleFonts.inter(
-                        fontSize: 16,
-                        color: lightColorScheme.onSecondaryContainer,
+                        fontSize: 18,
+                        color: Colors.lightGreen[50],
                         fontWeight: FontWeight.w500),
                   )
                 ],

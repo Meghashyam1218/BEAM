@@ -39,10 +39,11 @@ class _MaterialsState extends State<Materials> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   DropdownList(
-                      nameValue: "Regulation", dropdownlistValues: ['R19']),
+                      nameValue: "Regulation",
+                      dropdownlistValues: const ['R19']),
                   const SizedBox(height: 20),
                   DropdownList(
-                    dropdownlistValues: <String>[
+                    dropdownlistValues: const <String>[
                       '1',
                       '2',
                       '3',
@@ -58,7 +59,7 @@ class _MaterialsState extends State<Materials> {
                     height: 20,
                   ),
                   DropdownList(
-                    dropdownlistValues: <String>[
+                    dropdownlistValues: const <String>[
                       '1',
                       '2',
                       '3',
@@ -109,7 +110,7 @@ class _MaterialsState extends State<Materials> {
                 ],
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             if (_showMaterial == true)
               Expanded(
                 child: ListView(
