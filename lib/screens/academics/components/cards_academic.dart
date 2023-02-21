@@ -51,24 +51,27 @@ class _CardsAcademicState extends State<CardsAcademic> {
       children: List.generate(
         sems.length,
         (index) => Card(
-          color:
-              index == 0
-              ? const Color(0xff8d7dfd)
-              : index == 1
-                  ? const Color(0xffCD5DD8)
-                  : index == 2
-                      ? const Color(0xffe16cc1)
-                      : index == 3
-                          ? const Color(0xfffe2c81)
-                          : index == 4
-                              ? const Color(0xff8d7dfd)
-                              : index == 5
-                                  ? const Color(0xffCD5DD8)
-                                  : index == 6
-                                      ? const Color(0xffe16cc1)
-                                      : index == 7
-                                          ? const Color(0xfffe2c81)
-                                          : const Color(0xff9032ff),
+          color: Theme.of(context)
+              .colorScheme
+              .primary
+              .withOpacity(1 - ((index * 0.1) / 2)),
+          // index == 0
+          // ? const Color(0xff8d7dfd)
+          // : index == 1
+          //     ? const Color(0xffCD5DD8)
+          //     : index == 2
+          //         ? const Color(0xffe16cc1)
+          //         : index == 3
+          //             ? const Color(0xfffe2c81)
+          //             : index == 4
+          //                 ? const Color(0xff8d7dfd)
+          //                 : index == 5
+          //                     ? const Color(0xffCD5DD8)
+          //                     : index == 6
+          //                         ? const Color(0xffe16cc1)
+          //                         : index == 7
+          //                             ? const Color(0xfffe2c81)
+          //                             : const Color(0xff9032ff),
           child: InkWell(
             splashColor:
                 Theme.of(context)

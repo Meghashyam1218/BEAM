@@ -7,6 +7,8 @@ import 'color_schemes.g.dart';
 void main() {
   runApp(const ProviderScope(child: Beam()));
 }
+
+
 class Beam extends ConsumerWidget {
   const Beam({super.key});
 
@@ -25,11 +27,10 @@ class Beam extends ConsumerWidget {
               seedColor: color, brightness: Brightness.dark),
         ),
         routeInformationParser: goroutes.routeInformationParser,
-      routerDelegate: goroutes.routerDelegate,
+        routerDelegate: goroutes.routerDelegate,
         debugShowCheckedModeBanner: false,
         title: 'BEAM',
       ),
     );
-
   }
 }
