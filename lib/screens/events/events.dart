@@ -1,4 +1,3 @@
-import 'package:beam/color_schemes.g.dart';
 import 'package:beam/components/appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -48,7 +47,7 @@ class Event extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: Card(
         clipBehavior: Clip.hardEdge,
-        color: lightColorScheme.secondaryContainer,
+        color: Theme.of(context).colorScheme.secondaryContainer,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -65,7 +64,8 @@ class Event extends StatelessWidget {
                         fontSize: 15,
                         letterSpacing: 0.4,
                         fontWeight: FontWeight.w700,
-                        color: lightColorScheme.onSecondaryContainer),
+                        color:
+                            Theme.of(context).colorScheme.onSecondaryContainer),
                   ),
                   const SizedBox(height: 5),
                   Text(
@@ -73,7 +73,7 @@ class Event extends StatelessWidget {
                     style: GoogleFonts.inter(
                         fontSize: 12,
                         fontWeight: FontWeight.w500,
-                        color: lightColorScheme.outline),
+                        color: Theme.of(context).colorScheme.outline),
                   )
                 ],
               ),

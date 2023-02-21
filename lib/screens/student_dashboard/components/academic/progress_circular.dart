@@ -1,4 +1,3 @@
-import 'package:beam/color_schemes.g.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -18,8 +17,8 @@ class ProgressCircular extends StatelessWidget {
             child: CircularProgressIndicator(
               value: .7,
               strokeWidth: 14.0,
-              color: lightColorScheme.primary,
-              backgroundColor: lightColorScheme.outline,
+              color: Theme.of(context).colorScheme.primary,
+              backgroundColor: Theme.of(context).colorScheme.outline,
             ),
           ),
           Center(

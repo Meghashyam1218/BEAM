@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -26,12 +27,11 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     // bool keyboard = node1.hasFocus || node2.hasFocus;
     // print(keyboard);
-    
 
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: lightColorScheme.secondaryContainer,
+        backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
         body: GestureDetector(
           onTap: (() => {
                 FocusScope.of(context).requestFocus(FocusNode()),
@@ -53,7 +53,7 @@ class _LoginState extends State<Login> {
                     padding: const EdgeInsets.all(50),
                     // constraints: BoxConstraints.expand(),
                     decoration: BoxDecoration(
-                        color: lightColorScheme.background,
+                        color: Theme.of(context).colorScheme.background,
                         borderRadius: const BorderRadius.only(
                           topRight: Radius.circular(36),
                           topLeft: Radius.circular(36),
@@ -74,11 +74,15 @@ class _LoginState extends State<Login> {
                           onPressed: () {},
                           style: ButtonStyle(
                               overlayColor: MaterialStateProperty.all(
-                                  lightColorScheme.primary.withOpacity(0.2))),
+                                  Theme.of(context)
+                                      .colorScheme
+                                      .primary
+                                      .withOpacity(0.2))),
                           child: Text(
                             "Forgot Password",
-                            style:
-                                TextStyle(color: lightColorScheme.onBackground),
+                            style: TextStyle(
+                                color:
+                                    Theme.of(context).colorScheme.onBackground),
                           ),
                         ),
                         const SizedBox(
@@ -107,7 +111,7 @@ class _LoginState extends State<Login> {
       height: 60,
       decoration: BoxDecoration(
           borderRadius: const BorderRadius.all(Radius.circular(50)),
-          color: lightColorScheme.primaryContainer),
+          color: Theme.of(context).colorScheme.primaryContainer),
       child: Stack(
         children: [
           AnimatedContainer(
@@ -121,7 +125,7 @@ class _LoginState extends State<Login> {
               height: 50,
               decoration: BoxDecoration(
                 borderRadius: const BorderRadius.all(Radius.circular(50)),
-                color: lightColorScheme.primary,
+                color: Theme.of(context).colorScheme.primary,
               ),
             ),
           ),
@@ -142,14 +146,16 @@ class _LoginState extends State<Login> {
                     ? Text(
                         'Teacher',
                         style: TextStyle(
-                            color: lightColorScheme.onPrimary,
+                            color: Theme.of(context).colorScheme.onPrimary,
                             fontSize: 18,
                             fontWeight: FontWeight.bold),
                       )
                     : Text(
                         'Teacher',
                         style: TextStyle(
-                            color: lightColorScheme.onPrimaryContainer,
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onPrimaryContainer,
                             fontSize: 18,
                             fontWeight: FontWeight.bold),
                       ),
@@ -167,14 +173,16 @@ class _LoginState extends State<Login> {
                     ? Text(
                         'Student',
                         style: TextStyle(
-                            color: lightColorScheme.onPrimary,
+                            color: Theme.of(context).colorScheme.onPrimary,
                             fontSize: 18,
                             fontWeight: FontWeight.bold),
                       )
                     : Text(
                         'Student',
                         style: TextStyle(
-                            color: lightColorScheme.onPrimaryContainer,
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onPrimaryContainer,
                             fontSize: 18,
                             fontWeight: FontWeight.bold),
                       ),
@@ -242,7 +250,7 @@ class LoginFields extends StatelessWidget {
   }
 }
 
-class LoginBtn extends StatelessWidget {
+class LoginBtn extends ConsumerWidget {
   const LoginBtn({
     super.key,
     required this.flag,
@@ -251,18 +259,19 @@ class LoginBtn extends StatelessWidget {
   final bool flag;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Container(
       width: 300,
       height: 50.0,
       decoration: BoxDecoration(
         // backgroundBlendMode: BlendMode.luminosity,
         borderRadius: const BorderRadius.all(Radius.circular(15)),
-        color: lightColorScheme.primary,
-          
+        color: Theme.of(context).colorScheme.primary,
       ),
       child: ElevatedButton(
         onPressed: () {
+          // ref.read(colorProvider.notifier).update((state) => Colors.green);
+          // print(ref.read(colorProvider.notifier).state);
           if (flag == true) {
             GoRouter.of(context).pushNamed("dashboardT");
           } else {
@@ -275,7 +284,7 @@ class LoginBtn extends StatelessWidget {
         child: Text(
           'Login',
           style: GoogleFonts.inter(
-              color: lightColorScheme.onPrimary,
+              color: Theme.of(context).colorScheme.onPrimary,
               fontSize: 20,
               fontWeight: FontWeight.w500),
         ),

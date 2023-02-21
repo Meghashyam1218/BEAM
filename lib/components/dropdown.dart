@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../color_schemes.g.dart';
 
 // ignore: must_be_immutable
 class DropdownList extends StatefulWidget {
@@ -33,26 +32,26 @@ class _DropdownListState extends State<DropdownList> {
           style: GoogleFonts.inter(
               fontSize: 18,
               fontWeight: FontWeight.w600,
-              color: lightColorScheme.onBackground),
+              color: Theme.of(context).colorScheme.onBackground),
         ),
         Container(
           width: w * 0.5,
           padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 16),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            color: lightColorScheme.primaryContainer,
+            color: Theme.of(context).colorScheme.primaryContainer,
           ),
           child: DropdownButton<String>(
             hint: Text("Select ${widget.nameValue}",
                 overflow: TextOverflow.ellipsis),
             isExpanded: true,
-            dropdownColor: lightColorScheme.primaryContainer,
+            dropdownColor: Theme.of(context).colorScheme.primaryContainer,
             value: dropdownValue,
             alignment: AlignmentDirectional.centerStart,
             icon: const Icon(Icons.arrow_downward),
             elevation: 4,
             style: TextStyle(
-              color: lightColorScheme.onSecondaryContainer,
+              color: Theme.of(context).colorScheme.onSecondaryContainer,
               fontSize: 18,
               fontWeight: FontWeight.w500,
             ),

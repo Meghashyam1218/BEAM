@@ -1,4 +1,3 @@
-import 'package:beam/color_schemes.g.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -37,7 +36,7 @@ class SelectCard extends StatelessWidget {
       child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
-            color: lightColorScheme.primary,
+            color: Theme.of(context).colorScheme.primary,
           ),
           child: Center(
             child: Column(
@@ -46,16 +45,16 @@ class SelectCard extends StatelessWidget {
                 children: <Widget>[
                   Icon(
                     choice.icon,
-                    color: lightColorScheme.onPrimary,
+                    color: Theme.of(context).colorScheme.onPrimary,
                     size: 48.0,
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8),
                     child: Text(
                       choice.title,
-                      selectionColor: lightColorScheme.onPrimary,
+                      selectionColor: Theme.of(context).colorScheme.onPrimary,
                       style: TextStyle(
-                          color: lightColorScheme.onPrimary,
+                          color: Theme.of(context).colorScheme.onPrimary,
                           fontWeight: FontWeight.bold),
                     ),
                   ),

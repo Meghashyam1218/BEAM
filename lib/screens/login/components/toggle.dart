@@ -1,4 +1,3 @@
-import 'package:beam/color_schemes.g.dart';
 import 'package:flutter/material.dart';
 
 class ToggleBtn extends StatefulWidget {
@@ -20,7 +19,7 @@ class _ToggleBtnState extends State<ToggleBtn> {
       height: 60,
       decoration: BoxDecoration(
           borderRadius: const BorderRadius.all(Radius.circular(50)),
-          color: lightColorScheme.primaryContainer),
+          color: Theme.of(context).colorScheme.primaryContainer),
       child: Stack(
         children: [
           AnimatedContainer(
@@ -34,7 +33,7 @@ class _ToggleBtnState extends State<ToggleBtn> {
               height: 50,
               decoration: BoxDecoration(
                 borderRadius: const BorderRadius.all(Radius.circular(50)),
-                color: lightColorScheme.primary,
+                color: Theme.of(context).colorScheme.primary,
               ),
             ),
           ),
@@ -55,14 +54,16 @@ class _ToggleBtnState extends State<ToggleBtn> {
                     ? Text(
                         'Teacher',
                         style: TextStyle(
-                            color: lightColorScheme.onPrimary,
+                            color: Theme.of(context).colorScheme.onPrimary,
                             fontSize: 18,
                             fontWeight: FontWeight.bold),
                       )
                     : Text(
                         'Teacher',
                         style: TextStyle(
-                            color: lightColorScheme.onPrimaryContainer,
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onPrimaryContainer,
                             fontSize: 18,
                             fontWeight: FontWeight.bold),
                       ),
@@ -80,14 +81,16 @@ class _ToggleBtnState extends State<ToggleBtn> {
                     ? Text(
                         'Student',
                         style: TextStyle(
-                            color: lightColorScheme.onPrimary,
+                            color: Theme.of(context).colorScheme.onPrimary,
                             fontSize: 18,
                             fontWeight: FontWeight.bold),
                       )
                     : Text(
                         'Student',
                         style: TextStyle(
-                            color: lightColorScheme.onPrimaryContainer,
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onPrimaryContainer,
                             fontSize: 18,
                             fontWeight: FontWeight.bold),
                       ),

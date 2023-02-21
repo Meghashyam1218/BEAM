@@ -1,4 +1,3 @@
-import 'package:beam/color_schemes.g.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -18,7 +17,7 @@ class AcademicTopRow extends StatelessWidget {
           style: GoogleFonts.inter(
               fontWeight: FontWeight.bold,
               fontSize: 18,
-              color: lightColorScheme.onSecondaryContainer),
+              color: Theme.of(context).colorScheme.onSecondaryContainer),
         ),
         TextButton(
           onPressed: () {
@@ -36,7 +35,7 @@ class AcademicTopRow extends StatelessWidget {
           child: Icon(
             Icons.arrow_forward_ios,
             size: 30,
-            color: lightColorScheme.onSecondaryContainer,
+            color: Theme.of(context).colorScheme.onSecondaryContainer,
           ),
         )
       ],

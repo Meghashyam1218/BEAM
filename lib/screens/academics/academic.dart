@@ -99,7 +99,9 @@ class _AcademicState extends State<Academic> {
                               style: GoogleFonts.inter(
                                   fontSize: 18,
                                   fontWeight: FontWeight.w600,
-                                  color: lightColorScheme.onBackground),
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .onBackground),
                             ),
                             const SizedBox(width: 40),
                             Flexible(
@@ -122,7 +124,9 @@ class _AcademicState extends State<Academic> {
                                         !redgNo.hasFocus ? "19NRXXXX5" : "",
                                     filled: true,
                                     fillColor:
-                                        lightColorScheme.primaryContainer,
+                                        Theme.of(context)
+                                        .colorScheme
+                                        .primaryContainer,
                                     border: OutlineInputBorder(
                                         gapPadding: 0,
                                         borderRadius:
@@ -141,9 +145,13 @@ class _AcademicState extends State<Academic> {
                           child: ElevatedButton(
                               style: ButtonStyle(
                                 backgroundColor: MaterialStateProperty.all(
-                                    lightColorScheme.tertiaryContainer),
+                                    Theme.of(context)
+                                        .colorScheme
+                                        .tertiaryContainer),
                                 foregroundColor: MaterialStateProperty.all(
-                                    lightColorScheme.onTertiaryContainer),
+                                    Theme.of(context)
+                                        .colorScheme
+                                        .onTertiaryContainer),
                               ),
                               onPressed: () {
                                 setState(() {

@@ -1,4 +1,3 @@
-import 'package:beam/color_schemes.g.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -72,7 +71,10 @@ class _CardsAcademicState extends State<CardsAcademic> {
                                           : const Color(0xff9032ff),
           child: InkWell(
             splashColor:
-                lightColorScheme.background.withOpacity(0.5), // Splash color
+                Theme.of(context)
+                .colorScheme
+                .background
+                .withOpacity(0.5), // Splash color
             onTap: () {
               Future.delayed(const Duration(milliseconds: 100), () {
                 GoRouter.of(context).pop();

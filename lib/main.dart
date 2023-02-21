@@ -1,32 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:beam/routes.dart';
-import 'package:beam/color_schemes.g.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'color_schemes.g.dart';
 
 void main() {
-  
-  runApp(const Beam());
+  runApp(const ProviderScope(child: Beam()));
 }
-
-class Beam extends StatefulWidget {
+class Beam extends ConsumerWidget {
   const Beam({super.key});
 
   @override
-  State<Beam> createState() => _BeamState();
-}
-
-class _BeamState extends State<Beam> {
-  
-  @override
-  Widget build(BuildContext context) {
-    
-    return MaterialApp.router(
-      routeInformationParser: goroutes.routeInformationParser,
+  Widget build(BuildContext context, WidgetRef ref) {
+    final color = ref.watch(colorProvider);
+    return Consumer(
+      builder: (context, watch, _) => MaterialApp.router(
+        theme: ThemeData(
+          useMaterial3: true,
+          colorScheme: ColorScheme.fromSeed(seedColor: color),
+        ),
+        darkTheme: ThemeData(
+          useMaterial3: true,
+          colorScheme: ColorScheme.fromSeed(
+              seedColor: color, brightness: Brightness.dark),
+        ),
+        routeInformationParser: goroutes.routeInformationParser,
       routerDelegate: goroutes.routerDelegate,
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(useMaterial3: true, colorScheme: lightColorScheme),
-      darkTheme: ThemeData(useMaterial3: true, colorScheme: lightColorScheme),
-      title: 'BEAM',
-      
+        debugShowCheckedModeBanner: false,
+        title: 'BEAM',
+      ),
     );
+
   }
 }

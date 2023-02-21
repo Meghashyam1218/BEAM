@@ -1,4 +1,3 @@
-import 'package:beam/color_schemes.g.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -20,7 +19,7 @@ class HelloUser extends StatelessWidget {
           style: GoogleFonts.inter(
               fontSize: 20,
               fontWeight: FontWeight.bold,
-              color: lightColorScheme.onBackground),
+              color: Theme.of(context).colorScheme.onBackground),
         ),
         const SizedBox(
           height: 5,
@@ -30,7 +29,7 @@ class HelloUser extends StatelessWidget {
           style: GoogleFonts.inter(
               fontSize: 40,
               fontWeight: FontWeight.bold,
-              color: lightColorScheme.onBackground),
+              color: Theme.of(context).colorScheme.onBackground),
         ),
         const SizedBox(
           height: 20,

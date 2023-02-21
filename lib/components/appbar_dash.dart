@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../color_schemes.g.dart';
 
 class BeamAppBarDash extends StatelessWidget implements PreferredSizeWidget {
   const BeamAppBarDash({super.key});
@@ -21,7 +20,7 @@ class BeamAppBarDash extends StatelessWidget implements PreferredSizeWidget {
           child: Icon(
             Icons.account_circle_outlined,
             size: 30,
-            color: lightColorScheme.primary,
+            color: Theme.of(context).colorScheme.primary,
           ),
         ),
       ),
@@ -32,7 +31,8 @@ class BeamAppBarDash extends StatelessWidget implements PreferredSizeWidget {
           }),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 25),
-            child: Icon(Icons.login, size: 30, color: lightColorScheme.primary),
+            child: Icon(Icons.login,
+                size: 30, color: Theme.of(context).colorScheme.primary),
           ),
         )
       ],

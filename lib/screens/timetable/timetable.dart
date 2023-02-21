@@ -1,4 +1,3 @@
-import 'package:beam/color_schemes.g.dart';
 import 'package:beam/components/appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -116,10 +115,10 @@ class ClassNameState extends State<ClassName> {
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: lightColorScheme.secondaryContainer,
+          color: Theme.of(context).colorScheme.secondaryContainer,
           borderRadius: BorderRadius.circular(15),
           border: Border.all(
-            color: lightColorScheme.outline,
+            color: Theme.of(context).colorScheme.outline,
           ),
         ),
         width: double.infinity,
@@ -130,13 +129,13 @@ class ClassNameState extends State<ClassName> {
                 style: GoogleFonts.inter(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: lightColorScheme.onSecondaryContainer,
+                  color: Theme.of(context).colorScheme.onSecondaryContainer,
                 )),
             Text(
               "9:10 - 10:00",
               style: GoogleFonts.inter(
                   fontWeight: FontWeight.w600,
-                  color: lightColorScheme.onSecondaryContainer),
+                  color: Theme.of(context).colorScheme.onSecondaryContainer),
             ),
           ],
         ),

@@ -1,4 +1,3 @@
-import 'package:beam/color_schemes.g.dart';
 import 'package:beam/screens/student_dashboard/components/dashboard_cards.dart';
 import 'package:beam/components/appbar_dash.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +23,7 @@ class _DashboardSState extends State<DashboardS> {
             Container(
           constraints: const BoxConstraints.expand(),
           padding: const EdgeInsets.only(left: 20, right: 20, bottom: 50),
-          color: lightColorScheme.background,
+          color: Theme.of(context).colorScheme.background,
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

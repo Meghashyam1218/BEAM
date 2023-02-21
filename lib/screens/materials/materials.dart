@@ -1,4 +1,3 @@
-import 'package:beam/color_schemes.g.dart';
 import 'package:beam/components/appbar.dart';
 import 'package:beam/components/dropdown.dart';
 import 'package:flutter/material.dart';
@@ -84,9 +83,13 @@ class _MaterialsState extends State<Materials> {
                         child: ElevatedButton(
                             style: ButtonStyle(
                               backgroundColor: MaterialStateProperty.all(
-                                  lightColorScheme.secondaryContainer),
+                                  Theme.of(context)
+                                      .colorScheme
+                                      .secondaryContainer),
                               foregroundColor: MaterialStateProperty.all(
-                                  lightColorScheme.onSecondaryContainer),
+                                  Theme.of(context)
+                                      .colorScheme
+                                      .onSecondaryContainer),
                             ),
                             onPressed: _showmaterials,
                             child: const Text("Go")),
@@ -98,9 +101,13 @@ class _MaterialsState extends State<Materials> {
                           child: ElevatedButton(
                               style: ButtonStyle(
                                 backgroundColor: MaterialStateProperty.all(
-                                    lightColorScheme.tertiaryContainer),
+                                    Theme.of(context)
+                                        .colorScheme
+                                        .tertiaryContainer),
                                 foregroundColor: MaterialStateProperty.all(
-                                    lightColorScheme.onTertiaryContainer),
+                                    Theme.of(context)
+                                        .colorScheme
+                                        .onTertiaryContainer),
                               ),
                               onPressed: _showmaterials,
                               child: const Text("Download all")),
@@ -116,7 +123,7 @@ class _MaterialsState extends State<Materials> {
                 child: ListView(
                   children: [
                     Card(
-                      color: lightColorScheme.tertiaryContainer,
+                      color: Theme.of(context).colorScheme.tertiaryContainer,
                       margin: const EdgeInsets.only(
                           left: 20, right: 20, top: 10, bottom: 10),
                       
@@ -126,14 +133,18 @@ class _MaterialsState extends State<Materials> {
                           style: GoogleFonts.inter(
                             fontSize: 18,
                             fontWeight: FontWeight.w600,
-                            color: lightColorScheme.onTertiaryContainer,
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onTertiaryContainer,
                           ),
                         ),
                         trailing: Padding(
                           padding: const EdgeInsets.only(right: 10, left: 10),
                           child: Icon(
                             Icons.download,
-                            color: lightColorScheme.onTertiaryContainer,
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onTertiaryContainer,
                           ),
                         ),
                         onTap: () {},
@@ -141,7 +152,7 @@ class _MaterialsState extends State<Materials> {
                     ),
                     Center(
                       child: Card(
-                        color: lightColorScheme.tertiaryContainer,
+                        color: Theme.of(context).colorScheme.tertiaryContainer,
                         margin: const EdgeInsets.only(
                             left: 20, right: 20, top: 10, bottom: 10),
                         
@@ -151,14 +162,18 @@ class _MaterialsState extends State<Materials> {
                             style: GoogleFonts.inter(
                               fontSize: 18,
                               fontWeight: FontWeight.w600,
-                              color: lightColorScheme.onTertiaryContainer,
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .onTertiaryContainer,
                             ),
                           ),
                           trailing: Padding(
                             padding: const EdgeInsets.only(right: 10, left: 10),
                             child: Icon(
                               Icons.download,
-                              color: lightColorScheme.onTertiaryContainer,
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .onTertiaryContainer,
                             ),
                           ),
                           onTap: () {},
@@ -167,7 +182,7 @@ class _MaterialsState extends State<Materials> {
                     ),
                     Center(
                       child: Card(
-                        color: lightColorScheme.tertiaryContainer,
+                        color: Theme.of(context).colorScheme.tertiaryContainer,
                         margin: const EdgeInsets.only(
                             left: 20, right: 20, top: 10, bottom: 10),
                         child: ListTile(
@@ -176,14 +191,18 @@ class _MaterialsState extends State<Materials> {
                             style: GoogleFonts.inter(
                               fontSize: 18,
                               fontWeight: FontWeight.w600,
-                              color: lightColorScheme.onTertiaryContainer,
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .onTertiaryContainer,
                             ),
                           ),
                           trailing: Padding(
                             padding: const EdgeInsets.only(right: 10, left: 10),
                             child: Icon(
                               Icons.download,
-                              color: lightColorScheme.onTertiaryContainer,
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .onTertiaryContainer,
                             ),
                           ),
                           onTap: () {},
@@ -192,7 +211,7 @@ class _MaterialsState extends State<Materials> {
                     ),
                     Center(
                       child: Card(
-                        color: lightColorScheme.tertiaryContainer,
+                        color: Theme.of(context).colorScheme.tertiaryContainer,
                         margin: const EdgeInsets.only(
                             left: 20, right: 20, top: 10, bottom: 10),
                         child: ListTile(
@@ -201,14 +220,18 @@ class _MaterialsState extends State<Materials> {
                             style: GoogleFonts.inter(
                               fontSize: 18,
                               fontWeight: FontWeight.w600,
-                              color: lightColorScheme.onTertiaryContainer,
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .onTertiaryContainer,
                             ),
                           ),
                           trailing: Padding(
                             padding: const EdgeInsets.only(right: 10, left: 10),
                             child: Icon(
                               Icons.download,
-                              color: lightColorScheme.onTertiaryContainer,
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .onTertiaryContainer,
                             ),
                           ),
                           onTap: () {},
@@ -217,7 +240,7 @@ class _MaterialsState extends State<Materials> {
                     ),
                     Center(
                       child: Card(
-                        color: lightColorScheme.tertiaryContainer,
+                        color: Theme.of(context).colorScheme.tertiaryContainer,
                         margin: const EdgeInsets.only(
                             left: 20, right: 20, top: 10, bottom: 10),
                         child: ListTile(
@@ -226,14 +249,18 @@ class _MaterialsState extends State<Materials> {
                             style: GoogleFonts.inter(
                               fontSize: 18,
                               fontWeight: FontWeight.w600,
-                              color: lightColorScheme.onTertiaryContainer,
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .onTertiaryContainer,
                             ),
                           ),
                           trailing: Padding(
                             padding: const EdgeInsets.only(right: 10, left: 10),
                             child: Icon(
                               Icons.download,
-                              color: lightColorScheme.onTertiaryContainer,
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .onTertiaryContainer,
                             ),
                           ),
                           onTap: () {},

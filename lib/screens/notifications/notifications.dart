@@ -1,4 +1,3 @@
-import 'package:beam/color_schemes.g.dart';
 import 'package:beam/components/appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -47,7 +46,7 @@ class Notification extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 5),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color: lightColorScheme.secondaryContainer,
+        color: Theme.of(context).colorScheme.secondaryContainer,
       ),
       child: ElevatedButton(
         onPressed: () {},
@@ -68,7 +67,7 @@ class Notification extends StatelessWidget {
               style: GoogleFonts.manrope(
                   fontSize: 15,
                   fontWeight: FontWeight.w500,
-                  color: lightColorScheme.onSecondaryContainer),
+                  color: Theme.of(context).colorScheme.onSecondaryContainer),
             ),
             const SizedBox(height: 5),
             Text(
@@ -77,7 +76,7 @@ class Notification extends StatelessWidget {
                   fontSize: 12,
                   letterSpacing: 0.5,
                   fontWeight: FontWeight.w600,
-                  color: lightColorScheme.outline),
+                  color: Theme.of(context).colorScheme.outline),
             )
           ],
         ),

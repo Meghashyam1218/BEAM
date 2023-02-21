@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../color_schemes.g.dart';
 
 class BeamAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String? name;
@@ -22,7 +21,7 @@ class BeamAppBar extends StatelessWidget implements PreferredSizeWidget {
           width: double.infinity,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-          color: lightColorScheme.primary,
+            color: Theme.of(context).colorScheme.primary,
 
           ),
           child: Padding(
@@ -32,14 +31,14 @@ class BeamAppBar extends StatelessWidget implements PreferredSizeWidget {
               style: GoogleFonts.inter(
                 fontSize: 32,
                 fontWeight: FontWeight.w600,
-                color: lightColorScheme.onPrimary,
+                color: Theme.of(context).colorScheme.onPrimary,
               ),
             ),
           ),
         ),
       ),
       foregroundColor: const Color.fromARGB(255, 0, 0, 0),
-      backgroundColor: lightColorScheme.primary,
+      backgroundColor: Theme.of(context).colorScheme.primary,
       shadowColor: const Color.fromARGB(0, 0, 0, 0),
       leading: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -50,7 +49,7 @@ class BeamAppBar extends StatelessWidget implements PreferredSizeWidget {
           child: Icon(
             Icons.account_circle_outlined,
             size: 30,
-            color: lightColorScheme.onPrimary,
+            color: Theme.of(context).colorScheme.onPrimary,
           ),
         ),
       ),
@@ -64,7 +63,7 @@ class BeamAppBar extends StatelessWidget implements PreferredSizeWidget {
             child: Icon(
               Icons.home_outlined,
               size: 30,
-              color: lightColorScheme.onPrimary,
+              color: Theme.of(context).colorScheme.onPrimary,
             ),
           ),
         )

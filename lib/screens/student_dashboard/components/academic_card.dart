@@ -15,7 +15,7 @@ class AcademicCard extends StatelessWidget {
       child: Material(
         child: InkWell(
           borderRadius: BorderRadius.circular(25),
-          splashColor: lightColorScheme.tertiary.withOpacity(0.05),
+          splashColor: Theme.of(context).colorScheme.tertiary.withOpacity(0.05),
           onTap: () {
             Future.delayed(const Duration(milliseconds: 100), () {
               GoRouter.of(context)
@@ -24,7 +24,7 @@ class AcademicCard extends StatelessWidget {
           },
           child: Ink(
             decoration: BoxDecoration(
-              color: lightColorScheme.primaryContainer,
+              color: Theme.of(context).colorScheme.primaryContainer,
               borderRadius: BorderRadius.circular(25),
             ),
             child: SizedBox(
