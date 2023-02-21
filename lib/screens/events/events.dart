@@ -1,6 +1,8 @@
+import 'package:beam/color_schemes.g.dart';
 import 'package:beam/components/appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 
 class EventsClg extends StatefulWidget {
   const EventsClg({super.key});
@@ -23,6 +25,7 @@ class _EventsClgState extends State<EventsClg> {
                 child: ListView(
                   children: [
                     for (var i = 0; i < 10; i++) const Event(),
+                    
                   ],
                 ),
               ),
@@ -41,44 +44,43 @@ class Event extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 5),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: const Color.fromARGB(71, 123, 97, 255),
-      ),
-      child: ElevatedButton(
-        onPressed: () {},
-        style: const ButtonStyle(
-          shadowColor: MaterialStatePropertyAll(Colors.transparent),
-          overlayColor: MaterialStatePropertyAll(Colors.transparent),
-          backgroundColor: MaterialStatePropertyAll(
-            Color.fromARGB(0, 123, 97, 255),
-          ),
-          surfaceTintColor: MaterialStatePropertyAll(Colors.transparent),
-          padding: MaterialStatePropertyAll(
-              EdgeInsets.symmetric(horizontal: 10, vertical: 10)),
-        ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      child: Card(
+        clipBehavior: Clip.hardEdge,
+        color: lightColorScheme.secondaryContainer,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const EventImg(),
-            Text(
-              "BITS Cultural Fest",
-              style: GoogleFonts.manrope(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w500,
-                  color: const Color(0xff23262f)),
-            ),
-            Text(
-              "02 April, 2023",
-              style: GoogleFonts.manrope(
-                  fontSize: 10,
-                  fontWeight: FontWeight.w400,
-                  color: const Color(0xff708099)),
+            Container(
+              padding: const EdgeInsets.all(8),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "BITS Cultural Fest",
+                    style: GoogleFonts.inter(
+                        fontSize: 15,
+                        letterSpacing: 0.4,
+                        fontWeight: FontWeight.w700,
+                        color: lightColorScheme.onSecondaryContainer),
+                  ),
+                  const SizedBox(height: 5),
+                  Text(
+                    "02 April, 2023",
+                    style: GoogleFonts.inter(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500,
+                        color: lightColorScheme.outline),
+                  )
+                ],
+              ),
             )
           ],
         ),
+        
       ),
     );
   }
@@ -91,11 +93,11 @@ class EventImg extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Image(
-        image: AssetImage('assets/login(1).png'),
-        height: 250,
-      ),
+    return const Image(
+      fit: BoxFit.contain,
+      image: AssetImage('assets/event.jpg'),
+      
+      
     );
   }
 }

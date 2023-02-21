@@ -1,6 +1,8 @@
+import 'package:beam/color_schemes.g.dart';
 import 'package:beam/components/appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 
 class Notifications extends StatefulWidget {
   const Notifications({super.key});
@@ -45,13 +47,14 @@ class Notification extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 5),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color: const Color.fromARGB(71, 123, 97, 255),
+        color: lightColorScheme.secondaryContainer,
       ),
       child: ElevatedButton(
         onPressed: () {},
         style: const ButtonStyle(
           shadowColor: MaterialStatePropertyAll(Colors.transparent),
           overlayColor: MaterialStatePropertyAll(Colors.transparent),
+          surfaceTintColor: MaterialStatePropertyAll(Colors.transparent),
           backgroundColor:
               MaterialStatePropertyAll(Color.fromARGB(0, 123, 97, 255)),
           padding: MaterialStatePropertyAll(
@@ -63,16 +66,18 @@ class Notification extends StatelessWidget {
             Text(
               "JNTUK B.Tech 4-1 Sem (R20) Regular Question Papers Aug/Sept 2021",
               style: GoogleFonts.manrope(
-                  fontSize: 12,
+                  fontSize: 15,
                   fontWeight: FontWeight.w500,
-                  color: const Color(0xff23262f)),
+                  color: lightColorScheme.onSecondaryContainer),
             ),
+            const SizedBox(height: 5),
             Text(
               "02 April, 2021",
               style: GoogleFonts.manrope(
-                  fontSize: 10,
-                  fontWeight: FontWeight.w400,
-                  color: const Color(0xff708099)),
+                  fontSize: 12,
+                  letterSpacing: 0.5,
+                  fontWeight: FontWeight.w600,
+                  color: lightColorScheme.outline),
             )
           ],
         ),
