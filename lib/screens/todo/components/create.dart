@@ -31,11 +31,7 @@ class _createPageState extends State<createPage> {
           onTap: () {
             setState(
               () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => const ToDoScreen(),
-                  ),
-                );
+                Navigator.of(context).pop();
               },
             );
           },
@@ -59,11 +55,8 @@ class _createPageState extends State<createPage> {
               onTap: () {
                 setState(
                   () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => const ToDoScreen(),
-                      ),
-                    );
+                    Navigator.of(context).pop();
+                    
                   },
                 );
               },

@@ -23,36 +23,37 @@ class _ToDoScreenState extends State<ToDoScreen> {
   String buttonName = ("Click Here");
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const BeamAppBar(name: "To-Do's"),
-      drawer: AppDrawer(),
-      body: Padding(
-        padding: const EdgeInsets.all(25.0),
-        child: SizedBox(
-          width: double.infinity,
-          height: double.infinity,
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              FloatingActionButton(
-                child: const Icon(Icons.add),
-                onPressed: () {
-                  setState(
-                    () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => const createPage(),
-                        ),
-                      );
-                    },
-                  );
-                },
-              ),
-            ],
+    return SafeArea(
+      child: Scaffold(
+        appBar: const BeamAppBar(name: "To-Do's"),
+        drawer: AppDrawer(),
+        body: Padding(
+          padding: const EdgeInsets.all(25.0),
+          child: SizedBox(
+            width: double.infinity,
+            height: double.infinity,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                FloatingActionButton(
+                  child: const Icon(Icons.add),
+                  onPressed: () {
+                    setState(
+                      () {
+                        openDialog();
+                      },
+                    );
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
+
+  Future openDialog() =>
+      showDialog(context: context, builder: (context) => createPage());
 }

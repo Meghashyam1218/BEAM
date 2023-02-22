@@ -10,11 +10,27 @@ class BeamAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      actions: [
+        GestureDetector(
+          onTap: (() {
+            GoRouter.of(context).pop();
+          }),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25),
+            child: Icon(
+              Icons.home_outlined,
+              size: 30,
+              color: Theme.of(context).colorScheme.onPrimary,
+            ),
+          ),
+        )
+      ],
       leading: Builder(
         builder: (BuildContext context) {
           return IconButton(
             icon: Icon(
               Icons.menu,
+              size: 30,
               color: Theme.of(context).colorScheme.onPrimary,
             ),
             onPressed: () {
@@ -54,23 +70,9 @@ class BeamAppBar extends StatelessWidget implements PreferredSizeWidget {
       foregroundColor: const Color.fromARGB(255, 0, 0, 0),
       backgroundColor: Theme.of(context).colorScheme.primary,
       shadowColor: const Color.fromARGB(0, 0, 0, 0),
-      
-      actions: [
-        GestureDetector(
-          onTap: (() {
-            GoRouter.of(context).pop();
-          }),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25),
-            child: Icon(
-              Icons.home_outlined,
-              size: 24,
-              color: Theme.of(context).colorScheme.onPrimary,
-            ),
-          ),
-        )
-      ],
     );
+      
+     
   }
 
   @override

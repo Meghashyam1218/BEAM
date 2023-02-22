@@ -19,6 +19,7 @@ class BeamAppBarDash extends StatelessWidget implements PreferredSizeWidget {
           return IconButton(
             icon: Icon(
               Icons.menu,
+              size: 30,
               color: Theme.of(context).colorScheme.primary,
             ),
             onPressed: () {
@@ -36,7 +37,7 @@ class BeamAppBarDash extends StatelessWidget implements PreferredSizeWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 25),
             child: Icon(Icons.login,
-                size: 24, color: Theme.of(context).colorScheme.primary),
+                size: 30, color: Theme.of(context).colorScheme.primary),
           ),
         )
       ],
