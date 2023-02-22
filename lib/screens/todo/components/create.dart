@@ -108,7 +108,11 @@ class _createPageState extends State<createPage> {
               ),
             ),
           ),
+<<<<<<< HEAD
           SizedBox(
+=======
+         SizedBox(
+>>>>>>> 452936bec126e4505d3dbadf3e0cb214e57445f0
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
               child: SizedBox(
@@ -129,7 +133,11 @@ class _createPageState extends State<createPage> {
                         firstDate: DateTime(
                             2000), //DateTime.now() - not to allow to choose before today.
                         lastDate: DateTime(2101));
+<<<<<<< HEAD
 
+=======
+              
+>>>>>>> 452936bec126e4505d3dbadf3e0cb214e57445f0
                     if (pickedDate != null) {
                       print(
                           pickedDate); //get the picked date in the format => 2022-07-04 00:00:00.000
@@ -138,7 +146,11 @@ class _createPageState extends State<createPage> {
                       print(
                           formattedDate); //formatted date output using intl package =>  2022-07-04
                       //You can format date as per your need
+<<<<<<< HEAD
 
+=======
+              
+>>>>>>> 452936bec126e4505d3dbadf3e0cb214e57445f0
                       setState(() {
                         dateController.text =
                             formattedDate; //set foratted date to TextField value.
