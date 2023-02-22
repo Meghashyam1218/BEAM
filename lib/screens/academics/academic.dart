@@ -3,7 +3,6 @@ import 'package:beam/components/appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../color_schemes.g.dart';
 import '../../components/drawer.dart';
 import 'components/cards_academic.dart';
 
@@ -48,7 +47,7 @@ class _AcademicState extends State<Academic> {
           FocusScope.of(context).requestFocus(FocusNode());
         },
         child: Scaffold(
-          drawer: AppDrawer(),
+          drawer: const AppDrawer(),
           appBar: const BeamAppBar(name: "Academics"),
           body: Column(
             mainAxisAlignment: MainAxisAlignment.start,

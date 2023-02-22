@@ -2,7 +2,6 @@ import 'package:beam/screens/student_dashboard/components/academic/progress_circ
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../color_schemes.g.dart';
 import 'academic/academic_details.dart';
 import 'academic/academic_top_row.dart';
 

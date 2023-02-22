@@ -3,9 +3,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../color_schemes.g.dart';
 import '../../components/drawer.dart';
 
+final loginFlagProvider = StateProvider<bool>((ref) {
+  return true;
+});
 class Login extends StatefulWidget {
   const Login({super.key});
 
@@ -31,7 +33,7 @@ class _LoginState extends State<Login> {
 
     return SafeArea(
       child: Scaffold(
-        drawer: AppDrawer(),
+        drawer: const AppDrawer(),
         resizeToAvoidBottomInset: false,
         backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
         body: GestureDetector(
@@ -274,9 +276,14 @@ class LoginBtn extends ConsumerWidget {
         onPressed: () {
           // ref.read(colorProvider.notifier).update((state) => Colors.green);
           // print(ref.read(colorProvider.notifier).state);
+
           if (flag == true) {
+            ref.read(loginFlagProvider.notifier).update((state) => true);
+
             GoRouter.of(context).pushReplacementNamed("dashboardT");
           } else {
+            ref.read(loginFlagProvider.notifier).update((state) => false);
+
             GoRouter.of(context).pushReplacementNamed("dashboardS");
           }
         },

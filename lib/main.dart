@@ -8,13 +8,13 @@ void main() {
   runApp(const ProviderScope(child: Beam()));
 }
 
-
 class Beam extends ConsumerWidget {
   const Beam({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final color = ref.watch(colorProvider);
+    final themeMode = ref.watch(themeModeProvider);
     return Consumer(
       builder: (context, watch, _) => MaterialApp.router(
         theme: ThemeData(
@@ -30,6 +30,7 @@ class Beam extends ConsumerWidget {
         routerDelegate: goroutes.routerDelegate,
         debugShowCheckedModeBanner: false,
         title: 'BEAM',
+        themeMode: themeMode,
       ),
     );
   }

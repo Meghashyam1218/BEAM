@@ -17,7 +17,7 @@ class _NotificationsState extends State<Notifications> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        drawer: AppDrawer(),
+        drawer: const AppDrawer(),
         appBar: const BeamAppBar(name: "Notifications"),
         body: Column(
           children: [

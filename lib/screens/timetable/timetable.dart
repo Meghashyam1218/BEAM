@@ -16,7 +16,7 @@ class _TimeTableState extends State<TimeTable> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          drawer: AppDrawer(),
+          drawer: const AppDrawer(),
           appBar: const BeamAppBar(
             name: "Time Table",
           ),

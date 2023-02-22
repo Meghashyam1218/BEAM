@@ -16,7 +16,7 @@ class _FeeDuesState extends State<FeeDues> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        drawer: AppDrawer(),
+        drawer: const AppDrawer(),
         appBar: const BeamAppBar(name: "Fee-Dues"),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

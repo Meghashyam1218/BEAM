@@ -8,7 +8,7 @@ class ToDo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ToDoScreen();
+    return const ToDoScreen();
   }
 }
 
@@ -26,7 +26,7 @@ class _ToDoScreenState extends State<ToDoScreen> {
     return SafeArea(
       child: Scaffold(
         appBar: const BeamAppBar(name: "To-Do's"),
-        drawer: AppDrawer(),
+        drawer: const AppDrawer(),
         body: Padding(
           padding: const EdgeInsets.all(25.0),
           child: SizedBox(
@@ -55,5 +55,5 @@ class _ToDoScreenState extends State<ToDoScreen> {
   }
 
   Future openDialog() =>
-      showDialog(context: context, builder: (context) => createPage());
+      showDialog(context: context, builder: (context) => const CreatePage());
 }

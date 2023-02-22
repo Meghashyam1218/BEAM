@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../components/drawer.dart';
+import '../login/login.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -9,16 +11,22 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: AppDrawer(),
+      // drawer: const AppDrawer(),
       appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back,
-            color: Color.fromARGB(255, 255, 255, 255),
-          ),
-          onPressed: () {
-            GoRouter.of(context).pop();
-          },
+        leading: Consumer(builder: (context, ref, child) {
+          return IconButton(
+              onPressed: () {
+                ref.read(loginFlagProvider.notifier).state
+                    ? GoRouter.of(context).pushReplacementNamed("dashboardT")
+                    : GoRouter.of(context).pushReplacementNamed("dashboardS");
+              },
+              icon: Icon(
+                Icons.arrow_back,
+                color: Color.fromARGB(255, 255, 255, 255),
+              ));
+        }
+          
+          
         ),
         title: const Text(
           "Profile",

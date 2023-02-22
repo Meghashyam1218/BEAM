@@ -1,20 +1,14 @@
-import 'dart:ffi';
 import 'package:intl/intl.dart';
-import 'package:beam/main.dart';
-import 'package:beam/screens/login/login.dart';
-import 'package:beam/screens/todo/todo.dart';
 import 'package:flutter/material.dart';
-import './create.dart';
-import 'package:google_fonts/google_fonts.dart';
 
-class createPage extends StatefulWidget {
-  const createPage({super.key});
+class CreatePage extends StatefulWidget {
+  const CreatePage({super.key});
 
   @override
-  State<createPage> createState() => _createPageState();
+  State<CreatePage> createState() => _CreatePageState();
 }
 
-class _createPageState extends State<createPage> {
+class _CreatePageState extends State<CreatePage> {
   TextEditingController dateController = TextEditingController();
 
   @override

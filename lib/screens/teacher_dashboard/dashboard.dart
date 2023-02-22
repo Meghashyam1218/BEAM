@@ -20,7 +20,7 @@ class _DashboardTState extends State<DashboardT> {
     
     return SafeArea(
       child: Scaffold(
-        drawer: AppDrawer(),
+        drawer: const AppDrawer(),
         appBar: const BeamAppBarDash(),
         
         body: Column(

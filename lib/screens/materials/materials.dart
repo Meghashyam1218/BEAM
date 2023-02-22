@@ -25,7 +25,7 @@ class _MaterialsState extends State<Materials> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        drawer: AppDrawer(),
+        drawer: const AppDrawer(),
         appBar: const BeamAppBar(name: "Materials"),
         body: Column(
           children: [

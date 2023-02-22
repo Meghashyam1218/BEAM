@@ -17,7 +17,7 @@ class _EventsClgState extends State<EventsClg> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        drawer: AppDrawer(),
+        drawer: const AppDrawer(),
         appBar: const BeamAppBar(name: "Events"),
         body: Column(
           children: [
