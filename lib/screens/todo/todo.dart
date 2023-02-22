@@ -1,27 +1,58 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:beam/components/appbar.dart';
+import 'components/create.dart';
 
-class ToDo extends StatefulWidget {
+class ToDo extends StatelessWidget {
   const ToDo({super.key});
 
   @override
-  State<ToDo> createState() => _ToDoState();
+  Widget build(BuildContext context) {
+    return ToDoScreen(
+    );
+  }
 }
 
-class _ToDoState extends State<ToDo> {
+class ToDoScreen extends StatefulWidget {
+  const ToDoScreen({super.key});
+
+  @override
+  State<ToDoScreen> createState() => _ToDoScreenState();
+}
+
+class _ToDoScreenState extends State<ToDoScreen> {
+  String buttonName = ("Click Here");
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Center(
-          child: TextButton(
-            onPressed: () {
-              GoRouter.of(context).pop();
-            },
-            child: const Text("todo"),
+    return Scaffold(
+      appBar: const BeamAppBar(name: "To-Do's"),
+      body: Padding(
+        padding: const EdgeInsets.all(25.0),
+        child: SizedBox(
+          width: double.infinity,
+          height: double.infinity,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              FloatingActionButton(
+                child: const Icon(Icons.add),
+                onPressed: () {
+                  setState(
+                    () {Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => const createPage(),
+                            ),
+                          );
+                    },
+                  );
+                },
+              ),
+            ],
           ),
         ),
-        
       ),
     );
   }
