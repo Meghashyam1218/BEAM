@@ -1,4 +1,5 @@
 import 'package:beam/components/appbar_dash.dart';
+import 'package:beam/components/drawer.dart';
 import 'package:beam/components/hello_user.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -19,7 +20,9 @@ class _DashboardTState extends State<DashboardT> {
     
     return SafeArea(
       child: Scaffold(
+        drawer: AppDrawer(),
         appBar: const BeamAppBarDash(),
+        
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

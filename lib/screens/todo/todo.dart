@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../components/drawer.dart';
+
 class ToDo extends StatefulWidget {
   const ToDo({super.key});
 
@@ -13,6 +15,7 @@ class _ToDoState extends State<ToDo> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        drawer: AppDrawer(),
         body: Center(
           child: TextButton(
             onPressed: () {

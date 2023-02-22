@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../color_schemes.g.dart';
+import '../../components/drawer.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -30,6 +31,7 @@ class _LoginState extends State<Login> {
 
     return SafeArea(
       child: Scaffold(
+        drawer: AppDrawer(),
         resizeToAvoidBottomInset: false,
         backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
         body: GestureDetector(
@@ -273,9 +275,9 @@ class LoginBtn extends ConsumerWidget {
           // ref.read(colorProvider.notifier).update((state) => Colors.green);
           // print(ref.read(colorProvider.notifier).state);
           if (flag == true) {
-            GoRouter.of(context).pushNamed("dashboardT");
+            GoRouter.of(context).pushReplacementNamed("dashboardT");
           } else {
-            GoRouter.of(context).pushNamed("dashboardS");
+            GoRouter.of(context).pushReplacementNamed("dashboardS");
           }
         },
         style: ElevatedButton.styleFrom(

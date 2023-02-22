@@ -7,9 +7,10 @@ class DashboradCards extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 243,
-      child: GridView.count(
+    return
+        // height: 243,
+        GridView.count(
+      shrinkWrap: true,
         // scrollDirection: Axis.horizontal,
         crossAxisSpacing: 10,
         mainAxisSpacing: 20,
@@ -19,7 +20,7 @@ class DashboradCards extends StatelessWidget {
             child: SelectCard(choice: choices[index]),
           );
         }),
-      ),
+      
     );
   }
 }

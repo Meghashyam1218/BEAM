@@ -2,6 +2,8 @@ import 'package:beam/components/appbar.dart';
 import 'package:beam/components/dropdown.dart';
 import 'package:flutter/material.dart';
 
+import '../../components/drawer.dart';
+
 class FeeDues extends StatefulWidget {
   const FeeDues({super.key});
 
@@ -14,6 +16,7 @@ class _FeeDuesState extends State<FeeDues> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        drawer: AppDrawer(),
         appBar: const BeamAppBar(name: "Fee-Dues"),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

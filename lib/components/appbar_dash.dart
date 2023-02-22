@@ -1,38 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-
 class BeamAppBarDash extends StatelessWidget implements PreferredSizeWidget {
-  const BeamAppBarDash({super.key});
+  // final GlobalKey? scaffoldKey;
+  const BeamAppBarDash({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
+    // var key = scaffoldKey;
     return AppBar(
       foregroundColor: const Color.fromARGB(255, 0, 0, 0),
       backgroundColor: const Color.fromARGB(0, 0, 0, 0),
       shadowColor: const Color.fromARGB(0, 0, 0, 0),
-      leading: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: GestureDetector(
-          onTap: ((() {
-            GoRouter.of(context).pushNamed('profile');
-          })),
-          child: Icon(
-            Icons.account_circle_outlined,
-            size: 30,
-            color: Theme.of(context).colorScheme.primary,
-          ),
-        ),
+      leading: Builder(
+        builder: (BuildContext context) {
+          return IconButton(
+            icon: Icon(
+              Icons.menu,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+            onPressed: () {
+              Scaffold.of(context).openDrawer();
+            },
+            tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+          );
+        },
       ),
       actions: [
         GestureDetector(
           onTap: (() {
-            GoRouter.of(context).pop();
+            GoRouter.of(context).pushReplacementNamed("login");
           }),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 25),
             child: Icon(Icons.login,
-                size: 30, color: Theme.of(context).colorScheme.primary),
+                size: 24, color: Theme.of(context).colorScheme.primary),
           ),
         )
       ],

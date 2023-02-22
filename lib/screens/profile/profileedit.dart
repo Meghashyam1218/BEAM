@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 
+import '../../components/drawer.dart';
+
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: AppDrawer(),
       appBar: AppBar(
         title: const Text("Profile"),
         backgroundColor: const Color(0xff432CBA),

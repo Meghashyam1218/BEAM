@@ -53,6 +53,7 @@ class _ToggleBtnState extends State<ToggleBtn> {
                 child: flag == true
                     ? Text(
                         'Teacher',
+                        textAlign: TextAlign.center,
                         style: TextStyle(
                             color: Theme.of(context).colorScheme.onPrimary,
                             fontSize: 18,

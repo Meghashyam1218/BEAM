@@ -2,6 +2,8 @@ import 'package:beam/components/appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../components/drawer.dart';
+
 
 class EventsClg extends StatefulWidget {
   const EventsClg({super.key});
@@ -15,6 +17,7 @@ class _EventsClgState extends State<EventsClg> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        drawer: AppDrawer(),
         appBar: const BeamAppBar(name: "Events"),
         body: Column(
           children: [

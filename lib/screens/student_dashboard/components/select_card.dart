@@ -34,12 +34,14 @@ class SelectCard extends StatelessWidget {
         GoRouter.of(context).pushNamed(choice.path);
       },
       child: Container(
+          constraints: BoxConstraints(maxWidth: 165, maxHeight: 165),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             color: Theme.of(context).colorScheme.primary,
           ),
           child: Center(
             child: Column(
+              
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[

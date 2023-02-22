@@ -3,6 +3,8 @@ import 'package:beam/components/dropdown.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../components/drawer.dart';
+
 class Materials extends StatefulWidget {
   const Materials({super.key});
 
@@ -23,6 +25,7 @@ class _MaterialsState extends State<Materials> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        drawer: AppDrawer(),
         appBar: const BeamAppBar(name: "Materials"),
         body: Column(
           children: [

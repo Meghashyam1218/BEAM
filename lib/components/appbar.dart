@@ -10,6 +10,20 @@ class BeamAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      leading: Builder(
+        builder: (BuildContext context) {
+          return IconButton(
+            icon: Icon(
+              Icons.menu,
+              color: Theme.of(context).colorScheme.onPrimary,
+            ),
+            onPressed: () {
+              Scaffold.of(context).openDrawer();
+            },
+            tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+          );
+        },
+      ),
       shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
         bottom: Radius.circular(20),
@@ -40,19 +54,7 @@ class BeamAppBar extends StatelessWidget implements PreferredSizeWidget {
       foregroundColor: const Color.fromARGB(255, 0, 0, 0),
       backgroundColor: Theme.of(context).colorScheme.primary,
       shadowColor: const Color.fromARGB(0, 0, 0, 0),
-      leading: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: GestureDetector(
-          onTap: ((() {
-            GoRouter.of(context).pushNamed('profile');
-          })),
-          child: Icon(
-            Icons.account_circle_outlined,
-            size: 30,
-            color: Theme.of(context).colorScheme.onPrimary,
-          ),
-        ),
-      ),
+      
       actions: [
         GestureDetector(
           onTap: (() {
@@ -62,7 +64,7 @@ class BeamAppBar extends StatelessWidget implements PreferredSizeWidget {
             padding: const EdgeInsets.symmetric(horizontal: 25),
             child: Icon(
               Icons.home_outlined,
-              size: 30,
+              size: 24,
               color: Theme.of(context).colorScheme.onPrimary,
             ),
           ),
