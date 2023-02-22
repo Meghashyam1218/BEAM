@@ -33,13 +33,13 @@ class _createPageState extends State<createPage> {
               () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => ToDoScreen(),
+                    builder: (context) => const ToDoScreen(),
                   ),
                 );
               },
             );
           },
-          child: Icon(Icons.close),
+          child: const Icon(Icons.close),
         ),
         title: const Text(
           "Create",
@@ -61,7 +61,7 @@ class _createPageState extends State<createPage> {
                   () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => ToDoScreen(),
+                        builder: (context) => const ToDoScreen(),
                       ),
                     );
                   },
@@ -73,9 +73,9 @@ class _createPageState extends State<createPage> {
       ),
       body: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
               child: Center(
                 child: SizedBox(
                   width: double.infinity,
@@ -89,9 +89,9 @@ class _createPageState extends State<createPage> {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
               child: Center(
                 child: SizedBox(
                   width: double.infinity,
@@ -108,7 +108,7 @@ class _createPageState extends State<createPage> {
               ),
             ),
           ),
-          SizedBox(
+         SizedBox(
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
               child: SizedBox(
