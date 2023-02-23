@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final colorProvider = StateProvider<MaterialColor>((ref) {
-  return Colors.yellow;
+  return Colors.deepPurple;
 });
 final themeModeProvider = StateProvider<ThemeMode>((ref) {
-  return ThemeMode.light;
+  return ThemeMode.system;
 });
 // var color = Colors.orange;
 // var brightnessMode = SchedulerBinding.instance.window.platformBrightness;

@@ -1,59 +1,73 @@
-import 'package:beam/components/drawer.dart';
 import 'package:flutter/material.dart';
-import 'package:beam/components/appbar.dart';
-import 'components/create.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class ToDo extends StatelessWidget {
+import '../../components/appbar.dart';
+import '../../components/drawer.dart';
+import '../../models/todo/todo_model.dart';
+import 'components/create.dart';
+import 'components/task.dart';
+
+class ToDo extends ConsumerStatefulWidget {
   const ToDo({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return const ToDoScreen();
-  }
+  ConsumerState<ConsumerStatefulWidget> createState() => _ToDoState();
 }
 
-class ToDoScreen extends StatefulWidget {
-  const ToDoScreen({super.key});
+class _ToDoState extends ConsumerState<ToDo> {
 
-  @override
-  State<ToDoScreen> createState() => _ToDoScreenState();
-}
-
-class _ToDoScreenState extends State<ToDoScreen> {
-  String buttonName = ("Click Here");
   @override
   Widget build(BuildContext context) {
+    final todolist = ref.watch(todotasksProvider.notifier).state;
+    final lenght = ref.watch(todotasksProvider.select((value) => value.length));
+    print(todolist);
+    bool listEmpty = todolist.isEmpty;
     return SafeArea(
       child: Scaffold(
         appBar: const BeamAppBar(name: "To-Do's"),
         drawer: const AppDrawer(),
+        floatingActionButton: FloatingActionButton(
+          child: const Icon(Icons.add),
+          onPressed: () async {
+            final todoTask = await openDialog();
+            if (todoTask == null) {
+              return;
+            } else {
+              setState(() {
+                todolist.add(todoTask);
+              });
+            }
+          },
+        ),
         body: Padding(
-          padding: const EdgeInsets.all(25.0),
+          padding: const EdgeInsets.symmetric(vertical: 8.0),
           child: SizedBox(
             width: double.infinity,
             height: double.infinity,
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                FloatingActionButton(
-                  child: const Icon(Icons.add),
-                  onPressed: () {
-                    setState(
-                      () {
-                        openDialog();
-                      },
-                    );
-                  },
-                ),
-              ],
-            ),
+            child: !listEmpty
+                ? ListView.builder(
+                    itemCount: ref.watch(
+                        todotasksProvider.select((value) => value.length)),
+                    itemBuilder: (context, index) {
+                      return GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            todolist.removeAt(index);
+                          });
+                        },
+                        child: ToDoTask(task: todolist[index]),
+                      );
+                    },
+                  )
+                : SizedBox(
+                    height: 0,
+                  ),
           ),
         ),
       ),
     );
   }
 
-  Future openDialog() =>
-      showDialog(context: context, builder: (context) => const CreatePage());
+  Future<ToDoData?> openDialog() => showDialog<ToDoData>(
+      context: context, builder: (context) => const CreatePage());
 }

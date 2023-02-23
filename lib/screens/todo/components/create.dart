@@ -1,3 +1,5 @@
+import 'package:beam/models/todo/todo_model.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 
@@ -9,16 +11,14 @@ class CreatePage extends StatefulWidget {
 }
 
 class _CreatePageState extends State<CreatePage> {
+  TextEditingController titleController = TextEditingController();
+  TextEditingController descriptionController = TextEditingController();
   TextEditingController dateController = TextEditingController();
-
-  @override
-  void initState() {
-    dateController.text = ""; //set the initial value of text field
-    super.initState();
-  }
-
+  TextEditingController timeController = TextEditingController();
+  bool _validate = false;
   @override
   Widget build(BuildContext context) {
+    var todoTask = ToDoData("", "", "", "");
     return Scaffold(
       appBar: AppBar(
         leading: GestureDetector(
@@ -37,109 +37,166 @@ class _CreatePageState extends State<CreatePage> {
         ),
         actions: [
           Padding(
-            padding: const EdgeInsets.only(right: 15.0),
-            child: GestureDetector(
-              child: Text(
-                "Save",
-                style: TextStyle(
-                    color: Colors.red[700],
-                    fontSize: 20,
-                    fontWeight: FontWeight.w500),
-              ),
-              onTap: () {
-                setState(
-                  () {
-                    Navigator.of(context).pop();
-                    
-                  },
-                );
-              },
-            ),
-          ),
+              padding: const EdgeInsets.only(right: 15.0),
+              child: Consumer(
+                builder: (context, ref, child) {
+                  return GestureDetector(
+                    child: Text(
+                      "Save",
+                      style: TextStyle(
+                          color: Colors.red[700],
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500),
+                    ),
+                    onTap: () {
+                      var title = titleController.text;
+                      var description = descriptionController.text;
+                      var date = dateController.text;
+                      var endtime = timeController.text;
+                      todoTask = ToDoData(title, description, endtime, date);
+                      if (title != "") {
+                        Navigator.of(context).pop(todoTask);
+                      } else {
+                        setState(() {
+                          titleController.text.isEmpty
+                              ? _validate = true
+                              : _validate = false;
+                        });
+                      }
+                    },
+                  );
+                },
+              )),
         ],
       ),
-      body: Column(
-        children: [
-          const SizedBox(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-              child: Center(
-                child: SizedBox(
-                  width: double.infinity,
-                  child: TextField(
-                    decoration: InputDecoration(
+      body: SizedBox(
+        width: double.infinity,
+        height: double.infinity,
+        child: ListView(
+          children: [
+            SizedBox(
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                child: Center(
+                  child: SizedBox(
+                    width: double.infinity,
+                    child: TextField(
+                      controller: titleController,
+                      decoration: InputDecoration(
                         border: OutlineInputBorder(),
-                        labelText: "Heading",
-                        hintText: "Heading"),
-                  ),
-                ),
-              ),
-            ),
-          ),
-          const SizedBox(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-              child: Center(
-                child: SizedBox(
-                  width: double.infinity,
-                  child: TextField(
-                    keyboardType: TextInputType.multiline,
-                    minLines: 2,
-                    maxLines: 5,
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: "Discription",
-                        hintText: "Discription"),
-                  ),
-                ),
-              ),
-            ),
-          ),
-          SizedBox(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
-              child: SizedBox(
-                width: double.infinity,
-                child: TextField(
-                  controller:
-                      dateController, //editing controller of this TextField
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      icon: Icon(Icons.calendar_today), //icon of text field
-                      labelText: "Date" //label text of field
+                        labelText: "Title ",
+                        hintText: "Complete My Homewrok",
+                        errorText: _validate ? 'Value Can\'t Be Empty' : null,
                       ),
-                  readOnly: true, // when true user cannot edit text
-                  onTap: () async {
-                    DateTime? pickedDate = await showDatePicker(
-                        context: context,
-                        initialDate: DateTime.now(), //get today's date
-                        firstDate: DateTime(
-                            2000), //DateTime.now() - not to allow to choose before today.
-                        lastDate: DateTime(2101));
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                child: Center(
+                  child: SizedBox(
+                    width: double.infinity,
+                    child: TextField(
+                      controller: descriptionController,
+                      keyboardType: TextInputType.multiline,
+                      minLines: 2,
+                      maxLines: 5,
+                      decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: "Description",
+                          hintText: "Description about the task ..."),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
+                child: SizedBox(
+                  width: double.infinity,
+                  child: TextField(
+                    controller:
+                        dateController, //editing controller of this TextField
+                    decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        icon: Icon(Icons.calendar_today), //icon of text field
+                        labelText: "Date" //label text of field
+                        ),
+                    readOnly: true, // when true user cannot edit text
+                    onTap: () async {
+                      DateTime? pickedDate = await showDatePicker(
+                          context: context,
+                          initialDate: DateTime.now(), //get today's date
+                          firstDate: DateTime(
+                              2000), //DateTime.now() - not to allow to choose before today.
+                          lastDate: DateTime(2101));
 
-                    if (pickedDate != null) {
-                      print(
-                          pickedDate); //get the picked date in the format => 2022-07-04 00:00:00.000
-                      String formattedDate = DateFormat('yyyy-MM-dd').format(
-                          pickedDate); // format date in required form here we use yyyy-MM-dd that means time is removed
-                      print(
-                          formattedDate); //formatted date output using intl package =>  2022-07-04
-                      //You can format date as per your need
-
-                      setState(() {
+                      if (pickedDate != null) {
+                        print(
+                            pickedDate); //get the picked date in the format => 2022-07-04 00:00:00.000
+                        String formattedDate = DateFormat('yyyy-MM-dd').format(
+                            pickedDate); // format date in required form here we use yyyy-MM-dd that means time is removed
+                        print(
+                            formattedDate); //formatted date output using intl package =>  2022-07-04
+                        //You can format date as per your need
+        
                         dateController.text =
                             formattedDate; //set foratted date to TextField value.
-                      });
-                    } else {
-                      print("Date is not selected");
-                    }
-                  },
+                      } else {
+                        print("Date is not selected");
+                      }
+                    },
+                  ),
                 ),
               ),
             ),
-          )
-        ],
+            SizedBox(
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
+                child: SizedBox(
+                  width: double.infinity,
+                  child: TextField(
+                    controller:
+                        timeController, //editing controller of this TextField
+                    decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        icon: Icon(Icons.calendar_today), //icon of text field
+                        labelText: "Date" //label text of field
+                        ),
+                    readOnly: true, // when true user cannot edit text
+                    onTap: () async {
+                      TimeOfDay? pickedTime = await showTimePicker(
+                          context: context, initialTime: TimeOfDay.now());
+
+                      if (pickedTime != null) {
+                        print(
+                            pickedTime); //get the picked date in the format => 2022-07-04 00:00:00.000
+                        // format date in required form here we use yyyy-MM-dd that means time is removed
+                        //formatted date output using intl package =>  2022-07-04
+                        //You can format date as per your need
+
+                        timeController.text = pickedTime.format(
+                            context); //set foratted date to TextField value.
+                      } else {
+                        print("Date is not selected");
+                      }
+                    },
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
       ),
+      
     );
   }
 }
