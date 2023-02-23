@@ -1,4 +1,3 @@
-import 'dart:ui';
 
 import 'package:beam/models/todo/todo_model.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +14,6 @@ class ToDoTask extends StatefulWidget {
 class ToDoTaskState extends State<ToDoTask> {
   @override
   Widget build(BuildContext context) {
-    print(widget.task.description == "");
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
       child: Container(
@@ -40,12 +38,12 @@ class ToDoTaskState extends State<ToDoTask> {
                     color: Theme.of(context).colorScheme.onSecondaryContainer),
               ),
             if (widget.task.description != "")
-              SizedBox(
+              const SizedBox(
                 height: 5,
               ),
             if (widget.task.description != "") Text(widget.task.description!),
             if ((widget.task.date != "") && (widget.task.endtime != ""))
-              SizedBox(
+              const SizedBox(
                 height: 5,
               ),
             if ((widget.task.date != "") && (widget.task.endtime != ""))
@@ -57,14 +55,14 @@ class ToDoTaskState extends State<ToDoTask> {
               ),
             if ((widget.task.date != "") && (widget.task.endtime == ""))
               Text(
-                "${widget.task.date!}",
+                widget.task.date!,
                 style: GoogleFonts.inter(
                     fontWeight: FontWeight.w600,
                     color: Theme.of(context).colorScheme.onSecondaryContainer),
               ),
             if ((widget.task.date == "") && (widget.task.endtime != ""))
               Text(
-                "  ${widget.task.endtime}",
+                widget.task.endtime!,
                 style: GoogleFonts.inter(
                     fontWeight: FontWeight.w600,
                     color: Theme.of(context).colorScheme.onSecondaryContainer),

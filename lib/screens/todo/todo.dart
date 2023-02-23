@@ -19,8 +19,6 @@ class _ToDoState extends ConsumerState<ToDo> {
   @override
   Widget build(BuildContext context) {
     final todolist = ref.watch(todotasksProvider.notifier).state;
-    final lenght = ref.watch(todotasksProvider.select((value) => value.length));
-    print(todolist);
     bool listEmpty = todolist.isEmpty;
     return SafeArea(
       child: Scaffold(
@@ -59,7 +57,7 @@ class _ToDoState extends ConsumerState<ToDo> {
                       );
                     },
                   )
-                : SizedBox(
+                : const SizedBox(
                     height: 0,
                   ),
           ),

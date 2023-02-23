@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../components/drawer.dart';
 import '../login/login.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -20,7 +19,7 @@ class ProfilePage extends StatelessWidget {
                     ? GoRouter.of(context).pushReplacementNamed("dashboardT")
                     : GoRouter.of(context).pushReplacementNamed("dashboardS");
               },
-              icon: Icon(
+              icon: const Icon(
                 Icons.arrow_back,
                 color: Color.fromARGB(255, 255, 255, 255),
               ));

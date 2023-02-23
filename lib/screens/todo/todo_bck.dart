@@ -28,9 +28,6 @@ class _ToDoScreenState extends State<ToDoScreen> {
     return SafeArea(child: Consumer(
       builder: (context, ref, child) {
         final todolist = ref.watch(todotasksProvider.notifier).state;
-        final lenght =
-            ref.watch(todotasksProvider.select((value) => value.length));
-        print(todolist);
         bool listEmpty = todolist.isEmpty;
         return Scaffold(
           appBar: const BeamAppBar(name: "To-Do's"),
@@ -64,7 +61,7 @@ class _ToDoScreenState extends State<ToDoScreen> {
                         );
                       },
                     )
-                  : SizedBox(
+                  : const SizedBox(
                       height: 0,
                     ),
             ),

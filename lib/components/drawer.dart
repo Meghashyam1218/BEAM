@@ -126,11 +126,10 @@ class _AppDrawerState extends State<AppDrawer> {
                         } else {
                           ac = true;
                         }
-                        print(ac);
                       });
                     }),
                 AnimatedContainer(
-                  duration: Duration(milliseconds: 200),
+                  duration: const Duration(milliseconds: 200),
                   curve: Curves.easeIn,
                   height: ac == true ? 55.0 : 0.0,
                   child: Row(

@@ -84,7 +84,7 @@ class _CreatePageState extends State<CreatePage> {
                     child: TextField(
                       controller: titleController,
                       decoration: InputDecoration(
-                        border: OutlineInputBorder(),
+                        border: const OutlineInputBorder(),
                         labelText: "Title ",
                         hintText: "Complete My Homewrok",
                         errorText: _validate ? 'Value Can\'t Be Empty' : null,
@@ -139,19 +139,15 @@ class _CreatePageState extends State<CreatePage> {
                           lastDate: DateTime(2101));
 
                       if (pickedDate != null) {
-                        print(
-                            pickedDate); //get the picked date in the format => 2022-07-04 00:00:00.000
+                        //get the picked date in the format => 2022-07-04 00:00:00.000
                         String formattedDate = DateFormat('yyyy-MM-dd').format(
                             pickedDate); // format date in required form here we use yyyy-MM-dd that means time is removed
-                        print(
-                            formattedDate); //formatted date output using intl package =>  2022-07-04
+                        //formatted date output using intl package =>  2022-07-04
                         //You can format date as per your need
-        
+
                         dateController.text =
                             formattedDate; //set foratted date to TextField value.
-                      } else {
-                        print("Date is not selected");
-                      }
+                      } else {}
                     },
                   ),
                 ),
@@ -177,17 +173,14 @@ class _CreatePageState extends State<CreatePage> {
                           context: context, initialTime: TimeOfDay.now());
 
                       if (pickedTime != null) {
-                        print(
-                            pickedTime); //get the picked date in the format => 2022-07-04 00:00:00.000
+                        //get the picked date in the format => 2022-07-04 00:00:00.000
                         // format date in required form here we use yyyy-MM-dd that means time is removed
                         //formatted date output using intl package =>  2022-07-04
                         //You can format date as per your need
 
                         timeController.text = pickedTime.format(
                             context); //set foratted date to TextField value.
-                      } else {
-                        print("Date is not selected");
-                      }
+                      } else {}
                     },
                   ),
                 ),
@@ -196,7 +189,6 @@ class _CreatePageState extends State<CreatePage> {
           ],
         ),
       ),
-      
     );
   }
 }
