@@ -15,8 +15,7 @@ class Notifications extends StatefulWidget {
 class _NotificationsState extends State<Notifications> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
+    return Scaffold(
         drawer: const AppDrawer(),
         appBar: const BeamAppBar(name: "Notifications"),
         body: Column(
@@ -33,7 +32,7 @@ class _NotificationsState extends State<Notifications> {
             ),
           ],
         ),
-      ),
+      
     );
   }
 }

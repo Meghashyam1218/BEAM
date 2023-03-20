@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
+import 'package:flutter_svg/svg.dart';
 import '../../components/appbar.dart';
 import '../../components/drawer.dart';
 import '../../models/todo/todo_model.dart';
@@ -15,13 +15,11 @@ class ToDo extends ConsumerStatefulWidget {
 }
 
 class _ToDoState extends ConsumerState<ToDo> {
-
   @override
   Widget build(BuildContext context) {
     final todolist = ref.watch(todotasksProvider.notifier).state;
     bool listEmpty = todolist.isEmpty;
-    return SafeArea(
-      child: Scaffold(
+    return Scaffold(
         appBar: const BeamAppBar(name: "To-Do's"),
         drawer: const AppDrawer(),
         floatingActionButton: FloatingActionButton(
@@ -57,12 +55,45 @@ class _ToDoState extends ConsumerState<ToDo> {
                       );
                     },
                   )
-                : const SizedBox(
-                    height: 0,
+                : Column(
+                    children: [
+                      SvgPicture.asset(
+                        "assets/todo.svg",
+                        colorFilter: ColorFilter.mode(
+                            Theme.of(context)
+                                .colorScheme
+                                .tertiaryContainer
+                                .withOpacity(0.5),
+                            BlendMode.srcATop),
+                        placeholderBuilder: (context) {
+                          return const CircularProgressIndicator();
+                        },
                   ),
-          ),
-        ),
+                      RichText(
+                          textAlign: TextAlign.center,
+                          text: TextSpan(
+                            text: 'You have no Tasks added \n',
+                            style: TextStyle(
+                                fontSize: 20,
+                                color:
+                                    Theme.of(context).colorScheme.onBackground),
+                            children: <TextSpan>[
+                              const TextSpan(text: ' Click on the  '),
+                              TextSpan(
+                                  text: '+',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 30,
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .onBackground)),
+                              const TextSpan(text: '  to add new Task'),
+                            ],
+                          ))
+                    ],
+                  )),
       ),
+      
     );
   }
 

@@ -41,8 +41,7 @@ class _AcademicState extends State<Academic> {
   @override
   Widget build(BuildContext context) {
     // print("${redgNo.hasFocus}");
-    return SafeArea(
-      child: GestureDetector(
+    return GestureDetector(
         onTap: () {
           FocusScope.of(context).requestFocus(FocusNode());
         },
@@ -169,7 +168,7 @@ class _AcademicState extends State<Academic> {
             ],
           ),
         ),
-      ),
+      
     );
   }
 }

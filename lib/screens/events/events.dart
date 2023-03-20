@@ -15,8 +15,7 @@ class EventsClg extends StatefulWidget {
 class _EventsClgState extends State<EventsClg> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
+    return Scaffold(
         drawer: const AppDrawer(),
         appBar: const BeamAppBar(name: "Events"),
         body: Column(
@@ -34,7 +33,7 @@ class _EventsClgState extends State<EventsClg> {
             ),
           ],
         ),
-      ),
+      
     );
   }
 }

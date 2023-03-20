@@ -72,7 +72,6 @@ class BeamAppBar extends StatelessWidget implements PreferredSizeWidget {
       shadowColor: const Color.fromARGB(0, 0, 0, 0),
     );
       
-     
   }
 
   @override

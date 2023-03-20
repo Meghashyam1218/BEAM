@@ -23,8 +23,7 @@ class _MaterialsState extends State<Materials> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
+    return Scaffold(
         drawer: const AppDrawer(),
         appBar: const BeamAppBar(name: "Materials"),
         body: Column(
@@ -278,7 +277,7 @@ class _MaterialsState extends State<Materials> {
           
           ],
         ),
-      ),
+      
     );
   }
 }

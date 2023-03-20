@@ -22,7 +22,6 @@ class _DashboardTState extends State<DashboardT> {
       child: Scaffold(
         drawer: const AppDrawer(),
         appBar: const BeamAppBarDash(),
-        
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -191,7 +190,6 @@ class _DashboardTState extends State<DashboardT> {
                       },
                     ),
                   ),
-                  
                   Center(
                     child: ListTile(
                       leading: CircleAvatar(
@@ -227,6 +225,7 @@ class _DashboardTState extends State<DashboardT> {
             ),
           ],
         ),
+        
       ),
     );
   }

@@ -25,7 +25,7 @@ class ToDoScreen extends StatefulWidget {
 class _ToDoScreenState extends State<ToDoScreen> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child: Consumer(
+    return Consumer(
       builder: (context, ref, child) {
         final todolist = ref.watch(todotasksProvider.notifier).state;
         bool listEmpty = todolist.isEmpty;
@@ -68,7 +68,7 @@ class _ToDoScreenState extends State<ToDoScreen> {
           ),
         );
       },
-    ));
+    );
   }
 
   Future<ToDoData?> openDialog() => showDialog<ToDoData>(

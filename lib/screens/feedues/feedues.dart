@@ -14,8 +14,7 @@ class FeeDues extends StatefulWidget {
 class _FeeDuesState extends State<FeeDues> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
+    return Scaffold(
         drawer: const AppDrawer(),
         appBar: const BeamAppBar(name: "Fee-Dues"),
         body: Column(
@@ -36,7 +35,7 @@ class _FeeDuesState extends State<FeeDues> {
             ),
           ],
         ),
-      ),
+      
     );
   }
 }

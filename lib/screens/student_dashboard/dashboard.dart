@@ -13,15 +13,13 @@ class DashboardS extends StatefulWidget {
 }
 
 class _DashboardSState extends State<DashboardS> {
-  final GlobalKey _scaffoldKey = GlobalKey();
+  // final GlobalKey _scaffoldKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      key: _scaffoldKey,
       child: Scaffold(
         drawer: const AppDrawer(),
         appBar: const BeamAppBarDash(),
-        
         body:
             // scrollDirection: Axis.horizontal,
 
@@ -45,8 +43,9 @@ class _DashboardSState extends State<DashboardS> {
             ),
           ),
         ),
+        
+        
       ),
-      
     );
   }
 }

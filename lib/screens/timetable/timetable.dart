@@ -14,8 +14,7 @@ class TimeTable extends StatefulWidget {
 class _TimeTableState extends State<TimeTable> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
+    return Scaffold(
           drawer: const AppDrawer(),
           appBar: const BeamAppBar(
             name: "Time Table",
@@ -44,7 +43,7 @@ class _TimeTableState extends State<TimeTable> {
               ),
               const ClassName(),
             ],
-          )),
+      ),
     );
   }
 }
