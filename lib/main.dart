@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:beam/routes.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'color_schemes.g.dart';
 
 void main() {

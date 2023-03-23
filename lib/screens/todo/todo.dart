@@ -6,6 +6,8 @@ import '../../components/drawer.dart';
 import '../../models/todo/todo_model.dart';
 import 'components/create.dart';
 import 'components/task.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class ToDo extends ConsumerStatefulWidget {
   const ToDo({super.key});
@@ -20,24 +22,25 @@ class _ToDoState extends ConsumerState<ToDo> {
     final todolist = ref.watch(todotasksProvider.notifier).state;
     bool listEmpty = todolist.isEmpty;
     return Scaffold(
-        appBar: const BeamAppBar(name: "To-Do's"),
-        drawer: const AppDrawer(),
-        floatingActionButton: FloatingActionButton(
-          child: const Icon(Icons.add),
-          onPressed: () async {
-            final todoTask = await openDialog();
-            if (todoTask == null) {
-              return;
-            } else {
-              setState(() {
-                todolist.add(todoTask);
-              });
-            }
-          },
-        ),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8.0),
-          child: SizedBox(
+      appBar: const BeamAppBar(name: "To-Do's"),
+      drawer: const AppDrawer(),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.add),
+        onPressed: () async {
+          getData();
+          final todoTask = await openDialog();
+          if (todoTask == null) {
+            return;
+          } else {
+            setState(() {
+              todolist.add(todoTask);
+            });
+          }
+        },
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8.0),
+        child: SizedBox(
             width: double.infinity,
             height: double.infinity,
             child: !listEmpty
@@ -68,7 +71,7 @@ class _ToDoState extends ConsumerState<ToDo> {
                         placeholderBuilder: (context) {
                           return const CircularProgressIndicator();
                         },
-                  ),
+                      ),
                       RichText(
                           textAlign: TextAlign.center,
                           text: TextSpan(
@@ -93,8 +96,12 @@ class _ToDoState extends ConsumerState<ToDo> {
                     ],
                   )),
       ),
-      
     );
+  }
+
+  void getData() async {
+    var res = await http.get(Uri.parse("https://beam-zeta-nine.vercel.app/"));
+    debugPrint(res.toString());
   }
 
   Future<ToDoData?> openDialog() => showDialog<ToDoData>(
