@@ -18,7 +18,7 @@ class _CreatePageState extends State<CreatePage> {
   bool _validate = false;
   @override
   Widget build(BuildContext context) {
-    var todoTask = ToDoData("", "", "", "");
+    var todoTask = ToDoData();
     return Scaffold(
       appBar: AppBar(
         leading: GestureDetector(
@@ -53,7 +53,11 @@ class _CreatePageState extends State<CreatePage> {
                       var description = descriptionController.text;
                       var date = dateController.text;
                       var endtime = timeController.text;
-                      todoTask = ToDoData(title, description, endtime, date);
+                      todoTask = ToDoData(
+                          title: title,
+                          description: description,
+                          endtime: endtime,
+                          date: date);
                       if (title != "") {
                         Navigator.of(context).pop(todoTask);
                       } else {

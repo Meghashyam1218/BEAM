@@ -17,10 +17,35 @@ class ToDo extends ConsumerStatefulWidget {
 }
 
 class _ToDoState extends ConsumerState<ToDo> {
+  // List<ToDoData> todolist = [];
+  Future<List<ToDoData>> todolist = getData();
+  List<ToDoData> tasks = [];
+
+  // List<ToDoData> todolist = [];
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   asyncMethod();
+  // }
+
+  // void asyncMethod() async {
+  //   await getData().then((value) {
+  //     setState(() {
+  //       todolist.addAll(value);
+  //     });
+  //   });
+  // }
+
   @override
   Widget build(BuildContext context) {
-    final todolist = ref.watch(todotasksProvider.notifier).state;
-    bool listEmpty = todolist.isEmpty;
+    // var todolistpro = ref.watch(todotasksProvider.notifier).state;
+    // todolist.then((value) {
+    //   setState(() {
+    //     todolistpro.addAll(value);
+    //   });
+    // });
+    // todolistpro.addAll(todolist);
+    // bool listEmpty = todolistpro.isEmpty;
     return Scaffold(
       appBar: const BeamAppBar(name: "To-Do's"),
       drawer: const AppDrawer(),
@@ -32,8 +57,12 @@ class _ToDoState extends ConsumerState<ToDo> {
           if (todoTask == null) {
             return;
           } else {
+            Map r = todoTask.toJson();
+            print(r);
+            final postres = await postData(r);
+            print(postres);
             setState(() {
-              todolist.add(todoTask);
+              tasks.add(todoTask);
             });
           }
         },
@@ -41,67 +70,104 @@ class _ToDoState extends ConsumerState<ToDo> {
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 8.0),
         child: SizedBox(
-            width: double.infinity,
-            height: double.infinity,
-            child: !listEmpty
-                ? ListView.builder(
-                    itemCount: ref.watch(
-                        todotasksProvider.select((value) => value.length)),
-                    itemBuilder: (context, index) {
-                      return GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            todolist.removeAt(index);
-                          });
-                        },
-                        child: ToDoTask(task: todolist[index]),
-                      );
-                    },
-                  )
-                : Column(
-                    children: [
-                      SvgPicture.asset(
-                        "assets/todo.svg",
-                        colorFilter: ColorFilter.mode(
-                            Theme.of(context)
-                                .colorScheme
-                                .tertiaryContainer
-                                .withOpacity(0.5),
-                            BlendMode.srcATop),
-                        placeholderBuilder: (context) {
-                          return const CircularProgressIndicator();
-                        },
-                      ),
-                      RichText(
-                          textAlign: TextAlign.center,
-                          text: TextSpan(
-                            text: 'You have no Tasks added \n',
-                            style: TextStyle(
-                                fontSize: 20,
-                                color:
-                                    Theme.of(context).colorScheme.onBackground),
-                            children: <TextSpan>[
-                              const TextSpan(text: ' Click on the  '),
-                              TextSpan(
-                                  text: '+',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 30,
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .onBackground)),
-                              const TextSpan(text: '  to add new Task'),
-                            ],
-                          ))
-                    ],
-                  )),
+          width: double.infinity,
+          height: double.infinity,
+          // child:
+          //     !listEmpty ? listOfTasks(todolistpro) : placeholderEmpty(context),
+          child: FutureBuilder(
+            future: todolist,
+            builder: (context, snapshot) {
+              if (!snapshot.hasData) {
+                return Center(child: CircularProgressIndicator());
+              } else {
+                tasks = snapshot.data!;
+
+                if (tasks.isNotEmpty) {
+                  return listOfTasks(tasks);
+                } else {
+                  return placeholderEmpty(context);
+                }
+              }
+            },
+          ),
+        ),
       ),
     );
   }
 
-  void getData() async {
-    var res = await http.get(Uri.parse("https://beam-zeta-nine.vercel.app/"));
-    debugPrint(res.toString());
+  ListView listOfTasks(List<ToDoData> x) {
+    return ListView.builder(
+      // itemCount: ref
+      //     .watch(todotasksProvider.select((value) => value.length)),
+      itemCount: x.length,
+      itemBuilder: (context, index) {
+        return GestureDetector(
+          onTap: () {
+            setState(() {
+              x.removeAt(index);
+            });
+          },
+          child: ToDoTask(task: x[index]),
+        );
+      },
+    );
+  }
+
+  Column placeholderEmpty(BuildContext context) {
+    return Column(
+      children: [
+        SvgPicture.asset(
+          "assets/todo.svg",
+          colorFilter: ColorFilter.mode(
+              Theme.of(context).colorScheme.tertiaryContainer.withOpacity(0.5),
+              BlendMode.srcATop),
+          placeholderBuilder: (context) {
+            return const CircularProgressIndicator();
+          },
+        ),
+        RichText(
+          textAlign: TextAlign.center,
+          text: TextSpan(
+            text: 'You have no Tasks added \n',
+            style: TextStyle(
+                fontSize: 20,
+                color: Theme.of(context).colorScheme.onBackground),
+            children: <TextSpan>[
+              const TextSpan(text: ' Click on the  '),
+              TextSpan(
+                  text: '+',
+                  style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 30,
+                      color: Theme.of(context).colorScheme.onBackground)),
+              const TextSpan(text: '  to add new Task'),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  static Future<List<ToDoData>> getData() async {
+    var res =
+        await http.get(Uri.parse("https://beam-zeta-nine.vercel.app/gettodo"));
+    var jsondata = json.decode(res.body);
+    // var todotaskmon = ToDoData.fromJson(jsondata);
+
+    return jsondata.map<ToDoData>(ToDoData.fromJson).toList();
+
+    // return ToDoData();
+  }
+
+  static postData(x) async {
+    // Map<String, String> requestHeaders =
+    var res = await http.post(
+      Uri.parse("https://beam-zeta-nine.vercel.app/posttodo"),
+      headers: {'Content-type': 'application/json'},
+      body: jsonEncode(x),
+    );
+
+    return res.body;
   }
 
   Future<ToDoData?> openDialog() => showDialog<ToDoData>(
