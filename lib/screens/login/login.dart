@@ -1,13 +1,17 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../components/drawer.dart';
 
 final loginFlagProvider = StateProvider<bool>((ref) {
   return true;
 });
+
 class Login extends StatefulWidget {
   const Login({super.key});
 
@@ -23,8 +27,55 @@ class _LoginState extends State<Login> {
   bool flag = true;
   String loginId = "";
   String password = "";
+  bool loading = false;
+  bool auth = false;
 
-  // double move = 0;
+  setToken(token) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('token', token);
+  }
+
+  setLoginProfile(login) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setBool('login', login);
+  }
+
+  getToken() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    //Return bool
+    String? token = prefs.getString('token');
+    return token;
+  }
+
+  void loginUser() async {
+    loading = true;
+    print("inside function");
+    if (textControllerLogin.text.isNotEmpty &&
+        textControllerPass.text.isNotEmpty) {
+      var regBody = {
+        "userid": textControllerLogin.text,
+        "password": textControllerPass.text
+      };
+
+      var response = await http.post(
+        Uri.parse("https://beam-zeta-nine.vercel.app/login"),
+        headers: {"Content-Type": "application/json"},
+        body: jsonEncode(regBody),
+      );
+
+      var jsonResponse = jsonDecode(response.body);
+      var status = jsonResponse['status'];
+      var token = jsonResponse['token'];
+      if (status == true) {
+        setToken(token);
+        loading = false;
+        auth = true;
+        var myToken = await getToken();
+        print(myToken.runtimeType);
+      }
+      print(status);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -92,7 +143,53 @@ class _LoginState extends State<Login> {
                         const SizedBox(
                           height: 10,
                         ),
-                        LoginBtn(flag: flag)
+                        Consumer(
+                          builder: (context, ref, child) {
+                            return Container(
+                              width: 300,
+                              height: 50.0,
+                              decoration: BoxDecoration(
+                                // backgroundBlendMode: BlendMode.luminosity,
+                                borderRadius:
+                                    const BorderRadius.all(Radius.circular(15)),
+                                color: Theme.of(context).colorScheme.primary,
+                              ),
+                              child: ElevatedButton(
+                                onPressed: () {
+                                  loginUser();
+
+                                  if (flag == true && auth == true) {
+                                    ref
+                                        .read(loginFlagProvider.notifier)
+                                        .update((state) => true);
+
+                                    GoRouter.of(context)
+                                        .pushReplacementNamed("dashboardT");
+                                  } else if (flag == false && auth == true) {
+                                    ref
+                                        .read(loginFlagProvider.notifier)
+                                        .update((state) => false);
+
+                                    GoRouter.of(context)
+                                        .pushReplacementNamed("dashboardS");
+                                  }
+                                },
+                                style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.transparent,
+                                    shadowColor: Colors.transparent),
+                                child: Text(
+                                  'Login',
+                                  style: GoogleFonts.inter(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .onPrimary,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w500),
+                                ),
+                              ),
+                            );
+                          },
+                        ),
                       ],
                     ),
                   ),
@@ -103,7 +200,6 @@ class _LoginState extends State<Login> {
             ), //total
           ),
         ),
-        
       ),
     );
   }
@@ -143,6 +239,7 @@ class _LoginState extends State<Login> {
                     // move = 100;
                     flag = true;
                   });
+                  setLoginProfile(flag);
                 },
                 style: ButtonStyle(
                     overlayColor:
@@ -170,6 +267,7 @@ class _LoginState extends State<Login> {
                   setState(() {
                     flag = false;
                   });
+                  setLoginProfile(flag);
                 },
                 style: ButtonStyle(
                     overlayColor:
@@ -251,54 +349,6 @@ class LoginFields extends StatelessWidget {
           ),
         ),
       ],
-    );
-  }
-}
-
-class LoginBtn extends ConsumerWidget {
-  const LoginBtn({
-    super.key,
-    required this.flag,
-  });
-
-  final bool flag;
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    return Container(
-      width: 300,
-      height: 50.0,
-      decoration: BoxDecoration(
-        // backgroundBlendMode: BlendMode.luminosity,
-        borderRadius: const BorderRadius.all(Radius.circular(15)),
-        color: Theme.of(context).colorScheme.primary,
-      ),
-      child: ElevatedButton(
-        onPressed: () {
-          // ref.read(colorProvider.notifier).update((state) => Colors.green);
-          // print(ref.read(colorProvider.notifier).state);
-
-          if (flag == true) {
-            ref.read(loginFlagProvider.notifier).update((state) => true);
-
-            GoRouter.of(context).pushReplacementNamed("dashboardT");
-          } else {
-            ref.read(loginFlagProvider.notifier).update((state) => false);
-
-            GoRouter.of(context).pushReplacementNamed("dashboardS");
-          }
-        },
-        style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.transparent,
-            shadowColor: Colors.transparent),
-        child: Text(
-          'Login',
-          style: GoogleFonts.inter(
-              color: Theme.of(context).colorScheme.onPrimary,
-              fontSize: 20,
-              fontWeight: FontWeight.w500),
-        ),
-      ),
     );
   }
 }

@@ -11,75 +11,101 @@ import 'package:beam/screens/timetable/timetable.dart';
 import 'package:beam/screens/todo/todo.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+getToken() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  String? token = prefs.getString('token');
+
+  return token;
+}
+
+getLoginProfile() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  //Return bool
+  bool? login = prefs.getBool('login');
+  print(login);
+  return login;
+}
+
 final goroutes = GoRouter(
   routes: [
     GoRoute(
-        name: "login",
-        path: '/',
-        pageBuilder: (context, state) {
-          return const MaterialPage(child: Login());
-        }),
+      name: "login",
+      path: '/',
+      pageBuilder: (context, state) {
+        return const MaterialPage(child: Login());
+      },
+      redirect: (BuildContext context, GoRouterState state) async {
+        var myToken = await getToken();
+        var login = await getLoginProfile();
+        var authenticated = (myToken != "");
+        var isAuthenticated = authenticated;
+        if (isAuthenticated) {
+          if (login) {
+            return '/dashboardT';
+          } else {
+            return '/dashboardS';
+          }
+        } else {
+          return null;
+        }
+      },
+    ),
     GoRoute(
         name: 'dashboardT',
-      path: '/dashboardT',
+        path: '/dashboardT',
         pageBuilder: (context, state) {
           return const MaterialPage(child: DashboardT());
         }),
     GoRoute(
         name: 'dashboardS',
-      path: '/dashboardS',
+        path: '/dashboardS',
         pageBuilder: (context, state) {
           return const MaterialPage(child: DashboardS());
         }),
     GoRoute(
         name: 'materials',
-      path: '/materials',
+        path: '/materials',
         pageBuilder: (context, state) {
           return const MaterialPage(child: Materials());
-        }
-    ),
+        }),
     GoRoute(
         name: 'timeTable',
-      path: '/timeTable',
+        path: '/timeTable',
         pageBuilder: (context, state) {
           return const MaterialPage(child: TimeTable());
-        }
-    ),
+        }),
     GoRoute(
         name: 'events',
-      path: '/events',
+        path: '/events',
         pageBuilder: (context, state) {
           return const MaterialPage(child: EventsClg());
-        }
-    ),
+        }),
     GoRoute(
         name: 'toDo',
-      path: '/toDo',
+        path: '/toDo',
         pageBuilder: (context, state) {
           return const MaterialPage(child: ToDo());
-        }
-    ),
+        }),
     GoRoute(
         name: 'feeDues',
-      path: '/feeDues',
+        path: '/feeDues',
         pageBuilder: (context, state) {
           return const MaterialPage(child: FeeDues());
-        }
-    ),
+        }),
     GoRoute(
         name: 'notifications',
-      path: '/notifications',
+        path: '/notifications',
         pageBuilder: (context, state) {
           return const MaterialPage(child: Notifications());
-        }
-    ),
+        }),
     GoRoute(
         name: 'profile',
-      path: '/profile',
+        path: '/profile',
         pageBuilder: (context, state) {
           return const MaterialPage(child: ProfilePage());
-        }
-    ),
+        }),
     GoRoute(
       name: 'academic',
       path: '/academic/:loginFlag',
@@ -89,4 +115,3 @@ final goroutes = GoRouter(
     ),
   ],
 );
-

@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class BeamAppBarDash extends StatelessWidget implements PreferredSizeWidget {
   // final GlobalKey? scaffoldKey;
   const BeamAppBarDash({
     super.key,
   });
+  setToken() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('token', "");
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +37,7 @@ class BeamAppBarDash extends StatelessWidget implements PreferredSizeWidget {
       actions: [
         GestureDetector(
           onTap: (() {
+            setToken();
             GoRouter.of(context).pushReplacementNamed("login");
           }),
           child: Padding(
