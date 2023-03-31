@@ -28,6 +28,16 @@ getLoginProfile() async {
   return login;
 }
 
+setLoginProfile(login) async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  prefs.setBool('login', login);
+}
+
+setToken(token) async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  prefs.setString('token', token);
+}
+
 final goroutes = GoRouter(
   routes: [
     GoRoute(
@@ -39,6 +49,11 @@ final goroutes = GoRouter(
       redirect: (BuildContext context, GoRouterState state) async {
         var myToken = await getToken();
         var login = await getLoginProfile();
+        print(myToken);
+        if (login == null) {
+          myToken = "";
+          login = false;
+        }
         var authenticated = (myToken != "");
         var isAuthenticated = authenticated;
         if (isAuthenticated) {
