@@ -78,7 +78,7 @@ class _ToDoState extends ConsumerState<ToDo> {
             future: todolist,
             builder: (context, snapshot) {
               if (!snapshot.hasData) {
-                return Center(child: CircularProgressIndicator());
+                return const Center(child: CircularProgressIndicator());
               } else {
                 tasks = snapshot.data!;
 

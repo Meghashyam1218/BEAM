@@ -1,3 +1,9 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+final userProvider = StateProvider<User>((ref) {
+  return User(logId: "", name: "");
+});
+
 class User {
   String logId;
   String name;

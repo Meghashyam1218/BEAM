@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HelloUser extends StatelessWidget {
-  const HelloUser({
+  String name;
+  HelloUser({
+    required this.name,
     super.key,
   });
 
@@ -25,7 +27,7 @@ class HelloUser extends StatelessWidget {
           height: 5,
         ),
         Text(
-          "Username.",
+          name,
           style: GoogleFonts.inter(
               fontSize: 40,
               fontWeight: FontWeight.bold,

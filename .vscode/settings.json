@@ -1,0 +1,5 @@
+{
+  "cmake.configureOnOpen": false,
+  "C_Cpp.errorSquiggles": "enabled",
+  "cmake.sourceDirectory": "D:/projects/BEAM/linux"
+}

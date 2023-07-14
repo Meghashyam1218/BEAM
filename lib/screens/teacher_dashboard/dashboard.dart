@@ -30,11 +30,13 @@ class _DashboardTState extends State<DashboardT> {
               color: const Color.fromARGB(0, 196, 94, 94),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
+                children: [
                   SizedBox(
                     height: 10,
                   ),
-                  HelloUser()
+                  HelloUser(
+                    name: "hy",
+                  )
                 ],
               ),
             ),

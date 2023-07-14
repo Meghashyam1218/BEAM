@@ -41,7 +41,7 @@ class _TimeTableState extends State<TimeTable> {
                   ],
                 ),
               ),
-              const ClassName(),
+          const PeriodDetails(),
             ],
       ),
     );
@@ -102,14 +102,14 @@ class _DaySelectionState extends State<DaySelection> {
   }
 }
 
-class ClassName extends StatefulWidget {
-  const ClassName({super.key});
+class PeriodDetails extends StatefulWidget {
+  const PeriodDetails({super.key});
 
   @override
-  State<ClassName> createState() => ClassNameState();
+  State<PeriodDetails> createState() => PeriodStateDetails();
 }
 
-class ClassNameState extends State<ClassName> {
+class PeriodStateDetails extends State<PeriodDetails> {
   @override
   Widget build(BuildContext context) {
     return Padding(
