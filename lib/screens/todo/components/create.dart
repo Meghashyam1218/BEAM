@@ -169,7 +169,7 @@ class _CreatePageState extends State<CreatePage> {
                     decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         icon: Icon(Icons.calendar_today), //icon of text field
-                        labelText: "Date" //label text of field
+                        labelText: "Time" //label text of field
                         ),
                     readOnly: true, // when true user cannot edit text
                     onTap: () async {
